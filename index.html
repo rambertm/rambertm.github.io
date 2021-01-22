@@ -1,23 +1,45 @@
 <!doctype HTML>
 <html>
-<head>
-<title>Duty calculator</title>
-<meta charset='UTF-8'>
-<script defer src='myScript.js' type='text/JavaScript'></script>
-<style>
-#doctorList {
-  height: 30px;
-}
- 
+  <head>
+    <title>Duty calculator</title>
+    <meta charset='UTF-8'>
+    <style>
+      #doctorList {
+        height: 30px;
+      }
+      .dr1 {
+        background-color: Coral;
+      }
+      .dr2 {
+        background-color: DeepSkyBlue;
+      }
   
-</style>
-</head>
+    </style>
+  </head>
 
-<body>
-<h1>The world of Hospitalists</h1>
-<br>
-  <button id='addDoctor'> Add a doctor </button>
-  <div id='doctorList'></div>
-<h2> Calculator </h2>
-</body>
+  <body>
+    <h1>The world of Hospitalists</h1>
+    <div>
+      <label for='docName'>Name</label>
+      <input type='text' id='docName'>
+      <button id='addDoc' onclick='addDoc()'>Add</button>
+    <div id='docList'></div>
+  
+  
+  <script>
+  let drNo = 1;
+  function addDoc(e){
+    if (drNo > 6){
+      return
+    }
+    let child = document.createElement('span');
+    child.className = 'dr' + drNo;
+    let docName = document.getElementById('docName').value;
+    let childContent = document.createTextNode(docName);
+    document.getElementById('docList').appendChild(child);
+    child.appendChild(childContent);
+    drNo++;
+   }
+    </script>
+  </body>
 </html>
