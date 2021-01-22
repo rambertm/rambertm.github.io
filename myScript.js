@@ -1,8 +1,11 @@
-let no = 1;
-//let button = document.getElementById('addDoctor');
-//button.addEventListener('click', addDoctor);
+let drNo = 1;
 document.getElementById('addDoctor').addEventListener('click', addDoctor);
 function addDoctor(e){
-  document.getElementById('doctorList').insertAdjacentHTML('beforeend', 'Doctor' + no);
-  no++;
+  let child = document.createElement('span');
+  child.id = 'doctor' + drNo;
+  let childContent = document.createTextNode('doctor' + drNo);
+  document.getElementById('doctorList').appendChild(child);
+  child.appendChild(childContent);
+    
+  drNo++;
 }
