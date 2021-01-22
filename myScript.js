@@ -1,8 +1,8 @@
 let no = 1;
 
-Document.getElementById('addDoctor').addEventListener('click', addDoctor);
+document.getElementById('addDoctor').addEventListener('click', addDoctor);
 
 function addDoctor(e){
-  Document.getElementById('doctorList').insertAdjacentHTML('beforeend', 'Doctor' + no);
+  document.getElementById('doctorList').insertAdjacentHTML('beforeend', 'Doctor' + no);
   no++
 }
