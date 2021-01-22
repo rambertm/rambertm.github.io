@@ -34,10 +34,12 @@
     }
     let child = document.createElement('span');
     child.className = 'dr' + drNo;
-    let docName = document.getElementById('docName').value;
-    let childContent = document.createTextNode(docName);
+    let docName = document.getElementById('docName');
+    let docNameValue = docName.value;
+    let childContent = document.createTextNode(docNameValue);
     document.getElementById('docList').appendChild(child);
     child.appendChild(childContent);
+    docName.value = "";
     drNo++;
    }
     </script>
