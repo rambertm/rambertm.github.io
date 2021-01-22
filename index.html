@@ -4,8 +4,15 @@
     <title>Duty calculator</title>
     <meta charset='UTF-8'>
     <style>
+      body {
+        box-sizing: content-box; 
+      }
       #doctorList {
         height: 30px;
+      }
+      .dr {
+        display: inline-block;
+        margin: 0px 5px 0px 5px;
       }
       .dr1 {
         background-color: Coral;
@@ -13,7 +20,18 @@
       .dr2 {
         background-color: DeepSkyBlue;
       }
-  
+      .dr3 {
+        background-color: GoldenRod;
+      }
+      .dr4 {
+        background-color: Wheat;
+      }
+      .dr5 {
+        background-color: AliceBlue;
+      }
+      .dr6 {
+        background-color: AntiqueWhite;
+      }
     </style>
   </head>
 
@@ -33,7 +51,8 @@
       return
     }
     let child = document.createElement('span');
-    child.className = 'dr' + drNo;
+    child.className = 'dr';
+    child.classList.add('dr' + drNo);
     let docName = document.getElementById('docName');
     let docNameValue = docName.value;
     let childContent = document.createTextNode(docNameValue);
