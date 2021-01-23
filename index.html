@@ -22,6 +22,7 @@
         text-align: center;
       }
       .dr {
+        display: inline-block;
         width: 120px;
         margin: 5px;
         padding: 2px;
@@ -70,12 +71,13 @@
     if (drNo > 6){
       return
     }
+    let parent = document.createElement('div');
     let child = document.createElement('div');
     child.className = 'dr';
     child.classList.add('dr' + drNo);
     child.setAttribute('draggable', true);
     let docName = document.getElementById('docName');
-    document.getElementById('members').appendChild(child).appendChild(document.createTextNode(docName.value));
+    document.getElementById('members').appendChild(parent).appendChild(child).appendChild(document.createTextNode(docName.value));
     docName.value = "";
     drNo++;
    }
