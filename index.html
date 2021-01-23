@@ -12,19 +12,16 @@
         display: grid;
         grid-template-columns: 600px 1fr;
       }
-      #paramSetting {
+      #members {
         width: 400px;
         margin: 20px;
         font-size: 1.2rem;
-      }
-      #docList {
-        height: 50px;
       }
       .dr {
         width: 130px;
         margin: 5px;
         padding: 5px;
-        font-size: 1.2rem;
+        font-size: 0.9rem;
         text-align: center;
         user-select: none;
       }
@@ -53,12 +50,11 @@
     <div id='mainContainer'>
       <div id='calendar'></div>
       <div id='control'>
-        <fieldset id='paramSetting'>
+        <fieldset id='members'>
           <legend>Members</legend>
           <label for='docName'>Name: </label>
           <input type='text' id='docName' maxlength='15'>
           <button id='addDoc' onclick='addDoc()'>Add</button>
-          <div id='docList'></div>
         </fieldset>
       </div>
     
@@ -75,7 +71,7 @@
     child.classList.add('dr' + drNo);
     child.setAttribute('draggable', true);
     let docName = document.getElementById('docName');
-    document.getElementById('docList').appendChild(child).appendChild(document.createTextNode(docName.value));
+    document.getElementById('members').appendChild(child).appendChild(document.createTextNode(docName.value));
     docName.value = "";
     drNo++;
    }
