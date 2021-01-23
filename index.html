@@ -20,8 +20,7 @@
         height: 50px;
       }
       .dr {
-        display: inline-block;
-        margin: 5px 20px 5px 20px;
+        margin: 5px;
         padding: 5px;
         font-size: 1.2rem;
         user-select: none;
@@ -68,7 +67,7 @@
     if (drNo > 6){
       return
     }
-    let child = document.createElement('span');
+    let child = document.createElement('div');
     child.className = 'dr';
     child.classList.add('dr' + drNo);
     child.setAttribute('draggable', true);
