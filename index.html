@@ -11,7 +11,7 @@
       #mainContainer {
         display: grid;
         height: 100vh;
-        grid-template-columns: 400px 400px 1fr;
+        grid-template-columns: 400px 30px 1fr;
         grid-template-rows: 1fr;
       }
       #calendar {
@@ -21,7 +21,7 @@
         border-right: 1px solid black;
       }
       #members {
-        width: 350px;
+        width: 250px;
         margin: 20px;
         font-size: 1.2rem;
         text-align: center;
@@ -63,7 +63,7 @@
         <fieldset id='members'>
           <legend>Members</legend>
           <label for='docName'>Name: </label>
-          <input type='text' id='docName' maxlength='15'>
+          <input type='text' id='docName' maxlength='15' style='width:75px'>
           <button id='addDoc' onclick='addDoc()'>Add</button>
         </fieldset>
       </div>
