@@ -10,9 +10,10 @@
       }
       #mainContainer {
         display: grid;
-        grid-template-columns: 500px 1fr;
+        grid-template-columns: 600px 1fr;
       }
       #paramSetting {
+        width: 400px;
         margin: 20px;
         font-size: 1.2rem;
       }
@@ -56,8 +57,8 @@
           <label for='docName'>Name: </label>
           <input type='text' id='docName' maxlength='15'>
           <button id='addDoc' onclick='addDoc()'>Add</button>
+          <div id='docList'></div>
         </fieldset>
-        <div id='docList'></div>
       </div>
     
   
