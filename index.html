@@ -11,13 +11,11 @@
       }
       #mainContainer {
         display: grid;
-        height: 100vh;
         grid-template-columns: 600px 300px 1fr;
         grid-template-rows: 1fr;
       }
       #calendar {
         border-right: 1px solid black;
-        overflow: auto;
       }
       #calendarHead {
         position: fixed;
@@ -41,6 +39,8 @@
         position: absolute;
         top: 60px;
         width: 600px;
+        overflow-x: hidden;
+        overflow-y: scroll;
       }
       #control {
         border-right: 1px solid black;
