@@ -140,10 +140,10 @@
     }
     
     let table = document.getElementById('tableBody');
+    let tr = table.appendChild(document.createElement('tr'));
     for (let i = 0; i < 7; i++){
-      let tr = document.createElement('tr');
-      table.appendChild(tr);
       let date = firstDay.getMonth() + '/' + firstDay.getDate();
+      console.log(date);
       tr.appendChild(document.createElement('td')).innerHTML = date;
       firstDay.setDate(firstDay.getDate() + 1);    
     }
