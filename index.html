@@ -152,7 +152,9 @@
       let tr = table.appendChild(document.createElement('tr'));
       for (let i = 0; i < 7; i++){
         let date = (parseInt(firstDay.getMonth()) + 1) + '/' + firstDay.getDate();
-        tr.appendChild(document.createElement('td')).innerHTML = date;
+        let td = document.createElement('td');
+        td.setAttribute('draggable', true);
+        tr.appendChild(td).innerHTML = date;
         firstDay.setDate(firstDay.getDate() + 1);
       }
     }
