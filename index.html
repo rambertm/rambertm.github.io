@@ -45,7 +45,7 @@
       }
       .evenDay {
         width: 74px;
-        background-color: WhiteSmoke;
+        background-color: Gainsboro;
       }
       #tableBody {
         text-align: center;
@@ -139,7 +139,7 @@
       firstDay.setDate(firstDay.getDate() - 6);
     }
     let table = document.getElementById('tableBody');
-    for (let i = 0; i < 3; i++){
+    for (let i = 0; i < 24; i++){
       let tr = table.appendChild(document.createElement('tr'));
       for (let i = 0; i < 7; i++){
         let date = (parseInt(firstDay.getMonth()) + 1) + '/' + firstDay.getDate();
@@ -148,7 +148,7 @@
       }
     }
    }
-    
+
     </script>
   </body>
 </html>
