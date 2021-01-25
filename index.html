@@ -123,11 +123,8 @@
     
    function makeCalendar(){
     let today = new Date();
-    let year = today.getFullYear();
-    let month = today.getMonth();
-    let day = today.getDate();
-    let monthStartDay = new Date(year+'/'+month+'/1');
-     console.log(monthStartDay);
+    let firstDay = today.setDate(1);
+     console.log(firstDay);
     
     
    }
