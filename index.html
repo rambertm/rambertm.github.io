@@ -45,7 +45,7 @@
       }
       .evenDay {
         width: 75px;
-        background-color: ghostwhite;
+        background-color: WhiteSmoke;
       }
       #tableBody {
         text-align: center;
@@ -138,16 +138,15 @@
     }else{
       firstDay.setDate(firstDay.getDate() - 6);
     }
+    
     let table = document.getElementById('tableBody');
-    let tr = document.createElement('tr');
-    tr.appendChild(document.createElement('td')).innerHTML = '월';
-    tr.appendChild(document.createElement('td')).innerHTML = '화';
-    tr.appendChild(document.createElement('td')).innerHTML = '수';
-    tr.appendChild(document.createElement('td')).innerHTML = '목';
-    tr.appendChild(document.createElement('td')).innerHTML = '금';
-    tr.appendChild(document.createElement('td')).innerHTML = '토';
-    tr.appendChild(document.createElement('td')).innerHTML = '일';
-    table.appendChild(tr);
+    for (let i = 0; i < 7; i++){
+      let tr = document.createElement('tr');
+      table.appendChild(tr);
+      let date = firstDay.getMonth() + '/' + firstDay.getDate();
+      tr.appendChild(document.createElement('td')).innerHTML = date;
+      firstDay.setDate(firstDay.getDate() + 1);    
+    }
    }
     
     </script>
