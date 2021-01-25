@@ -138,13 +138,11 @@
     }else{
       firstDay.setDate(firstDay.getDate() - 6);
     }
-    console.log(firstDay);
     let table = document.getElementById('tableBody');
     for (let i = 0; i < 3; i++){
       let tr = table.appendChild(document.createElement('tr'));
       for (let i = 0; i < 7; i++){
         let date = (parseInt(firstDay.getMonth()) + 1) + '/' + firstDay.getDate();
-        console.log(date);
         tr.appendChild(document.createElement('td')).innerHTML = date;
         firstDay.setDate(firstDay.getDate() + 1);
       }
