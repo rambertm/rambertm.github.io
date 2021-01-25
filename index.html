@@ -35,11 +35,18 @@
         width: 580px;
         max-height: calc(100% - 70px);
         max-height: 80vh;
+        margin-left: 10px;
         overflow-x: hidden;
         overflow-y: scroll;
       }
-      #oddDay {background-color: white;}
-      #evenDay {background-color: ghostwhite;}
+      .oddDay {
+        width: 75px;
+        background-color: white;
+      }
+      .evenDay {
+        width: 75px;
+        background-color: ghostwhite;
+      }
       #control {
         border-right: 1px solid black;
       }
@@ -130,8 +137,14 @@
     }
     let table = document.getElementById('tableBody');
     let tr = document.createElement('tr');
-    let td = document.createElement('td');
-    table.appendChild(tr).appendChild(td).innerHTML = 'MON';
+    tr.appendChild(document.createElement('td').innerHTML = '월';
+    tr.appendChild(document.createElement('td').innerHTML = '화';
+    tr.appendChild(document.createElement('td').innerHTML = '수';
+    tr.appendChild(document.createElement('td').innerHTML = '목';
+    tr.appendChild(document.createElement('td').innerHTML = '금';
+    tr.appendChild(document.createElement('td').innerHTML = '토';
+    tr.appendChild(document.createElement('td').innerHTML = '일';
+    table.appendChild(tr)
    }
     
     </script>
