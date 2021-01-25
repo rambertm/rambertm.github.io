@@ -81,7 +81,7 @@
       <div id=calendar>
         <div id='calendarHead'>
           <div id='calendarMenu'>
-            <button>패턴 복사</button>
+            <button onclick='makeCalendar()'>패턴 복사</button>
             <button>패턴 붙여넣기</button>
             <button>초기화</button>
           </div>
@@ -120,6 +120,13 @@
     docName.value = "";
     drNo++;
    }
+    
+   function makeCalendar(){
+    let today = new Date();
+    console.log(today);
+   
+   }
+    
     </script>
   </body>
 </html>
