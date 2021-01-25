@@ -19,12 +19,15 @@
         border-right: 1px solid black;
         overflow: auto;
       }
-      #calendarMenu {
+      #calendarHead {
         position: fixed;
-        width: 560px;
-        margin: 5px 10px;
+        width: 100%;
       }
-      .weekdays {
+      #calendarMenu {
+        width: 100%;
+        margin: 5px;
+      }
+      #calendarWeekdays div {
         display: inline-block;
         width: 75px;
         border-right: 1px solid black;
@@ -34,6 +37,7 @@
       #calendarBody {
         position: absolute;
         top: 60px;
+        width: 600px;
       }
       #control {
         border-right: 1px solid black;
@@ -77,18 +81,18 @@
   <body>
     <div id='mainContainer'>
       <div id=calendar>
-        <div id='calendarMenu'>
-          <button>패턴 복사</button>
-          <button>패턴 붙여넣기</button>
-          <button>초기화</button>
-          <div>
-            <div class='weekdays' style='border-left:1px solid black;'>월</div><div class='weekdays'>화</div>
-            <div class='weekdays'>수</div><div class='weekdays'>목</div><div class='weekdays'>금</div>
-            <div class='weekdays'>토</div><div class='weekdays'>일</div>
+        <div id='calendarHead'>
+          <div id='calendarMenu'>
+            <button>패턴 복사</button>
+            <button>패턴 붙여넣기</button>
+            <button>초기화</button>
+          </div>
+          <div id='calendarWeekdays'>
+            <div style='border-left:1px solid black;'>월</div><div>화</div><div>수</div><div>목</div><div>금</div><div>토</div><div>일</div>
           </div>
         </div>
         <div id='calendarBody'>
-          <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>e
+          a<br>b<br>c<br>d<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>e
           <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>d
           <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>c
           <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>b
