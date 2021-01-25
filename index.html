@@ -85,6 +85,9 @@
           <table>
             <colgroup>
               <col class='oddDay'><col class='evenDay'><col class='oddDay'><col class='evenDay'><col class='oddDay'><col class='evenDay'><col class='evenDay'>
+            </colgroup>
+            <tbody id='tableBody' style='border: 1px solid black;'>
+            </tbody>
           </table>
         </div>
       </div>
@@ -125,7 +128,7 @@
     }else{
       firstDay.setDate(firstDay.getDate() - 6);
     }
-    
+    let table = document.getElementById('tableBody');
     
    }
     
