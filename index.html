@@ -38,6 +38,9 @@
         overflow-x: hidden;
         overflow-y: scroll;
       }
+      #oddDay {background-color: white;}
+      #evenDay {background-color: ghostwhite;}
+      }
       #control {
         border-right: 1px solid black;
       }
@@ -55,9 +58,7 @@
         text-align: center;
         user-select: none;
       }
-      .dr1 {
-        background-color: Coral;
-      }
+      .dr1 {background-color: Coral;}
       .dr2 {
         background-color: DeepSkyBlue;
       }
@@ -90,6 +91,10 @@
           </div>
         </div>
         <div id='calendarBody'>
+          <table>
+            <colgroup>
+              <col class='oddDay'><col class='evenDay'><col class='oddDay'><col class='evenDay'><col class='oddDay'><col class='evenDay'><col class='evenDay'>
+          </table>
         </div>
       </div>
       <div id='control'>
@@ -130,8 +135,6 @@
     }else{
       firstDay.setDate(firstDay.getDate() - 6);
     }
-     
-    console.log(firstDay);
     
     
    }
