@@ -138,14 +138,14 @@
     }else{
       firstDay.setDate(firstDay.getDate() - 6);
     }
-    
+    console.log(firstDay);
     let table = document.getElementById('tableBody');
     let tr = table.appendChild(document.createElement('tr'));
     for (let i = 0; i < 7; i++){
       let date = firstDay.getMonth() + '/' + firstDay.getDate();
       console.log(date);
       tr.appendChild(document.createElement('td')).innerHTML = date;
-      firstDay.setDate(firstDay.getDate() + 1);    
+      firstDay.setDate(firstDay.getDate() + 1);
     }
    }
     
