@@ -124,7 +124,7 @@
    function makeCalendar(){
     let today = new Date();
     let firstDay = new Date(today.setDate(1));
-    firstDay.setDate(firstDay.getDate() - (firstDay.getDay-1));
+    firstDay.setDate(firstDay.getDate() - (firstDay.getDay()-1));
     console.log(firstDay);
     
     
