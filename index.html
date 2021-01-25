@@ -83,7 +83,7 @@
       <div id=calendar>
         <div id='calendarHead'>
           <div id='calendarMenu'>
-            <button onclick='makeCalendar()'>패턴 복사</button>
+            <button>패턴 복사</button>
             <button>패턴 붙여넣기</button>
             <button>초기화</button>
           </div>
@@ -129,7 +129,7 @@
     drNo++;
    }
     
-   function makeCalendar(){
+   function initCalendar(){
     let today = new Date();
     let firstDay = new Date(today.setDate(1));
     let weekDay = firstDay.getDay();
@@ -139,7 +139,7 @@
       firstDay.setDate(firstDay.getDate() - 6);
     }
     let table = document.getElementById('tableBody');
-    for (let i = 0; i < 24; i++){
+    for (let i = 0; i < 52; i++){
       let tr = table.appendChild(document.createElement('tr'));
       for (let i = 0; i < 7; i++){
         let date = (parseInt(firstDay.getMonth()) + 1) + '/' + firstDay.getDate();
@@ -148,7 +148,7 @@
       }
     }
    }
-
+   initCalendar();
     </script>
   </body>
 </html>
