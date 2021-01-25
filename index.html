@@ -14,20 +14,14 @@
         grid-template-columns: 600px 300px 1fr;
         grid-template-rows: 1fr;
       }
-      #calendar::after {
-        display: block;
-        clear: both;
+      #calendar{
         border-right: 1px solid black;
-      }
-      #calendarHead {
-        position: fixed;
-        width: 600px;
       }
       #calendarMenu {
         margin: 10px;
       }
       #calendarWeekdays {
-        margin-left: 10px;
+        margin: 10px;
       }
       #calendarWeekdays div {
         display: inline-block;
@@ -38,9 +32,9 @@
         text-align: center;
       }
       #calendarBody {
-        position: absolute;
-        top: 60px;
-        width: 600px;
+        width: 580px;
+        max-height: calc(100% - 70px);
+        max-height: 80vh;
         overflow-x: hidden;
         overflow-y: scroll;
       }
