@@ -39,11 +39,15 @@
         overflow-x: hidden;
         overflow-y: scroll;
       }
-      .oddDay {
+      #calendarTable {
+        border: 1px solid black;
+        border-collapse:collapse;
+      }
+      .colOdd {
         width: 74px;
         background-color: white;
       }
-      .evenDay {
+      .colEven {
         width: 74px;
         background-color: Gainsboro;
       }
@@ -53,6 +57,7 @@
       #tableBody td {
         height: 80px;
         border: 1px solid black;
+        vertical-align: top;
       }
       #control {
         border-right: 1px solid black;
@@ -96,9 +101,9 @@
           </div>
         </div>
         <div id='calendarBody'>
-          <table style='border: 1px solid black;border-collapse:collapse;'>
+          <table id='calendarTable'>
             <colgroup>
-              <col class='oddDay'><col class='evenDay'><col class='oddDay'><col class='evenDay'><col class='oddDay'><col class='evenDay'><col class='evenDay'>
+              <col class='colOdd'><col class='colEven'><col class='colOdd'><col class='colEven'><col class='colOdd'><col class='colEven'><col class='colEven'>
             </colgroup>
             <tbody id='tableBody'>
             </tbody>
