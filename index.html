@@ -192,15 +192,21 @@
    }
    initCalendar();
    document.getElementById('members').addEventListener('dragstart', function(event){
-     let target = event.target;
-     let cName = target.className;
+     let cName = event.target.className;
      if (cName.includes('dr')){
         event.dataTransfer.setData('Text', cName);
         console.log(cName);
      }
      console.log(target);
    });
-    
-    </script>
+    document.getElementById('tableBody').addEventLisnener('dragover', function(event){
+      event.preventDefault();
+    });
+    document.getElementById('tableBody').addEventListener('drop', function(event){
+      event.preventDefault();
+      console.log(event.target.tagName);
+    });
+   
+  </script>
   </body>
 </html>
