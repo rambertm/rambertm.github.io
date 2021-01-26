@@ -274,7 +274,7 @@
         }
         console.log('afterIntcheck:' + workHours);
         if (target.childNodes[1]){
-          target.childNodes[1].innerHTML = '(' + workHours + ')';
+          target.childNodes[1].innerHTML = ': ' + workHours;
         }else{
           let text = document.createElement('span');
           text.style.fontsize = '0.9rem';
