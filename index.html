@@ -226,6 +226,7 @@
         if (data.includes('dr')){
           let origin = document.getElementsByClassName(data)[0];
           let copy = origin.cloneNode(true);
+          copy.removeAttribute('draggable');
           target.appendChild(copy);
         }
       }
