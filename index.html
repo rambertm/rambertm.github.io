@@ -223,7 +223,7 @@
    tableBody.addEventListener('drop', function(event){
     event.preventDefault();
     let target = event.target;
-    if (target.className === 'tableCell'){
+    if (target.className.includes('tableCell')){
       let origin = ddElements[event.dataTransfer.getData('index')];
       let originCName = origin.className;
       if (originCName.includes('dr')){
@@ -239,6 +239,7 @@
         target.appendChild(copy);
       }else if(originCName.includes('tableCell')){
         target.innerHTML = target.firstChild.textContent;
+        removeClassAll('selected');
         for(let i = 1; i < origin.childNodes.length; i++){
           target.appendChild(origin.childNodes[i].cloneNode(true));
         }
@@ -250,6 +251,19 @@
      event.target.classList.add('selected');
    });
    
+   document.body.addEventListener('keydown', function(event){
+    let target = event.target;
+    if (event.keyCode === 46){
+      console.log('target.tagName = ' + target.tagName);
+      if ((target.tagName !== 'input') && (target.tagName !== 'button')){
+        if (let selected = document.querySelector('selected')){
+          condole.log(selected);
+        }
+      }
+    }
+     
+   });
+    
    function removeClassAll(className){
     let elements = document.querySelectorAll('.' + className);
     for(let i = 0; i < elements.length; i++){
