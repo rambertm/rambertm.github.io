@@ -13,9 +13,9 @@
         display: -ms-grid;
         display: grid;
         -ms-grid-rows: 1fr;
-        -ms-grid-columns: 600px 300px 1fr;
+        -ms-grid-columns: 800px 300px 1fr;
         grid-template-rows: 1fr;
-        grid-template-columns: 600px 300px 1fr;
+        grid-template-columns: 800px 300px 1fr;
       }
       #calendar{
         -ms-grid-row: 1;
@@ -31,14 +31,14 @@
       }
       #calendarWeekdays div {
         display: inline-block;
-        width: 75px;
+        width: 100px;
         border-top: 1px solid black;
         border-right: 1px solid black;
         border-bottom: 1px solid black;
         text-align: center;
       }
       #calendarBody {
-        width: 580px;
+        width: 780px;
         max-height: calc(100% - 70px);
         max-height: 80vh;
         margin-left: 10px;
@@ -50,15 +50,15 @@
         border-collapse:collapse;
       }
       .colOdd {
-        width: 76px;
+        width: 101px;
         background-color: Gainsboro;
       }
       .colEven {
-        width: 76px;
+        width: 101px;
         background-color: white;
       }
       .colWeekend {
-        width: 76px;
+        width: 101px;
         color: red;
       }
       #tableBody {
@@ -93,10 +93,10 @@
       .drInCell {
         display: block;
         vertical-align: middle;
-        width: 73px;
+        width: 98px;
         height: 25px;
         line-height: 25px;
-        font-size: 0.7rem;
+        font-size: 0.9rem;
         text-align: center;
       }
       .dr1 {background-color: Coral; color:Black;}
@@ -264,17 +264,20 @@
      if (className.includes('drInCell')){
       let name = target.firstChild.textContent;
       let day = target.parentNode.firstChild.textContent;
-      let workHours = parseFloat(window.prompt(name + '님의 ' + day + '일 근무시간을 입력해주세요.')).toFixed(1);
-      if ((workHours > 0) && (workHours <= 24)){
+      let workHours = parseFloat(window.prompt(name + '님의 ' + day + '일 근무시간을 입력해주세요.'));
+      console.log('raw:' + workHours);
+       if ((workHours > 0) && (workHours <= 24)){
         if (Number.isSafeInteger(workHours)){
           workHours = Math.floor(workHours);
-          console.log(workHours);
+        }else{
+          workHours = workHours.toFixed(1);
         }
+        console.log('afterIntcheck:' + workHours);
         if (target.childNodes[1]){
           target.childNodes[1].innerHTML = '(' + workHours + ')';
         }else{
           let text = document.createElement('span');
-          text.style.fontsize = '0.5rem';
+          text.style.fontsize = '0.9rem';
           text.innerHTML = ': ' + workHours;
           target.appendChild(text);
         }
