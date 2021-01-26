@@ -44,15 +44,15 @@
         border-collapse:collapse;
       }
       .colOdd {
-        width: 75px;
+        width: 76px;
         background-color: Gainsboro;
       }
       .colEven {
-        width: 75px;
+        width: 76px;
         background-color: white;
       }
       .colWeekend {
-        width: 75px;
+        width: 76px;
         color: red;
       }
       #tableBody {
@@ -183,15 +183,16 @@
     }else{
       firstDay.setDate(firstDay.getDate() - 6);
     }
+    let day = new Date(firstDay);
     let table = document.getElementById('tableBody');
     for (let i = 0; i < 52; i++){
       let tr = table.appendChild(document.createElement('tr'));
       for (let i = 0; i < 7; i++){
-        let date = (parseInt(firstDay.getMonth()) + 1) + '/' + firstDay.getDate();
+        let date = (parseInt(day.getMonth()) + 1) + '/' + day.getDate();
         let td = document.createElement('td');
         td.className = 'tableCell';
         td.setAttribute('draggable', true);
-        if (firstDay.getDay() === 0){
+        if ((day.getDay() === 0) || (day.getDay() === 6)){
           td.style.color = 'red';
         }else{
           for(let i = 0; i < holiday.length; i++){
@@ -202,7 +203,7 @@
           }
         }
         tr.appendChild(td).innerHTML = date;
-        firstDay.setDate(firstDay.getDate() + 1);
+        day.setDate(day.getDate() + 1);
       }
     }
    }
