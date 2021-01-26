@@ -96,7 +96,7 @@
         width: 73px;
         height: 25px;
         line-height: 25px;
-        font-size: 0.5rem;
+        font-size: 0.7rem;
         text-align: center;
       }
       .dr1 {background-color: Coral; color:Black;}
@@ -273,8 +273,8 @@
           target.childNodes[1].innerHTML = '(' + workHours + ')';
         }else{
           let text = document.createElement('span');
-          text.style.fontsize = '0.45rem';
-          text.innerHTML = '(' + workHours + ')';
+          text.style.fontsize = '0.5rem';
+          text.innerHTML = ': ' + workHours;
           target.appendChild(text);
         }
       }
