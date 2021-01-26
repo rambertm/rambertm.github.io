@@ -256,12 +256,15 @@
     if (event.keyCode === 46){
       if ((target.tagName !== 'input') && (target.tagName !== 'button')){
         let selected = document.querySelector('.selected');
+        if (selected === null){
+          return
+        }
         if (selected.className.includes('tableCell')){
           selected.innerHTML = selected.firstChild.textContent;
         }else if (selected.className.includes('drInCell')){
           selected.parentNode.removeChild(selected);
         }
-          condole.log(selected);
+          console.log(selected);
       }
     }
      
