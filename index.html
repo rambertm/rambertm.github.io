@@ -194,7 +194,8 @@
    }
    initCalendar();
    document.getElementById('members').addEventListener('dragstart', function(event){
-    if (event.target.className.includes('dr')){
+     let target = event.target;
+     if (target.className.includes('dr')){
       let index = ddElements.indexOf(target);
       if (index === -1){
         ddElements.push(target);
