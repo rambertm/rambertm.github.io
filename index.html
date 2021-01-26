@@ -191,7 +191,7 @@
    }
    initCalendar();
    document.getElementById('members').addEventListener('dragstart', function(event){
-    let cName = event.target.className;
+    let cName = (event.target.className).split(' ')[1];
     if (cName.includes('dr')){
       event.dataTransfer.setData('Text', cName);
     }
@@ -211,11 +211,10 @@
     if (target.className === 'tableCell'){
       let data = event.dataTransfer.getData('Text');
       if (data.includes('dr')){
-        let origin = document.getElementsByClassName(data)[0];
+        let origin = document.querySelector('.dr.' + data);
         let copy = origin.cloneNode(true);
         copy.removeAttribute('draggable');
-        copy.classList.remove('dr');
-        copy.classList.add('drInCell');
+        copy.className = 'drInCell ' + data;
         target.appendChild(copy);
       }else if(data.includes('tableCell')){
         target.innerHTML = target.firstChild.textContent;
