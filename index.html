@@ -193,6 +193,11 @@
    initCalendar();
    document.getElementById('members').addEventListener('dragstart', function(event){
      let target = event.target;
+     let cName = target.className;
+     if (cName.includes('dr')){
+        event.dataTransfer.setData('Text', cName);
+        console.log(cName);
+     }
      console.log(target);
    });
     
