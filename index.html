@@ -254,8 +254,6 @@
    document.body.addEventListener('keydown', function(event){
     let target = event.target;
     if (event.keyCode === 46){
-      console.log(target);
-      console.log(target.tagName);
       if ((target.tagName !== 'INPUT') && (target.tagName !== 'BUTTON')){
         let selected = document.querySelector('.selected');
         if (selected === null){
