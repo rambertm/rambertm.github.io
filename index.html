@@ -134,6 +134,15 @@
           <input type='text' id='docName' maxlength='8' style='width:75px'>
           <button id='addDoc' onclick='addDoc()'>Add</button>
         </fieldset>
+        <fieldset style='width:250px;height:100px;'>
+          <legend>Worktime</legend>
+          <div>
+            <div id='workerName' style='width:150px;height:25px;'>근무자: </div>:
+            <div> 근무일: </div>
+            <div id='workTimeInput'>근무 시간: </div>
+          </div>
+          <div></div>
+        </fieldset>
       </div>
       <div id='output'></div>
     </div>
@@ -250,6 +259,10 @@
      event.target.classList.add('selected');
    });
    
+   tableBody.addEventListener('dblclick', function(event){
+   });
+    
+    
    document.body.addEventListener('keydown', function(event){
     let target = event.target;
     if (event.keyCode === 46){
