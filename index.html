@@ -265,14 +265,12 @@
       let name = target.firstChild.textContent;
       let day = target.parentNode.firstChild.textContent;
       let workHours = parseFloat(window.prompt(name + '님의 ' + day + '일 근무시간을 입력해주세요.'));
-      console.log('raw:' + workHours);
        if ((workHours > 0) && (workHours <= 24)){
         if (Number.isSafeInteger(workHours)){
           workHours = Math.floor(workHours);
         }else{
           workHours = workHours.toFixed(1);
         }
-        console.log('afterIntcheck:' + workHours);
         if (target.childNodes[1]){
           target.childNodes[1].innerHTML = ': ' + workHours;
         }else{
