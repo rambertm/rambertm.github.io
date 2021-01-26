@@ -140,7 +140,7 @@
         </fieldset>
         <fieldset id='worktime'>
           <legend>Worktime</legend>
-          <div style='height:25px;'>근무자:   <div style='display:inline-block;'>testtest</div></div>
+          <div style='height:25px;'>근무자:   </div>
           <div style='height:25px;'>근무일:   </div>
           <div style='height:25px;'>
             <label for='workinghours'>근무 시간:   </label>
@@ -293,7 +293,7 @@
       elements[i].classList.remove(className);
     }
    }
-    
+   console.log(document.getElementById('worktime').firstChild.tagName);
   </script>
   </body>
 </html>
