@@ -44,11 +44,11 @@
         border-collapse:collapse;
       }
       .colOdd {
-        width: 74px;
+        width: 75px;
         background-color: white;
       }
       .colEven {
-        width: 74px;
+        width: 75px;
         background-color: Gainsboro;
       }
       #tableBody {
@@ -155,6 +155,7 @@
   
     
   let drNo = 1;
+  let holiday = ['2/10', '2/11']
   function addDoc(e){
     if (drNo > 6){
       return
@@ -184,7 +185,12 @@
       for (let i = 0; i < 7; i++){
         let date = (parseInt(firstDay.getMonth()) + 1) + '/' + firstDay.getDate();
         let td = document.createElement('td');
+        td.className = 'tableCell';
         td.setAttribute('draggable', true);
+        for(let i = 0; i < holiday.length; i++){
+          if (date === holiday[i]){
+            td.style.color = 'red';
+          }
         tr.appendChild(td).innerHTML = date;
         firstDay.setDate(firstDay.getDate() + 1);
       }
@@ -203,7 +209,14 @@
     });
     document.getElementById('tableBody').addEventListener('drop', function(event){
       event.preventDefault();
-      console.log(event.target.tagName);
+      let target = event.target;
+      if (target.className === 'tableCell'){
+        let data = event.dataTransfer.getData('Text');
+        if (data.includes('dr')){
+          let origin = document.querySelector('.' + data);
+          let copy = origin.cloneNode(true);
+          target.appendChild(copy);
+      }
     });
    
   </script>
