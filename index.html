@@ -96,7 +96,7 @@
         width: 73px;
         height: 25px;
         line-height: 25px;
-        font-size: 0.9rem;
+        font-size: 0.75rem;
         text-align: center;
       }
       .dr1 {background-color: Coral; color:Black;}
@@ -266,9 +266,15 @@
       let day = target.parentNode.firstChild.textContent;
       let workHours = parseFloat(window.prompt(name + '님의 ' + day + '일 근무시간을 입력해주세요.'));
       if ((workHours > 0) && (workHours <= 24)){
-        console.log('bingo');
+        if (target.childNodes[1]){
+          console.log('already exists);
+          return
+        }else{
+          let text = document.createElement('span');
+          text.innerHTML = '(' + workHours + ')';
+          target.appendChild(text);
+        }
       }
-      console.log(workHours);
      }
    });
     
