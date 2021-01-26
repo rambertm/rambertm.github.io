@@ -141,6 +141,8 @@
   <script>
   let drNo = 1;
   let holiday = ['2021/2/11', '2021/2/12', '2021/2/13']
+  let ddElements = [];
+  
   function addDoc(e){
     if (drNo > 6){
       return
@@ -197,10 +199,16 @@
     }
    });
    document.getElementById('tableBody').addEventListener('dragstart', function(event){
-    let cName = event.target.className;
-    if (cName.includes('tableCell')){
-      event.dataTransfer.setData('Text', cName);
-    }
+    let target = event.target;
+    if (target.className.includes('tableCell')){
+      let index = ddElements.indexOf(target);
+      if (index === -1){
+        ddElements.push(target);
+        index = ddElements.length - 1;
+      }
+      event.dataTransfer.setData('index', index);
+      console.log(index);
+   }
    });
    document.getElementById('tableBody').addEventListener('dragover', function(event){
     event.preventDefault();
@@ -209,6 +217,9 @@
     event.preventDefault();
     let target = event.target;
     if (target.className === 'tableCell'){
+      let origin = ddElements[event.dataTransfer.getData('index')];
+      console.log(origin);
+      /*
       let data = event.dataTransfer.getData('Text');
       if (data.includes('dr')){
         let origin = document.querySelector('.dr.' + data);
@@ -219,6 +230,7 @@
       }else if(data.includes('tableCell')){
         target.innerHTML = target.firstChild.textContent;
       }
+      */
     }
    });
    
