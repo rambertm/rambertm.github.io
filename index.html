@@ -77,11 +77,6 @@
         margin: 20px auto;
         text-align: center;
       }
-      #worktime {
-        width: 250px;
-        margin: 20px auto;
-        text-align: left;
-      }
       .dr {
         display: inline-block;
         vertical-align: middle;
@@ -144,16 +139,6 @@
           <label for='docName'>Name: </label>
           <input type='text' id='docName' maxlength='8' style='width:75px'>
           <button id='addDoc' onclick='addDoc()'>Add</button>
-        </fieldset>
-        <fieldset id='worktime'>
-          <legend>Worktime</legend>
-          <div id='worker' style='height:25px;'>근무자:   </div>
-          <div id='workday' style='height:25px;'>근무일:   </div>
-          <div style='height:25px;'>
-            <label for='workinghours'>근무 시간:   </label>
-            <input type='number' id='workinghours' maxlength='2' size='3' disabled>
-          </div>
-          <button style='width:75px;'>입력</button>
         </fieldset>
       </div>
       <div id='output'></div>
