@@ -13,11 +13,13 @@
         display: -ms-grid;
         display: grid;
         -ms-grid-columns: 600px 300px 1fr;
+        -ms-grid-rows: 1fr;
         grid-template-columns: 600px 300px 1fr;
         grid-template-rows: 1fr;
       }
       #calendar{
         -ms-grid-column: 1;
+        -ms-grid-row: 1;
         border-right: 1px solid black;
         user-select: none;
       }
@@ -69,6 +71,7 @@
       }
       #control {
         -ms-grid-column: 2;
+        -ms-grid-row: 1;
         border-right: 1px solid black;
         user-select: none;
       }
@@ -105,6 +108,7 @@
       .selected {background-color: DimGray; color: white;}
       #output {
         -ms-grid-column: 3;
+        -ms-grid-row: 1;
       }
     </style>
     <script type='text/javascript' src='polyfill.js'></script>
@@ -274,16 +278,13 @@
           console.log(selected);
       }
     }
-     
    });
-    
    function removeClassAll(className){
     let elements = document.querySelectorAll('.' + className);
     for(let i = 0; i < elements.length; i++){
       elements[i].classList.remove(className);
     }
    }
-   console.log(document.getElementById('worktime').firstChild);
   </script>
   </body>
 </html>
