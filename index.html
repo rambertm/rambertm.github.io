@@ -224,7 +224,7 @@
       if (target.className === 'tableCell'){
         let data = event.dataTransfer.getData('Text');
         if (data.includes('dr')){
-          let origin = document.getElementByClassName(data);
+          let origin = document.getElementsByClassName(data)[0];
           let copy = origin.cloneNode(true);
           target.appendChild(copy);
         }
