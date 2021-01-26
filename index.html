@@ -140,7 +140,7 @@
   
   <script>
   let drNo = 1;
-  let holiday = ['2/11', '2/12', '2/13']
+  let holiday = ['2021/2/11', '2021/2/12', '2021/2/13']
   function addDoc(e){
     if (drNo > 6){
       return
@@ -170,6 +170,7 @@
       let tr = table.appendChild(document.createElement('tr'));
       for (let i = 0; i < 7; i++){
         let date = (parseInt(day.getMonth()) + 1) + '/' + day.getDate();
+        let fullDate = (parseInt(day.getFullYear())) + '/' + date;
         let td = document.createElement('td');
         td.className = 'tableCell';
         td.setAttribute('draggable', true);
@@ -177,7 +178,7 @@
           td.style.color = 'red';
         }else{
           for(let i = 0; i < holiday.length; i++){
-            if (date === holiday[i]){
+            if (fullDate === holiday[i]){
               td.style.color = 'red';
               break;
             }
