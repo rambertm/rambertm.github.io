@@ -225,15 +225,22 @@
       let origin = ddElements[event.dataTransfer.getData('index')];
       let originCName = origin.className;
       if (originCName.includes('dr')){
+        let originID = originCName.split(' ')[1];
+        for(let i = 1; i < target.childNodes.length; i++){
+          if (target.childNodes[i].className.includes(originID)){
+            return
+          }
+        }
         let copy = origin.cloneNode(true);
         copy.removeAttribute('draggable');
-        copy.className = 'drInCell ' + originCName.split(' ')[1];
+        copy.className = 'drInCell ' + originID;
         target.appendChild(copy);
       }else if(originCName.includes('tableCell')){
         target.innerHTML = target.firstChild.textContent;
-        console.log(origin.childNodes);
+        for(let i = 1; i < origin.childNodes.length; i++){
+          target.appendChild(origin.childNodes[i].cloneNode(true));
+        }
       }
-      
     }
    });
    
