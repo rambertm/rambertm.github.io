@@ -83,6 +83,16 @@
         font-size: 0.9rem;
         text-align: center;
       }
+      .drInCell {
+        display: block;
+        vertical-align: middle;
+        width: 73px;
+        height: 25px;
+        line-height: 25px;
+        margin-top: 2px;
+        font-size: 0.9rem;
+        text-align: center;
+      }
       .dr1 {background-color: Coral; color:Black;}
       .dr2 {background-color: DeepSkyBlue; color:Black;}
       .dr3 {background-color: GoldenRod; color:Black;}
@@ -128,36 +138,6 @@
   
   
   <script>
-    (function(win, doc){
-    if(win.addEventListener)return;		//No need to polyfill
-
-    function docHijack(p){var old = doc[p];doc[p] = function(v){return addListen(old(v))}}
-    function addEvent(on, fn, self){
-      return (self = this).attachEvent('on' + on, function(e){
-        e = e || win.event;
-        e.preventDefault  = e.preventDefault  || function(){e.returnValue = false}
-        e.stopPropagation = e.stopPropagation || function(){e.cancelBubble = true}
-        fn.call(self, e);
-      });
-    }
-    function addListen(obj, i){
-      if(i = obj.length)while(i--)obj[i].addEventListener = addEvent;
-      else obj.addEventListener = addEvent;
-      return obj;
-    }
-
-    addListen([doc, win]);
-    if('Element' in win)win.Element.prototype.addEventListener = addEvent;			//IE8
-    else{		//IE < 8
-      doc.attachEvent('onreadystatechange', function(){addListen(doc.all)});		//Make sure we also init at domReady
-      docHijack('getElementsByTagName');
-      docHijack('getElementById');
-      docHijack('createElement');
-      addListen(doc.all);	
-    }
-  })(window, document);
-  
-    
   let drNo = 1;
   let holiday = ['2/11', '2/12', '2/13']
   function addDoc(e){
@@ -232,6 +212,8 @@
         let origin = document.getElementsByClassName(data)[0];
         let copy = origin.cloneNode(true);
         copy.removeAttribute('draggable');
+        copy.classList.remove('dr');
+        copy.classList.Add('dr');
         target.appendChild(copy);
       }else if(data.includes('tableCell')){
         target.innerHTML = target.firstChild.textContent;
