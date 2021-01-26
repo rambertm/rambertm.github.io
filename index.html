@@ -268,6 +268,7 @@
       if ((workHours > 0) && (workHours <= 24)){
         if (Number.isSafeInteger(workHours)){
           workHours = Math.floor(workHours);
+          console.log(workHours);
         }
         if (target.childNodes[1]){
           target.childNodes[1].innerHTML = '(' + workHours + ')';
