@@ -194,9 +194,13 @@
    }
    initCalendar();
    document.getElementById('members').addEventListener('dragstart', function(event){
-    let cName = (event.target.className).split(' ')[1];
-    if (cName.includes('dr')){
-      event.dataTransfer.setData('Text', cName);
+    if (event.target.className.includes('dr')){
+      let index = ddElements.indexOf(target);
+      if (index === -1){
+        ddElements.push(target);
+        index = ddElements.length - 1;
+      }
+      event.dataTransfer.setData('index', index);
     }
    });
    document.getElementById('tableBody').addEventListener('dragstart', function(event){
@@ -208,7 +212,6 @@
         index = ddElements.length - 1;
       }
       event.dataTransfer.setData('index', index);
-      console.log(index);
    }
    });
    document.getElementById('tableBody').addEventListener('dragover', function(event){
