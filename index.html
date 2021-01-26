@@ -254,11 +254,14 @@
    document.body.addEventListener('keydown', function(event){
     let target = event.target;
     if (event.keyCode === 46){
-      console.log('target.tagName = ' + target.tagName);
       if ((target.tagName !== 'input') && (target.tagName !== 'button')){
-        if (let selected = document.querySelector('selected')){
-          condole.log(selected);
+        let selected = document.querySelector('selected');
+        if (selected.className.includes('tableCell')){
+          selected.innerHTML = selected.firstChild.textContent;
+        }else if (selected.className.includes('drInCell')){
+          selected.parentNode.removeChild(selected);
         }
+          condole.log(selected);
       }
     }
      
