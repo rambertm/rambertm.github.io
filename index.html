@@ -264,7 +264,10 @@
      if (className.includes('drInCell')){
       let name = target.firstChild.textContent;
       let day = target.parentNode.firstChild.textContent;
-      let workHours = window.prompt(name + '님의 ' + day + '일 근무시간을 입력해주세요.');
+      let workHours = parseFloat(window.prompt(name + '님의 ' + day + '일 근무시간을 입력해주세요.'));
+      if ((workHours > 0) && (workHours <= 24)){
+        console.log('bingo');
+      }
       console.log(workHours);
      }
    });
