@@ -45,11 +45,15 @@
       }
       .colOdd {
         width: 75px;
-        background-color: white;
+        background-color: Gainsboro;
       }
       .colEven {
         width: 75px;
-        background-color: Gainsboro;
+        background-color: white;
+      }
+      .colWeekend {
+        width: 75px;
+        color: red;
       }
       #tableBody {
         text-align: center;
@@ -98,13 +102,13 @@
             <button>초기화</button>
           </div>
           <div id='calendarWeekdays'>
-            <div style='border-left:1px solid black;'>월</div><div>화</div><div>수</div><div>목</div><div>금</div><div>토</div><div>일</div>
+            <div style='border-left:1px solid black;'>월</div><div>화</div><div>수</div><div>목</div><div>금</div><div style='color:red;'>토</div><div style='color:red;'>일</div>
           </div>
         </div>
         <div id='calendarBody'>
           <table id='calendarTable'>
             <colgroup>
-              <col class='colOdd'><col class='colEven'><col class='colOdd'><col class='colEven'><col class='colOdd'><col class='colEven'><col class='colEven'>
+              <col class='colOdd'><col class='colEven'><col class='colOdd'><col class='colEven'><col class='colOdd'><col class='colWeekend'><col class='colWeekend'>
             </colgroup>
             <tbody id='tableBody'>
             </tbody>
@@ -191,6 +195,7 @@
           if (date === holiday[i]){
             td.style.color = 'red';
           }
+        }
         tr.appendChild(td).innerHTML = date;
         firstDay.setDate(firstDay.getDate() + 1);
       }
