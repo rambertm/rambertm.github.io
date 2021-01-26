@@ -223,19 +223,17 @@
     let target = event.target;
     if (target.className === 'tableCell'){
       let origin = ddElements[event.dataTransfer.getData('index')];
-      console.log(origin);
-      /*
-      let data = event.dataTransfer.getData('Text');
-      if (data.includes('dr')){
-        let origin = document.querySelector('.dr.' + data);
+      let originCName = origin.className;
+      if (originCName.includes('dr')){
         let copy = origin.cloneNode(true);
         copy.removeAttribute('draggable');
-        copy.className = 'drInCell ' + data;
+        copy.className = 'drInCell ' + originCName.split(' ')[1];
         target.appendChild(copy);
-      }else if(data.includes('tableCell')){
+      }else if(originCName.includes('tableCell')){
         target.innerHTML = target.firstChild.textContent;
+        console.log(origin.childNodes);
       }
-      */
+      
     }
    });
    
