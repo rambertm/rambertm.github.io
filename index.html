@@ -209,28 +209,35 @@
    }
    initCalendar();
    document.getElementById('members').addEventListener('dragstart', function(event){
-     let cName = event.target.className;
-     if (cName.includes('dr')){
-        event.dataTransfer.setData('Text', cName);
-        console.log(cName);
-     }
+    let cName = event.target.className;
+    if (cName.includes('dr')){
+      event.dataTransfer.setData('Text', cName);
+    }
    });
-    document.getElementById('tableBody').addEventListener('dragover', function(event){
-      event.preventDefault();
-    });
-    document.getElementById('tableBody').addEventListener('drop', function(event){
-      event.preventDefault();
-      let target = event.target;
-      if (target.className === 'tableCell'){
-        let data = event.dataTransfer.getData('Text');
-        if (data.includes('dr')){
-          let origin = document.getElementsByClassName(data)[0];
-          let copy = origin.cloneNode(true);
-          copy.removeAttribute('draggable');
-          target.appendChild(copy);
-        }
+   document.getElementById('tableBody').addEventListener('dragstart', function(event){
+    let cName = event.target.className;
+    if (cName.includes('tableCell')){
+      event.dataTransfer.setData('Text', cName);
+    }
+   });
+   document.getElementById('tableBody').addEventListener('dragover', function(event){
+    event.preventDefault();
+   });
+   document.getElementById('tableBody').addEventListener('drop', function(event){
+    event.preventDefault();
+    let target = event.target;
+    if (target.className === 'tableCell'){
+      let data = event.dataTransfer.getData('Text');
+      if (data.includes('dr')){
+        let origin = document.getElementsByClassName(data)[0];
+        let copy = origin.cloneNode(true);
+        copy.removeAttribute('draggable');
+        target.appendChild(copy);
+      }else if(data.includes('tableCell')){
+        target.innerHTML = target.firstChild.textContent;
       }
-    });
+    }
+   });
    
   </script>
   </body>
