@@ -259,8 +259,14 @@
    });
    
    tableBody.addEventListener('dblclick', function(event){
-     let workHours = window.prompt('hi');
-     console.log(workHours);
+     let target = event.target;
+     let className = target.className;
+     if (className.includes('drInCell')){
+      let name = target.firstChild.textContent;
+      let day = target.parent.firstChild.textContent;
+      let workHours = window.prompt(name + '님의 ' + day + '일 근무시간을 입력해주세요.');
+      console.log(workHours);
+     }
    });
     
     
