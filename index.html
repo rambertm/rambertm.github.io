@@ -214,7 +214,7 @@
         let copy = origin.cloneNode(true);
         copy.removeAttribute('draggable');
         copy.classList.remove('dr');
-        copy.classList.Add('dr');
+        copy.classList.Add('drInCell');
         target.appendChild(copy);
       }else if(data.includes('tableCell')){
         target.innerHTML = target.firstChild.textContent;
