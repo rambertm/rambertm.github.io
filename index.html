@@ -100,6 +100,7 @@
       .dr4 {background-color: PaleGreen; color:Black;}
       .dr5 {background-color: Plum; color:Black;}
       .dr6 {background-color: Peachpuff; color:Black;}
+      .selected {background-color: black; color: white;}
     </style>
     <script type='text/javascript' src='polyfill.js'></script>
   </head>
@@ -204,7 +205,8 @@
       event.dataTransfer.setData('index', index);
     }
    });
-   document.getElementById('tableBody').addEventListener('dragstart', function(event){
+   let tableBody = document.getElementById('tableBody')
+   tableBody.addEventListener('dragstart', function(event){
     let target = event.target;
     if (target.className.includes('tableCell')){
       let index = ddElements.indexOf(target);
@@ -215,10 +217,10 @@
       event.dataTransfer.setData('index', index);
    }
    });
-   document.getElementById('tableBody').addEventListener('dragover', function(event){
+   tableBody.addEventListener('dragover', function(event){
     event.preventDefault();
    });
-   document.getElementById('tableBody').addEventListener('drop', function(event){
+   tableBody.addEventListener('drop', function(event){
     event.preventDefault();
     let target = event.target;
     if (target.className === 'tableCell'){
@@ -243,7 +245,18 @@
       }
     }
    });
+   tableBody.addEventListener('click', function(event){
+     removeClassAll('selected');
+     event.target.classList.add('selected);
+   });
    
+   function removeClassAll(className){
+    let elements = document.querySelectorAll('.' + className);
+    for(let i = 0; i < elements.length; i++){
+      elements[i].classList.remove(className);
+    }
+   }
+    
   </script>
   </body>
 </html>
