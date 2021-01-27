@@ -280,8 +280,8 @@
    });
     
    document.body.addEventListener('keydown', function(event){
-    let target = event.target;
     if (event.keyCode === 46){
+      let target = event.target;
       if ((target.tagName !== 'INPUT') && (target.tagName !== 'BUTTON')){
         let selected = document.querySelector('.selected');
         if (selected === null){
@@ -292,7 +292,6 @@
         }else if (selected.className.includes('drInCell')){
           selected.parentNode.removeChild(selected);
         }
-          console.log(selected);
       }
     }
    });
