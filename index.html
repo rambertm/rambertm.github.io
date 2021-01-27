@@ -182,7 +182,7 @@ function initCalendar(){
 	}
 	let day = new Date(firstDay);
 	let table = document.getElementById('tableBody');
-	for (let i = 0; i < 52; i++){
+	for (let i = 0; i < 53; i++){
 		let tr = table.appendChild(document.createElement('tr'));
 		for (let i = 0; i < 7; i++){
 			let date = (parseInt(day.getMonth()) + 1) + '/' + day.getDate();
@@ -315,7 +315,7 @@ function removeClassAll(className){
 }
 
 function getCellValue(row, col){
-	if ((row > 52) || (col > 7)){
+	if ((row > 53) || (col > 7)){
 		return
 	}
 	let target = tableBody.childNodes[row-1].childNodes[col-1];
