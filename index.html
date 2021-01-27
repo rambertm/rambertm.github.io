@@ -391,8 +391,7 @@ function updateOutput(){
 	
 }
 function updateOutputByMonth(targetMonth){
-	let currentMonth = new Date().getMonth();
-	console.log(currentMonth);
+	let currentMonth = new Date().getMonth() + 1;
 	let nth = 0;
 	if (currentMonth <= targetMonth){
 		nth = targetMonth - currentMonth;
