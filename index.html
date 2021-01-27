@@ -399,11 +399,9 @@ function updateOutputByMonth(targetMonth){
 		nth = 12 - currentMonth + targetMonth;
 	}
 	let target = document.getElementById('output').childNodes[nth];
-	console.log('nth: ' + nth);
-	console.log(target);
 	let dr1 = document.querySelector('.dr.dr1');
 	if (dr1 !== null){
-		target.innerHTML = target.firstChild.getTextContent;
+		target.innerHTML = target.firstChild.textContent;
 		let workHours = dutyObj['dr1']['month' + targetMonth] + dutyObj['dr1']['month' + targetMonth + '_holiday'];
 		let workHoursDiv = document.createElement('div');
 		workHoursDiv.innerHTML = workHours;
