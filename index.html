@@ -59,7 +59,7 @@
 		width: 105px;
 		background-color: white;
 	}
-	.colWeekend {
+	.colHoliday {
 		width: 105px;
 		color: red;
 	}
@@ -135,7 +135,7 @@
 			<div id='calendarBody'>
 				<table id='calendarTable'>
 					<colgroup>
-						<col class='colOdd'><col class='colEven'><col class='colOdd'><col class='colEven'><col class='colOdd'><col class='colWeekend'><col class='colWeekend'>
+						<col class='colOdd'><col class='colEven'><col class='colOdd'><col class='colEven'><col class='colOdd'><col class='colHoliday'><col class='colHoliday'>
 					</colgroup>
 					<tbody id='tableBody'></tbody>
 				</table>
@@ -191,11 +191,11 @@ function initCalendar(){
 			td.className = 'tableCell';
 			td.setAttribute('draggable', true);
 			if ((day.getDay() === 0) || (day.getDay() === 6)){
-				td.style.color = 'red';
+				td.classList.add('colHoliday');
 			}else{
 				for(let i = 0; i < holiday.length; i++){
 					if (fullDate === holiday[i]){
-						td.style.color = 'red';
+						td.classList.add('colHoliday');
 						break;
 					}
 				}
