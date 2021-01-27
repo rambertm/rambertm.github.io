@@ -375,16 +375,10 @@ function updateDutyHours(cell, InOut){
 	let date = child[0].textContent;
 	let month = date.split('/')[0];
 	let todayMonth = new Date().getMonth() + 1;
-	console.log(tableBody.firstElementChild);
-	console.log(document.getElementById('firstTR'));
-	console.log(tableBody.lastElementChild);
-	console.log(document.getElementById('lastTR'));
-	console.log(month);
-	console.log(todayMonth);
-	if ((tableBody.firstElementChild === document.getElementById('firstTR')) && (month !== todayMonth)){
+	if ((tableBody.firstElementChild === document.getElementById('firstTR')) && (month !== parseInt(todayMonth))){
 		return
 	}
-	if ((tableBody.lastElementChild === document.getElementById('lastTR')) && (month === todayMonth)){
+	if ((tableBody.lastElementChild === document.getElementById('lastTR')) && (month === parseInt(todayMonth))){
 		return
 	}
 	for(let i = 1; i < child.length; i++){
