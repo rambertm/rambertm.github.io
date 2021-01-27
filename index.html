@@ -326,7 +326,7 @@ function getCellValue(row, col){
 		let dr = child[i].className.split(' ')[1];
 		let grandChild = child[i].childNodes;
 		if (grandChild.length === 2){
-			let workhour = parseFloat(grandChild[i].textContent.substring(2));
+			let workhour = parseFloat(grandChild[1].textContent.substring(2));
 		}
 		console.log(date + '의 ' + dr + ' 근무시간: ' + workhour + '시간');
 	}
