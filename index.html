@@ -146,8 +146,11 @@
 				<legend>Members</legend>
 				<label for='docName'>Name: </label>
 				<input type='text' id='docName' maxlength='4' style='width:75px'>
-				<button id='addDoc' onclick='addDoc()'>Add</button>
+				<button onclick='addDoc()'>Add</button>
 			</fieldset>
+			<div id='output'>
+				<div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+			</div>
 		</div>
 	</div>
 
@@ -314,9 +317,12 @@ document.body.addEventListener('keydown', function(event){
 				return
 			}
 			if (selected.className.includes('tableCell')){
+				updateDutyHours(selected, false);
 				selected.innerHTML = selected.firstChild.textContent;
 			}else if (selected.className.includes('drInCell')){
+				updateDutyHours(selected, false);
 				selected.parentNode.removeChild(selected);
+				updateDutyHours(selected, true);
 			}
 		}
 	}
