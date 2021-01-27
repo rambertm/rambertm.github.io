@@ -160,12 +160,12 @@ let holiday = ['2021/2/11', '2021/2/12', '2021/2/13', '2021/3/1', '2021/5/5', '2
 let ddElements = [];
 let tableBody = document.getElementById('tableBody')
 let dutyObj = {
-		dr1: new createDr(),
-		dr2: new createDr(),
-		dr3: new createDr(),
-		dr4: new createDr(),
-		dr5: new createDr(),
-		dr6: new createDr()
+		dr1: new createObjDr(),
+		dr2: new createObjDr(),
+		dr3: new createObjDr(),
+		dr4: new createObjDr(),
+		dr5: new createObjDr(),
+		dr6: new createObjDr()
 }
 
 function addDoc(e){
@@ -371,7 +371,7 @@ function testFunc(row, col){
 	console.log(dutyObj);
 }
 
-function createDr(){
+function createObjDr(){
 	this.name = "";
 	this.month1 = 0;
 	this.month1_holiday = 0;
