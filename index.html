@@ -290,6 +290,7 @@ tableBody.addEventListener('drop', function(event){
 				}
 				updateDutyHours(target, true);
 		}
+		updateOutputByMonth(target.childNodes[0].textContent.split('/')[0]);
 	}
 });
 tableBody.addEventListener('click', function(event){
@@ -324,6 +325,7 @@ tableBody.addEventListener('dblclick', function(event){
 			}
 		}
 		updateDutyHours(target.parentNode, true);
+		updateOutputByMonth(day.split('/')[0]);
 	}
 });
 
@@ -338,10 +340,12 @@ document.body.addEventListener('keydown', function(event){
 			if (selected.className.includes('tableCell')){
 				updateDutyHours(selected, false);
 				selected.innerHTML = selected.firstChild.textContent;
+				updateOutputByMonth(selected.childNodes[0].textContent.split('/')[0]);
 			}else if (selected.className.includes('drInCell')){
 				updateDutyHours(selected, false);
 				selected.parentNode.removeChild(selected);
 				updateDutyHours(selected, true);
+				updateOutputByMonth(selected.parentNode.childNodes[0].textContent.split('/')[0]);
 			}
 		}
 	}
