@@ -400,6 +400,8 @@ function updateOutputByMonth(targetMonth){
 		nth = 12 - currentMonth + targetMonth;
 	}
 	let target = document.getElementById('output').childNodes[nth];
+	console.log('nth: ' + nth);
+	console.log(target);
 	let dr1 = document.querySelector('.dr.dr1');
 	if (dr1 !== null){
 		target.innerHTML = target.firstChild.getTextContent;
