@@ -120,9 +120,12 @@
 		max-height: 40vh;
 		margin: 1px;
 		padding: 5px;
-		border: 1px solid black;
+		border: 1px solid grey;
 		overflow-x: hidden;
 		overflow-y: scroll;
+	}
+	#output>div {
+		border-bottom: 1px solid grey;	
 	}
 		
 	</style>
@@ -157,7 +160,7 @@
 				<input type='text' id='docName' maxlength='4' style='width:75px'>
 				<button onclick='addDoc()'>Add</button>
 			</fieldset>
-			<div id='output'><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+			<div id='output'><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div style='border-bottom:0px;'></div></div>
 		</div>
 	</div>
 
