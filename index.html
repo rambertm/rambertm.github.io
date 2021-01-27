@@ -370,11 +370,11 @@ function updateDutyHours(cell, InOut){
 	let date = child[0].textContent;
 	let month = date.split('/')[0];
 	let todayMonth = new Date().getMonth() + 1;
-	if ((tableBody.firstElementChild === cell.parentNode) && (month !== parseInt(todayMonth))){
+	if ((tableBody.firstElementChild === cell.parentNode) && (month !== todayMonth.toString())){
 		console.log('if1');
 		return
 	}
-	if ((tableBody.lastElementChild === cell.parentNode) && (month === parseInt(todayMonth))){
+	if ((tableBody.lastElementChild === cell.parentNode) && (month === todayMonth.toString())){
 		console.log('if2');
 		return
 	}
