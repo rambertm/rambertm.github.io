@@ -321,14 +321,15 @@ function getCellValue(row, col){
 	let target = tableBody.childNodes[row-1].childNodes[col-1];
 	let child = target.childNodes;
 	let date = child[0];
-	for(let i = 1; i < child.length;i++){
+	let workhour = 0;
+	for(let i = 1; i < child.length; i++){
 		let dr = child[i].className.split(' ')[1];
 		let grandChild = child[i].childNodes;
-		console.log(grandChild);
-		let workhour = parseInt(grandChild[1].textContent.substring(2));
+		if (grandChild.length === 2){
+			let workhour = parseFloat(grandChild[i].textContent.substring(2));
+		}
 		console.log(date + '의 ' + dr + ' 근무시간: ' + workhour + '시간');
 	}
-	
 }
 
 initCalendar();
