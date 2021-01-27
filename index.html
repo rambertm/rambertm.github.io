@@ -71,16 +71,6 @@
         border: 1px solid black;
         vertical-align: top;
       }
-      #control {
-        -ms-grid-row: 1;
-        -ms-grid-column: 2;
-        border-right: 1px solid black;
-      }
-      #members {
-        width: 250px;
-        margin: 20px auto;
-        text-align: center;
-      }
       .dr {
         display: inline-block;
         vertical-align: middle;
@@ -93,11 +83,11 @@
       }
       .drInCell {
         display: block;
-        vertical-align: middle;
         width: 105px;
         height: 25px;
         line-height: 25px;
         font-size: 0.9rem;
+        vertical-align: middle;
         text-align: center;
       }
       .dr1 {background-color: Coral; color:Black;}
@@ -107,6 +97,25 @@
       .dr5 {background-color: Plum; color:Black;}
       .dr6 {background-color: Peachpuff; color:Black;}
       .selected {background-color: DimGray; color: white;}
+      
+      .workHour {
+        display: inline-block;
+        height: 25px;
+        line-height: 25px;
+        font-size: 0.9rem;
+        vertical-align: middle;
+        text-align: center;
+      }
+      #control {
+        -ms-grid-row: 1;
+        -ms-grid-column: 2;
+        border-right: 1px solid black;
+      }
+      #members {
+        width: 250px;
+        margin: 20px auto;
+        text-align: center;
+      }
 
     </style>
     <script type='text/javascript' src='polyfill.js'></script>
@@ -275,7 +284,7 @@
           target.childNodes[1].innerHTML = ': ' + workHours;
         }else{
           let text = document.createElement('span');
-          text.style.fontsize = '0.9rem';
+          text.className = 'workHour';
           text.innerHTML = ': ' + workHours;
           target.appendChild(text);
         }
