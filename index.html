@@ -409,7 +409,7 @@ function updateOutputByMonth(targetMonth){
 		if (document.querySelector('.dr.' + drQuery) !== null){
 			let child = target.childNodes;
 			let childDr = null;
-			for (let i = 0; i < child.length; i++){
+			for (let i = 1; i < child.length; i++){
 				if (child[i].className.includes(drQuery)){
 					childDr = child[i];
 					break;
