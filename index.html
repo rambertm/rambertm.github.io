@@ -402,7 +402,7 @@ function updateOutputByMonth(targetMonth){
 	let dr1 = document.querySelector('.dr.dr1');
 	if (dr1 !== null){
 		target.innerHTML = target.firstChild.getTextContent;
-		let workHours = dutyObj['dr1'].['month' + targetMonth] + dutyObj['dr1'].['month' + targetMonth + '_holiday'];
+		let workHours = dutyObj['dr1']['month' + targetMonth] + dutyObj['dr1']['month' + targetMonth + '_holiday'];
 		let workHoursDiv = document.createElement('div');
 		workHoursDiv.innerHTML = workHours;
 		target.appendChild(workHoursDiv);
