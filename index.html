@@ -342,10 +342,11 @@ document.body.addEventListener('keydown', function(event){
 				selected.innerHTML = selected.firstChild.textContent;
 				updateOutputByMonth(selected.childNodes[0].textContent.split('/')[0]);
 			}else if (selected.className.includes('drInCell')){
-				updateDutyHours(selected, false);
-				selected.parentNode.removeChild(selected);
-				updateDutyHours(selected, true);
-				updateOutputByMonth(selected.parentNode.childNodes[0].textContent.split('/')[0]);
+				let parent = selected.parentNode;
+				updateDutyHours(parent, false);
+				parent.removeChild(selected);
+				updateDutyHours(parent, true);
+				updateOutputByMonth(parent.childNodes[0].textContent.split('/')[0]);
 			}
 		}
 	}
@@ -369,6 +370,10 @@ function updateDutyHours(cell, InOut){
 	let date = child[0].textContent;
 	let month = date.split('/')[0];
 	let todayMonth = new Date().getMonth() + 1;
+	console.log(tableBody.firstElementChild);
+	console.log(child.parentNode);
+	console.log(month);
+	console.log(todayMonth);
 	if ((tableBody.firstElementChild === child.parentNode) && (month !== todayMonth)){
 		return
 	}
