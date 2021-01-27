@@ -362,7 +362,14 @@ function getCell(row, col){
 function updateDutyHours(cell, InOut){	
 	let child = cell.childNodes;
 	let date = child[0].textContent;
-	let month = date.split('/')[0]
+	let month = date.split('/')[0];
+	let todayMonth = new Date().getMonth() + 1;
+	if ((tableBody.firstElementChild === child.parentNode) && (month !== todayMonth)){
+		return
+	}
+	if ((tableBody.lastElementChild === child.parentNode) && (month === todayMonth)){
+		return
+	}
 	for(let i = 1; i < child.length; i++){
 		let dr = child[i].className.split(' ')[1];
 		let grandChild = child[i].childNodes;
