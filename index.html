@@ -294,8 +294,8 @@ tableBody.addEventListener('drop', function(event){
 					target.appendChild(origin.childNodes[i].cloneNode(true));
 				}
 				updateDutyHours(target, true);
+				updateOutputByMonth(target.childNodes[0].textContent.split('/')[0]);
 		}
-		updateOutputByMonth(target.childNodes[0].textContent.split('/')[0]);
 	}
 });
 tableBody.addEventListener('click', function(event){
