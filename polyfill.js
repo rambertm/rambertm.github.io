@@ -235,3 +235,24 @@ Number.isSafeInteger = Number.isSafeInteger || function (value) {
         });
     }
 })(window.Node || window.Element);
+
+// Overwrites native 'lastElementChild' prototype.
+// Returns array instead of HTMLCollection.
+;(function(constructor) {
+  if(constructor &&
+    constructor.prototype &&
+    constructor.prototype.lastElementChild == null) {
+    Object.defineProperty(constructor.prototype, 'lastElementChild', {
+      get: function() {
+        var node, nodes = this.childNodes, i = nodes.length - 1;
+        while(node = nodes[i--]) {
+          if(node.nodeType === 1) {
+            return node;
+          }
+        }
+        return null;
+      }
+    });
+  }
+})(window.Node || window.Element);
+
