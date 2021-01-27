@@ -419,7 +419,8 @@ function updateOutputByMonth(targetMonth){
 				let newChildDiv = document.createElement('div');
 				let workHours = dutyObj[drQuery]['month' + targetMonth] + dutyObj[drQuery]['month' + targetMonth + '_holiday'];
 				newChildDiv.className = drQuery;
-				newChildDiv.innerHTML = dutyObj[drQuery].name + '   ' + workHours + ' 시간';
+				newChildDiv.style.width = '150px';
+				newChildDiv.innerHTML = dutyObj[drQuery].name + ':&nbsp;&nbsp;&nbsp;' + workHours + ' 시간';
 				target.appendChild(newChildDiv);
 			}else{
 				let workHours = dutyObj[drQuery]['month' + targetMonth] + dutyObj[drQuery]['month' + targetMonth + '_holiday'];
