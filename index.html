@@ -260,11 +260,13 @@ tableBody.addEventListener('drop', function(event){
 			copy.className = 'drInCell ' + originID;
 			target.appendChild(copy);
 		}else if(originCName.includes('tableCell')){
+				updateDutyHours(target, false);
 				target.innerHTML = target.firstChild.textContent;
 				removeClassAll('selected');
 				for(let i = 1; i < origin.childNodes.length; i++){
 					target.appendChild(origin.childNodes[i].cloneNode(true));
 				}
+				updateDutyHours(target, true);
 		}
 	}
 });
