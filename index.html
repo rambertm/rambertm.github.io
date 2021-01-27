@@ -250,8 +250,11 @@
     }
    });
    tableBody.addEventListener('click', function(event){
-     removeClassAll('selected');
-     event.target.classList.add('selected');
+     let target = event.target;
+     if (target.className.includes('tableCell') || target.className.includes('drInCell')){
+      removeClassAll('selected');
+      event.target.classList.add('selected');
+     }
    });
    
    tableBody.addEventListener('dblclick', function(event){
