@@ -137,7 +137,7 @@
 		<div id=calendar>
 			<div id='calendarHead'>
 				<div id='calendarMenu'>
-					<button onclick='testFunc(2,4)'>자동완성</button>
+					<button onclick='updateOutputByMonth(1)'>자동완성</button>
 					<button>초기화</button>
 				</div>
 				<div id='calendarWeekdays'>
@@ -230,15 +230,12 @@ function initCalendar(){
 }
 function initOutput(){
 	let today = new Date();
-	let month = today.getMonth();
-	let output = document.getElementById('output');
-	let child = output.childNodes;
+	let child = document.getElementById('output').childNodes;
 	let day = new Date(today);
 	for(let i = 0; i < child.length; i++){
 		child[i].innerHTML = day.getFullYear() + '년 ' + (day.getMonth() + 1) + '월';
 		day.setMonth(day.getMonth() + 1);
 	}
-
 }
 	
 
@@ -393,6 +390,25 @@ function updateDutyHours(cell, InOut){
 function updateOutput(){
 	
 }
+function updateOutputByMonth(targetMonth){
+	let currentMonth = new Date().getMonth();
+	let nth = 0;
+	if (currentMonth <= targetMonth){
+		nth = targetMonth - currentMonth;
+	}else{
+		nth = 12 - currentMonth + targetMonth;
+	}
+	let target = document.getElementById('output').childNodes[nth];
+	let dr1 = document.querySelector('.dr.dr1');
+	if (dr1 !== null){
+		target.innerHTML = target.firstChild.getTextContent;
+		let workHours = dutyObj['dr1'].['month' + targetMonth] + dutyObj['dr1'].['month' + targetMonth + '_holiday'];
+		let workHoursDiv = document.createElement('div');
+		workHoursDiv.innerHTML = workHours;
+		target.appendChild(workHoursDiv);
+	}
+}
+	
 function testFunc(row, col){
 	console.log(dutyObj);
 }
