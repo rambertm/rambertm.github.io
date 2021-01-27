@@ -206,11 +206,6 @@ function initCalendar(){
 	let table = document.getElementById('tableBody');
 	for (let i = 0; i < 53; i++){
 		let tr = table.appendChild(document.createElement('tr'));
-		if (i === 0){
-			tr.id = 'firstTR';
-		}else if(i === 52){
-			tr.id = 'lastTR';
-		}
 		for (let i = 0; i < 7; i++){
 			let date = (parseInt(day.getMonth()) + 1) + '/' + day.getDate();
 			let fullDate = (parseInt(day.getFullYear())) + '/' + date;
@@ -375,10 +370,12 @@ function updateDutyHours(cell, InOut){
 	let date = child[0].textContent;
 	let month = date.split('/')[0];
 	let todayMonth = new Date().getMonth() + 1;
-	if ((tableBody.firstElementChild === document.getElementById('firstTR')) && (month !== parseInt(todayMonth))){
+	if ((tableBody.firstElementChild === cell.parentNode) && (month !== parseInt(todayMonth))){
+		console.log('if1');
 		return
 	}
-	if ((tableBody.lastElementChild === document.getElementById('lastTR')) && (month === parseInt(todayMonth))){
+	if ((tableBody.lastElementChild === cell.parentNode) && (month === parseInt(todayMonth))){
+		console.log('if2');
 		return
 	}
 	for(let i = 1; i < child.length; i++){
@@ -437,7 +434,7 @@ function updateOutputByMonth(targetMonth){
 				target.appendChild(newChildDiv);
 			}else{
 				let workHours = dutyObj[drQuery]['month' + targetMonth] + dutyObj[drQuery]['month' + targetMonth + '_holiday'];
-				childDr.innerHTML = dutyObj[drQuery].name + '   ' + workHours + ' 시간';
+				childDr.innerHTML = dutyObj[drQuery].name + ':&nbsp;&nbsp;&nbsp;' + workHours + ' 시간';
 			}
 		}
 	}
