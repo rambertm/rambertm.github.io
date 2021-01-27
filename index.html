@@ -115,7 +115,12 @@
 		margin: 20px auto;
 		text-align: center;
 	}
-
+	#output {
+		border: 1px solid black;
+		margin: 1px;
+		padding: 5px;
+	}
+		
 	</style>
 	<script type='text/javascript' src='polyfill.js'></script>
 </head>
@@ -228,6 +233,7 @@ function initOutput(){
 	}
 
 }
+	
 
 document.getElementById('members').addEventListener('dragstart', function(event){
 	let target = event.target;
