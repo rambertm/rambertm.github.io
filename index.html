@@ -282,6 +282,7 @@ tableBody.addEventListener('dblclick', function(event){
 	if (className.includes('drInCell')){
 		let name = target.firstChild.textContent;
 		let day = target.parentNode.firstChild.textContent;
+		updateDutyHours(target.parentNode, false);
 		let workHours = parseFloat(window.prompt(name + '님의 ' + day + '일 근무시간을 입력해주세요.'));
 		if ((workHours > 0) && (workHours <= 24)){
 			if (Number.isSafeInteger(workHours)){
@@ -298,6 +299,7 @@ tableBody.addEventListener('dblclick', function(event){
 				target.appendChild(text);
 			}
 		}
+		updateDutyHours(target.parentNode, true);
 	}
 });
 
@@ -330,7 +332,8 @@ function getCell(row, col){
 	}
 	return tableBody.childNodes[row-1].childNodes[col-1];
 }
-function updateDuty(cell){	
+
+function updateDutyHours(cell, InOut){	
 	let child = cell.childNodes;
 	let date = child[0].textContent;
 	let month = date.split('/')[0]
@@ -339,13 +342,24 @@ function updateDuty(cell){
 		let grandChild = child[i].childNodes;
 		if (grandChild.length === 2){
 			workhour = parseFloat(grandChild[1].textContent.substring(2));
-			dutyObj[dr]['month' + month] = dutyObj[dr]['month' + month] + workhour;
+			if (cell.className.includes('colHoliday')){
+				if (InOut){
+					dutyObj[dr]['month' + month + '_holiday'] = dutyObj[dr]['month' + month + '_holiday'] + workhour;
+				}else{
+					dutyObj[dr]['month' + month + '_holiday'] = dutyObj[dr]['month' + month + '_holiday'] - workhour;
+				}
+			}else{
+				if (InOut){
+					dutyObj[dr]['month' + month] = dutyObj[dr]['month' + month] + workhour;
+				}else{
+					dutyObj[dr]['month' + month] = dutyObj[dr]['month' + month] - workhour;
+				}
+			}
 		}
 	}
 }
 	
 function testFunc(row, col){
-	updateDuty(getCell(row, col));
 	console.log(dutyObj);
 }
 
