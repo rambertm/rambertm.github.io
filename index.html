@@ -148,9 +148,7 @@
 				<input type='text' id='docName' maxlength='4' style='width:75px'>
 				<button onclick='addDoc()'>Add</button>
 			</fieldset>
-			<div id='output'>
-				<div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
-			</div>
+			<div id='output'><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
 		</div>
 	</div>
 
@@ -217,6 +215,18 @@ function initCalendar(){
 			day.setDate(day.getDate() + 1);
 		}
 	}
+}
+function initOutput(){
+	let today = new Date();
+	let month = today.getMonth();
+	let output = document.getElementById('output');
+	let child = output.childNodes;
+	let day = new Date(today);
+	for(let i = 0; i < child.length; i++){
+		child[i].innerHTML = day.getFullYear() + '년 ' + (day.getMonth() + 1) + '월';
+		day.setMonth(day.getMonth() + 1);
+	}
+
 }
 
 document.getElementById('members').addEventListener('dragstart', function(event){
