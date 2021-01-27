@@ -404,13 +404,28 @@ function updateOutputByMonth(targetMonth){
 		nth = 12 - currentMonth + targetMonth;
 	}
 	let target = document.getElementById('output').childNodes[nth];
-	let dr1 = document.querySelector('.dr.dr1');
-	if (dr1 !== null){
-		target.innerHTML = target.firstChild.textContent;
-		let workHours = dutyObj['dr1']['month' + targetMonth] + dutyObj['dr1']['month' + targetMonth + '_holiday'];
-		let workHoursDiv = document.createElement('div');
-		workHoursDiv.innerHTML = workHours;
-		target.appendChild(workHoursDiv);
+	for(let i = 1; i < 7 ; i ++){
+		let drQuery = 'dr' + i;
+		if (document.querySelector('.dr.' + drQuery) !== null){
+			let child = target.childNodes;
+			let childDr = null;
+			for (let i = 0; i < child.length; i++){
+				if (child[i].className.includes(drQuery)){
+					childDr = child[i];
+					break;
+				}
+			}
+			if (childDr === null){
+				let newChildDiv = document.createElement('div');
+				let workHours = dutyObj[drQuery]['month' + targetMonth] + dutyObj[drQuery]['month' + targetMonth + '_holiday'];
+				newChildDiv.className = drQuery;
+				newChildDiv.innerHTML = dutyObj[drQuery].name + '   ' + workHours + ' 시간';
+				target.appendChild(newChildDiv);
+			}else{
+				let workHours = dutyObj[drQuery]['month' + targetMonth] + dutyObj[drQuery]['month' + targetMonth + '_holiday'];
+				childDr.innerHTML = dutyObj[drQuery].name + '   ' + workHours + ' 시간';
+			}
+		}
 	}
 }
 	
