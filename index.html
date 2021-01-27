@@ -321,7 +321,8 @@ function getCellValue(row, col){
 		return
 	}
 	let target = tableBody.childNodes[row-1].childNodes[col-1];
-	console.log(target.textContent);
+	console.log(tableBody.childNodes[0]);
+	console.log(tableBody.childNodes[2]);
 }
 
 initCalendar();
