@@ -206,6 +206,11 @@ function initCalendar(){
 	let table = document.getElementById('tableBody');
 	for (let i = 0; i < 53; i++){
 		let tr = table.appendChild(document.createElement('tr'));
+		if (i === 0){
+			tr.id = 'firstTR';
+		}else if(i === 52){
+			tr.id = 'lastTR';
+		}
 		for (let i = 0; i < 7; i++){
 			let date = (parseInt(day.getMonth()) + 1) + '/' + day.getDate();
 			let fullDate = (parseInt(day.getFullYear())) + '/' + date;
@@ -371,14 +376,15 @@ function updateDutyHours(cell, InOut){
 	let month = date.split('/')[0];
 	let todayMonth = new Date().getMonth() + 1;
 	console.log(tableBody.firstElementChild);
-	console.log(child);
-	console.log(child.parentNode);
+	console.log(childdocument.getElementById('firstTR'));
+	console.log(tableBody.lastElementChild);
+	console.log(document.getElementById('lastTR'));
 	console.log(month);
 	console.log(todayMonth);
-	if ((tableBody.firstElementChild === child.parentNode) && (month !== todayMonth)){
+	if ((tableBody.firstElementChild === document.getElementById('firstTR')) && (month !== todayMonth)){
 		return
 	}
-	if ((tableBody.lastElementChild === child.parentNode) && (month === todayMonth)){
+	if ((tableBody.lastElementChild === document.getElementById('lastTR')) && (month === todayMonth)){
 		return
 	}
 	for(let i = 1; i < child.length; i++){
