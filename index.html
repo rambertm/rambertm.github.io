@@ -385,7 +385,6 @@ function updateDutyHours(cell, InOut){
 			}
 		}
 	}
-	updateOutputByMonth(month);
 }
 
 function updateOutput(){
@@ -393,6 +392,7 @@ function updateOutput(){
 }
 function updateOutputByMonth(targetMonth){
 	let currentMonth = new Date().getMonth();
+	console.log(currentMonth);
 	let nth = 0;
 	if (currentMonth <= targetMonth){
 		nth = targetMonth - currentMonth;
