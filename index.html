@@ -116,9 +116,13 @@
 		text-align: center;
 	}
 	#output {
-		border: 1px solid black;
+		max-height: calc(100% - 155px);
+		max-height: 40vh;
 		margin: 1px;
 		padding: 5px;
+		border: 1px solid black;
+		overflow-x: hidden;
+		overflow-y: scroll;
 	}
 		
 	</style>
@@ -382,7 +386,10 @@ function updateDutyHours(cell, InOut){
 		}
 	}
 }
+
+function updateOutput(){
 	
+}
 function testFunc(row, col){
 	console.log(dutyObj);
 }
