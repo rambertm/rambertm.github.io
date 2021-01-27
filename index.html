@@ -189,6 +189,14 @@ function addDoc(e){
 	let docName = field.value;
 	document.getElementById('members').appendChild(child).appendChild(document.createTextNode(docName));
 	dutyObj['dr' + drNo].name = docName;
+	let outputChild = document.getElementById('output').childNodes;
+	for(let i = 0; i < outputChild.length ; i ++){
+		let newChildDiv = document.createElement('div');
+		newChildDiv.className = 'dr' + drNo;
+		newChildDiv.style.width = '150px';
+		newChildDiv.innerHTML = docName + ':&nbsp;&nbsp;&nbsp;0 시간';
+		outputChild[i].appendChild(newChildDiv);
+	}
 	field.value = "";
 	drNo++;
 }
@@ -425,6 +433,9 @@ function updateOutputByMonth(targetMonth){
 					break;
 				}
 			}
+			let workHours = dutyObj[drQuery]['month' + targetMonth] + dutyObj[drQuery]['month' + targetMonth + '_holiday'];
+			childDr.innerHTML = dutyObj[drQuery].name + ':&nbsp;&nbsp;&nbsp;' + workHours + ' 시간';
+			/*
 			if (childDr === null){
 				let newChildDiv = document.createElement('div');
 				let workHours = dutyObj[drQuery]['month' + targetMonth] + dutyObj[drQuery]['month' + targetMonth + '_holiday'];
@@ -433,9 +444,8 @@ function updateOutputByMonth(targetMonth){
 				newChildDiv.innerHTML = dutyObj[drQuery].name + ':&nbsp;&nbsp;&nbsp;' + workHours + ' 시간';
 				target.appendChild(newChildDiv);
 			}else{
-				let workHours = dutyObj[drQuery]['month' + targetMonth] + dutyObj[drQuery]['month' + targetMonth + '_holiday'];
-				childDr.innerHTML = dutyObj[drQuery].name + ':&nbsp;&nbsp;&nbsp;' + workHours + ' 시간';
-			}
+			*/
+			
 		}
 	}
 }
