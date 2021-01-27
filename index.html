@@ -13,9 +13,9 @@
         display: -ms-grid;
         display: grid;
         -ms-grid-rows: 1fr;
-        -ms-grid-columns: 800px 300px 1fr;
+        -ms-grid-columns: 800px 1fr;
         grid-template-rows: 1fr;
-        grid-template-columns: 800px 300px 1fr;
+        grid-template-columns: 800px 1fr;
       }
       #calendar{
         -ms-grid-row: 1;
@@ -106,10 +106,7 @@
       .dr5 {background-color: Plum; color:Black;}
       .dr6 {background-color: Peachpuff; color:Black;}
       .selected {background-color: DimGray; color: white;}
-      #output {
-        -ms-grid-row: 1;
-        -ms-grid-column: 3;
-      }
+
     </style>
     <script type='text/javascript' src='polyfill.js'></script>
   </head>
@@ -144,7 +141,6 @@
           <button id='addDoc' onclick='addDoc()'>Add</button>
         </fieldset>
       </div>
-      <div id='output'></div>
     </div>
 
   <script>
