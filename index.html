@@ -339,8 +339,7 @@ function updateDuty(cell){
 		let grandChild = child[i].childNodes;
 		if (grandChild.length === 2){
 			workhour = parseFloat(grandChild[1].textContent.substring(2));
-			console.log(dutyObj['dr' + dr]);
-			//['month' + month] = dutyObj['dr' + dr]['month' + month] + workhour;
+			dutyObj[dr]['month' + month] = dutyObj[dr]['month' + month] + workhour;
 		}
 	}
 }
