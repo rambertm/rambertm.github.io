@@ -321,9 +321,10 @@ function getCellValue(row, col){
 	let target = tableBody.childNodes[row-1].childNodes[col-1];
 	let child = target.childNodes;
 	let date = child[0];
-	console.log(date);
 	for(let i = 1; i < child.length;i++){
-		console.log(child[i].textContent);
+		let dr = child[i].className.split(' ')[1];
+		let grandChild = child[i].childNodes;
+		console.log(grandChild[1]);
 	}
 	
 }
