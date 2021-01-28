@@ -293,6 +293,9 @@ tableBody.addEventListener('drop', function(event){
 			copy.className = 'drInCell ' + originID;
 			target.appendChild(copy);
 		}else if(originCName.includes('tableCell')){
+				if (target === origin){
+					return
+				}
 				updateDutyHours(target, false);
 				target.innerHTML = target.firstChild.textContent;
 				removeClassAll('selected');
