@@ -430,7 +430,7 @@ function fillCalendar(){
 		if (firstEmptyRow === 0){
 			return
 		}else{
-			
+			copyRow(firstDataRow, firstEmptyRow);	
 		
 		
 		}
@@ -438,8 +438,17 @@ function fillCalendar(){
 }
 	
 function copyRow(origin, target){
-	
-
+	for(let i = 1; i < 8; i++){
+		let originCell = getCell(origin, i);
+		let targetCell = getCell(target, i);
+		updateDutyHours(targetCell, false);
+		targetCell.innerHTML = target.firstChild.textContent;
+		for(let i = 1; i < originCell.childNodes.length; i++){
+			targetCell.appendChild(originCell.childNodes[i].cloneNode(true));
+		}
+		updateDutyHours(targetCell, true);
+		updateOutputByMonth(targetCell.childNodes[0].textContent.split('/')[0]);
+	}
 }
 	
 function updateDutyHours(cell, InOut){	
