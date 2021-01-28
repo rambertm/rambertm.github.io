@@ -417,12 +417,12 @@ function fillCalendar(){
 	}
 	console.log('firstDataRow: ' + firstDataRow);
 	if (firstDataRow){
-		let isEmpty = true;
 		for(let r = firstDataRow + 1; r < 54 ; r++){
+			let isEmpty = true;
 			for(let i = 1; i < 8 ; i++){
-				let cell = getCell(r, i);
-				if (cell.childNodes.length > 1){
+				if (getCell(r, i).childNodes.length > 1){
 					isEmpty = false;
+					break;
 				}
 			}
 			if (isEmpty){
