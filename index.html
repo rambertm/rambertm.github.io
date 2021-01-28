@@ -319,29 +319,35 @@ tableBody.addEventListener('dblclick', function(event){
 	let target = event.target;
 	let className = target.className;
 	if (className.includes('drInCell')){
-		let name = target.firstChild.textContent;
-		let day = target.parentNode.firstChild.textContent;
-		updateDutyHours(target.parentNode, false);
-		let workHours = parseFloat(window.prompt(name + '님의 ' + day + '일 근무시간을 입력해주세요.'));
-		if ((workHours > 0) && (workHours <= 24)){
-			if (Number.isSafeInteger(workHours)){
-				workHours = Math.floor(workHours);
-			}else{
-				workHours = workHours.toFixed(1);
-			}
-			if (target.childNodes[1]){
-				target.childNodes[1].innerHTML = ': ' + workHours;
-			}else{
-				let text = document.createElement('span');
-				text.className = 'workHour';
-				text.innerHTML = ': ' + workHours;
-				target.appendChild(text);
-			}
-		}
-		updateDutyHours(target.parentNode, true);
-		updateOutputByMonth(day.split('/')[0]);
+		promptWorkHour(target);
+	}else if (className.includes('workHour'){
+		promptWorkHour(target.parentNode);
 	}
 });
+	
+function promptWorkHour(target){
+	let name = target.firstChild.textContent;
+	let day = target.parentNode.firstChild.textContent;
+	updateDutyHours(target.parentNode, false);
+	let workHours = parseFloat(window.prompt(name + '님의 ' + day + '일 근무시간을 입력해주세요.'));
+	if ((workHours > 0) && (workHours <= 24)){
+		if (Number.isSafeInteger(workHours)){
+			workHours = Math.floor(workHours);
+		}else{
+			workHours = workHours.toFixed(1);
+		}
+		if (target.childNodes[1]){
+			target.childNodes[1].innerHTML = ': ' + workHours;
+		}else{
+			let text = document.createElement('span');
+			text.className = 'workHour';
+			text.innerHTML = ': ' + workHours;
+			target.appendChild(text);
+		}
+	}
+	updateDutyHours(target.parentNode, true);
+	updateOutputByMonth(day.split('/')[0]);	
+}
 
 document.body.addEventListener('keydown', function(event){
 	if (event.keyCode === 46){
@@ -385,11 +391,9 @@ function updateDutyHours(cell, InOut){
 	let month = date.split('/')[0];
 	let todayMonth = new Date().getMonth() + 1;
 	if ((tableBody.firstElementChild === cell.parentNode) && (month !== todayMonth.toString())){
-		console.log('if1');
 		return
 	}
 	if ((tableBody.lastElementChild === cell.parentNode) && (month === todayMonth.toString())){
-		console.log('if2');
 		return
 	}
 	for(let i = 1; i < child.length; i++){
