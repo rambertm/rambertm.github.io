@@ -430,7 +430,9 @@ function fillCalendar(){
 		if (firstEmptyRow === 0){
 			return
 		}else{
-			copyRow(firstDataRow, firstEmptyRow);	
+			
+			copyRow(firstDataRow, firstEmptyRow);
+			
 		
 		
 		}
@@ -442,7 +444,7 @@ function copyRow(origin, target){
 		let originCell = getCell(origin, i);
 		let targetCell = getCell(target, i);
 		updateDutyHours(targetCell, false);
-		targetCell.innerHTML = target.firstChild.textContent;
+		targetCell.innerHTML = targetCell.firstChild.textContent;
 		for(let i = 1; i < originCell.childNodes.length; i++){
 			targetCell.appendChild(originCell.childNodes[i].cloneNode(true));
 		}
