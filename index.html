@@ -388,17 +388,25 @@ function getCell(row, col){
 function resetCalendar(){
 	for(let r = 1; r < 54; r++){
 		for(let i = 1; i < 8 ; i++){
-			let selected = getCell(r, i);
-			updateDutyHours(selected, false);
-			selected.innerHTML = selected.firstChild.textContent;
-			updateOutputByMonth(selected.childNodes[0].textContent.split('/')[0]);		
+			let cell = getCell(r, i);
+			cell.innerHTML = cell.firstChild.textContent;
 		}
 	}
-	
+	for(let i = 1; i < 7; i++){
+		dutyObj['dr' + i].reset();
+	}
+	updateOutput();
 }
 
 function fillCalendar(){
-
+	for(let r = 1; r < 54; r++){
+		for(let i = 1; i < 8 ; i++){
+			let selected = getCell(r, i);
+			if (selected.childNodes.length > 1){
+				
+			}
+		}
+	}
 }
 	
 function updateDutyHours(cell, InOut){	
@@ -461,17 +469,6 @@ function updateOutputByMonth(targetMonth){
 			}
 			let workHours = dutyObj[drQuery]['month' + targetMonth] + dutyObj[drQuery]['month' + targetMonth + '_holiday'];
 			childDr.innerHTML = dutyObj[drQuery].name + ':&nbsp;&nbsp;&nbsp;' + workHours + ' 시간';
-			/*
-			if (childDr === null){
-				let newChildDiv = document.createElement('div');
-				let workHours = dutyObj[drQuery]['month' + targetMonth] + dutyObj[drQuery]['month' + targetMonth + '_holiday'];
-				newChildDiv.className = drQuery;
-				newChildDiv.style.width = '150px';
-				newChildDiv.innerHTML = dutyObj[drQuery].name + ':&nbsp;&nbsp;&nbsp;' + workHours + ' 시간';
-				target.appendChild(newChildDiv);
-			}else{
-			*/
-			
 		}
 	}
 }
@@ -479,6 +476,33 @@ function updateOutputByMonth(targetMonth){
 
 function createObjDr(){
 	this.name = "";
+	this.month1 = 0;
+	this.month1_holiday = 0;
+	this.month2 = 0;
+	this.month2_holiday = 0;
+	this.month3 = 0;
+	this.month3_holiday = 0;
+	this.month4 = 0;
+	this.month4_holiday = 0;
+	this.month5 = 0;
+	this.month5_holiday = 0;
+	this.month6 = 0;
+	this.month6_holiday = 0;
+	this.month7 = 0;
+	this.month7_holiday = 0;
+	this.month8 = 0;
+	this.month8_holiday = 0;
+	this.month9 = 0;
+	this.month9_holiday = 0;
+	this.month10 = 0;
+	this.month10_holiday = 0;
+	this.month11 = 0;
+	this.month11_holiday = 0;
+	this.month12 = 0;
+	this.month12_holiday = 0;
+}
+	
+createObjDr.prototype.reset = function(){
 	this.month1 = 0;
 	this.month1_holiday = 0;
 	this.month2 = 0;
