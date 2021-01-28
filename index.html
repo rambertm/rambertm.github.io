@@ -430,16 +430,28 @@ function fillCalendar(){
 		if (firstEmptyRow === 0){
 			return
 		}else{
-			
-			copyRow(firstDataRow, firstEmptyRow);
-			
-		
-		
+			let gap = firstEmptyRow - firstDataRow;
+			for(let i = 0; i < 53; i ++){
+				for(let i = 0; i < gap; i++){
+					let targetRow = firstEmptyRow + i;
+					if (targetRow > 53){
+						return
+					}
+					copyRow(firstDataRow + i, targetRow);
+				}
+				firstEmptyRow = firstEmptyRow + gap;
+			}
 		}
 	}
 }
 	
 function copyRow(origin, target){
+	if ((origin < 1) || (origin > 52)){
+		return
+	}
+	if ((target < 2) || (target > 53)){
+		return
+	}
 	for(let i = 1; i < 8; i++){
 		let originCell = getCell(origin, i);
 		let targetCell = getCell(target, i);
