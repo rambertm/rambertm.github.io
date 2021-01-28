@@ -415,7 +415,6 @@ function fillCalendar(){
 			break;
 		}
 	}
-	console.log('firstDataRow: ' + firstDataRow);
 	if (firstDataRow){
 		for(let r = firstDataRow + 1; r < 54 ; r++){
 			let isEmpty = true;
@@ -430,12 +429,10 @@ function fillCalendar(){
 				break;
 			}
 		}
-		console.log('firstEmptyRow: ' + firstEmptyRow);
 		if (firstEmptyRow === 0){
 			return
 		}else{
 			let gap = firstEmptyRow - firstDataRow;
-			console.log('gap: '+ gap);
 			for(let i = 0; i < 53; i ++){
 				for(let i = 0; i < gap; i++){
 					let targetRow = firstEmptyRow + i;
