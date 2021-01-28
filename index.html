@@ -399,14 +399,40 @@ function resetCalendar(){
 }
 
 function fillCalendar(){
+	let firstDataRow = 0;
+	let firstEmptyRow = 0;
 	for(let r = 1; r < 54; r++){
 		for(let i = 1; i < 8 ; i++){
-			let selected = getCell(r, i);
-			if (selected.childNodes.length > 1){
-				
+			let cell = getCell(r, i);
+			if (cell.childNodes.length > 1){
+				firstDataRow = r;
+				break;
+			}
+		}
+		if (firstDataRow){
+			break;
+		}
+	}
+	if (firstDataRow){
+		let isEmpty = true;
+		for(let r = firstDataRow + 1; r < 54 ; r++){
+			for(let i = 1; i < 8 ; i++){
+				let cell = getCell(r, i);
+				if (cell.childNodes.length > 1){
+					isEmpty = false;
+				}
+			}
+			if (isEmpty){
+				firstEmptyRow = r;
+				break;
 			}
 		}
 	}
+	console.log('firstDataRow : ' + firstDataRow);
+	console.log('firstEmptyRow : ' + firstEmptyRow);
+	
+	
+	
 }
 	
 function updateDutyHours(cell, InOut){	
