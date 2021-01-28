@@ -386,6 +386,7 @@ function getCell(row, col){
 }
 
 function resetCalendar(){
+	removeClassAll('selected');
 	for(let r = 1; r < 54; r++){
 		for(let i = 1; i < 8 ; i++){
 			let cell = getCell(r, i);
@@ -399,6 +400,7 @@ function resetCalendar(){
 }
 
 function fillCalendar(){
+	removeClassAll('selected');
 	let firstDataRow = 0;
 	let firstEmptyRow = 0;
 	for(let r = 1; r < 54; r++){
