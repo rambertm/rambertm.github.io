@@ -133,14 +133,14 @@
 	</style>
 	<script type='text/javascript' src='polyfill.js'></script>
 	<script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.0/jspdf.umd.min.js"></script>
-	<script type='text/javascript' src="https://unpkg.com/jspdf-autotable"></script>
+	<script type='text/javascript' src="html2canvas.min.js"></script>
 </head>
 
 <body>
 	<div id='mainContainer'>
 		<div id=calendar>
 			<div id='calendarHead'>
-				<div id='calendarMenu'>
+				<div id='calendarMenu' data-html2canvas-ignore='true'>
 					<button onclick='fillCalendar()'>자동완성</button>
 					<button onclick='resetCalendar()'>초기화</button>
 					<button onclick='generatePDF()'>Download</button>
@@ -187,27 +187,13 @@ let dutyObj = {
 	dr6: new createObjDr()
 };
 
-/*  styles: { fillColor: [255, 0, 0] },
-  columnStyles: { 0: { halign: 'center', fillColor: [0, 255, 0] } }, // Cells in first column centered and green
-  margin: { top: 10 },
-  body: [
-    ['Sweden', 'Japan', 'Canada'],
-    ['Norway', 'China', 'USA'],
-    ['Denmark', 'China', 'Mexico'],
-  ],
-  */
-
 function generatePDF(){
-	let doc = new jspdf.jsPDF("p", "mm", "a4");
-	doc.addFileToVFS('malgun.ttf', _fonts);
-    	doc.addFont('malgun.ttf','malgun', 'normal');
-   	doc.setFont('malgun'); 
-	doc.autoTable({
-		body:[
-			['월', '화', '수', '목']
-		],
-	})
-	doc.save('dutyCalendar.pdf');
+	html2canvas(document.getElementById('calendar')).then(function(canvas){
+		let calendarIMG = canvas.toDataURL('image/jpeg');
+		let doc = new jsPDF("p", "mm", "a4");
+		doc.addImage(calendarIMG, 'JPEG', 10, 10, 800, 1000);
+		doc.save('dutyCalendar.pdf');
+	});
 }
 
 function addDoc(e){
