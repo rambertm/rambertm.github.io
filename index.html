@@ -190,7 +190,7 @@ let dutyObj = {
 function generatePDF(){
 	html2canvas(document.getElementById('calendar')).then(function(canvas){
 		let calendarIMG = canvas.toDataURL('image/jpeg');
-		let doc = new jsPDF("p", "mm", "a4");
+		let doc = new jspdf.jsPDF("p", "mm", "a4");
 		doc.addImage(calendarIMG, 'JPEG', 10, 10, 800, 1000);
 		doc.save('dutyCalendar.pdf');
 	});
