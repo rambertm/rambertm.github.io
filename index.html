@@ -518,7 +518,7 @@ function updateOutputByMonth(targetMonth){
 		nth = 12 - currentMonth + targetMonth;
 	}
 	let target = document.getElementById('output').childNodes[nth];
-	console.log(target);
+	console.log('nth: ' nth 'target: ' target);
 	for(let i = 1; i < 7 ; i ++){
 		let drQuery = 'dr' + i;
 		if (document.querySelector('.dr.' + drQuery) !== null){
