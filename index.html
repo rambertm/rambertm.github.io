@@ -132,8 +132,8 @@
 		
 	</style>
 	<script type='text/javascript' src='polyfill.js'></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.0/jspdf.umd.min.js"></script>
-	<script src="https://unpkg.com/jspdf-autotable"></script>
+	<script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.0/jspdf.umd.min.js"></script>
+	<script type='text/javascript' src="https://unpkg.com/jspdf-autotable"></script>
 </head>
 
 <body>
@@ -188,7 +188,7 @@ let dutyObj = {
 }
 function generatePDF(){
 	let doc = new jspdf.jsPDF("p", "mm", "a4");
-	doc.addFileToVFS('malgun.ttf', _fonts);  //_fonts 변수는 Base64 형태로 변환된 내용입니다.
+	doc.addFileToVFS('malgun.ttf', _fonts);
     	doc.addFont('malgun.ttf','malgun', 'normal');
    	doc.setFont('malgun'); 
 	doc.text(15, 40, '안녕하세요');
