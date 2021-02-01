@@ -510,12 +510,13 @@ function updateOutput(){
 	}
 }
 function updateOutputByMonth(targetMonth){
-	let currentMonth = new Date().getMonth() + 1;
+	let currentMonth = parseInt(new Date().getMonth()) + 1;
+	let targetMonthInt = parseInt(targetMonth);
 	let nth = 0;
-	if (currentMonth <= targetMonth){
-		nth = targetMonth - currentMonth;
+	if (currentMonth <= targetMonthInt){
+		nth = targetMonthInt - currentMonth;
 	}else{
-		nth = 12 - currentMonth + targetMonth;
+		nth = 12 - currentMonth + targetMonthInt;
 	}
 	let target = document.getElementById('output').childNodes[nth];
 	console.log('nth: ', nth, 'target: ', target);
