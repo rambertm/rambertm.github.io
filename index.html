@@ -169,29 +169,37 @@
 		</div>
 	</div>
 	<footer>
-		<p>* 모바일 환경 또는 인터넷 익스플로러를 이용하시는 경우 정상적으로 작동하지 않습니다. 엣지, 크롬, 파이어폭스 등 최신 기준이 적용된 브라우저를 사용해 주세요.
+		<p>* 모바일 환경 또는 인터넷 익스플로러를 이용하시는 경우 정상적으로 작동하지 않습니다. 엣지, 크롬, 파이어폭스 등 웹표준 브라우저를 사용해 주세요.
 		<br>* 버그 및 개선점은 rambertm@naver.com 으로 연락해주세요.</p>
 	</footer>
 
 <script>
 let drNo = 1;
-let holiday = ['2021/2/11', '2021/2/12', '2021/2/13', '2021/3/1', '2021/5/5', '2021/5/19', '2021/9/20', '2021/9/21', '2021/9/22', '2022/2/1', '2022/2/2', '2022/2/3', '2022/3/1', '2022/5/5', '2022/6/6', '2022/8/15', '2022/9/9', '2022/10/3']
+let holiday = ['2021/2/11', '2021/2/12', '2021/2/13', '2021/3/1', '2021/5/5', '2021/5/19', '2021/9/20', '2021/9/21', '2021/9/22', '2022/2/1', '2022/2/2', '2022/2/3', '2022/3/1', '2022/5/5', '2022/6/6', '2022/8/15', '2022/9/9', '2022/10/3'];
 let ddElements = [];
-let tableBody = document.getElementById('tableBody')
+let tableBody = document.getElementById('tableBody');
 let dutyObj = {
-		dr1: new createObjDr(),
-		dr2: new createObjDr(),
-		dr3: new createObjDr(),
-		dr4: new createObjDr(),
-		dr5: new createObjDr(),
-		dr6: new createObjDr()
-}
+	dr1: new createObjDr(),
+	dr2: new createObjDr(),
+	dr3: new createObjDr(),
+	dr4: new createObjDr(),
+	dr5: new createObjDr(),
+	dr6: new createObjDr()
+};
+
+let tableForPDF = {
+	head:['월', '화', '수', '목', '금', '토', '일'],
+	body:[
+		['테스트', '', '3', '4', '5', '6', '일']
+	]
+};
+
 function generatePDF(){
 	let doc = new jspdf.jsPDF("p", "mm", "a4");
 	doc.addFileToVFS('malgun.ttf', _fonts);
     	doc.addFont('malgun.ttf','malgun', 'normal');
    	doc.setFont('malgun'); 
-	doc.autoTable({html: '#calendarTable'});
+	doc.autoTable(tableForPDF);
 	doc.save('dutyCalendar.pdf');
 }
 
