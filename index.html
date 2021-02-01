@@ -132,8 +132,8 @@
 		
 	</style>
 	<script type='text/javascript' src='polyfill.js'></script>
-	<script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.0/jspdf.umd.min.js"></script>
-	<script type='text/javascript' src="html2canvas.min.js"></script>
+	<script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.0/jspdf.umd.min.js'></script>
+	<script type='text/javascript' src='html2canvas.min.js'></script>
 </head>
 
 <body>
@@ -191,7 +191,7 @@ function generatePDF(){
 	html2canvas(document.getElementById('calendar')).then(function(canvas){
 		let calendarIMG = canvas.toDataURL('image/jpeg');
 		let doc = new jspdf.jsPDF("p", "mm", "a4");
-		doc.addImage(calendarIMG, 'JPEG', 10, 10, 800, 1000);
+		doc.addImage(calendarIMG, 'JPEG', 10, 10, 190, 100);
 		doc.save('dutyCalendar.pdf');
 	});
 }
