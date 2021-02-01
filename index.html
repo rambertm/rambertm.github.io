@@ -191,7 +191,7 @@ function generatePDF(){
 	doc.addFileToVFS('malgun.ttf', _fonts);
     	doc.addFont('malgun.ttf','malgun', 'normal');
    	doc.setFont('malgun'); 
-	doc.autoTable({html: 'calendarTable'});
+	doc.autoTable({html: '#calendarTable'});
 	doc.save('dutyCalendar.pdf');
 }
 
