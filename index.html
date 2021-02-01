@@ -470,8 +470,8 @@ function copyRow(origin, target){
 		updateOutputByMonth(targetCell.childNodes[0].textContent.split('/')[0]);
 	}
 }
-	
-function updateDutyHours(cell, InOut){	
+
+function updateDutyHours(cell, InOut){
 	let child = cell.childNodes;
 	let date = child[0].textContent;
 	let month = date.split('/')[0];
@@ -518,6 +518,7 @@ function updateOutputByMonth(targetMonth){
 		nth = 12 - currentMonth + targetMonth;
 	}
 	let target = document.getElementById('output').childNodes[nth];
+	console.log(target);
 	for(let i = 1; i < 7 ; i ++){
 		let drQuery = 'dr' + i;
 		if (document.querySelector('.dr.' + drQuery) !== null){
