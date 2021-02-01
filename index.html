@@ -187,15 +187,7 @@ let dutyObj = {
 	dr6: new createObjDr()
 };
 
-
-
-function generatePDF(){
-	let doc = new jspdf.jsPDF("p", "mm", "a4");
-	doc.addFileToVFS('malgun.ttf', _fonts);
-    	doc.addFont('malgun.ttf','malgun', 'normal');
-   	doc.setFont('malgun'); 
-	doc.autoTable({
-  styles: { fillColor: [255, 0, 0] },
+/*  styles: { fillColor: [255, 0, 0] },
   columnStyles: { 0: { halign: 'center', fillColor: [0, 255, 0] } }, // Cells in first column centered and green
   margin: { top: 10 },
   body: [
@@ -203,7 +195,18 @@ function generatePDF(){
     ['Norway', 'China', 'USA'],
     ['Denmark', 'China', 'Mexico'],
   ],
-})
+  */
+
+function generatePDF(){
+	let doc = new jspdf.jsPDF("p", "mm", "a4");
+	doc.addFileToVFS('malgun.ttf', _fonts);
+    	doc.addFont('malgun.ttf','malgun', 'normal');
+   	doc.setFont('malgun'); 
+	doc.autoTable({
+		body:[
+			['월', '화', '수', '목']
+		],
+	})
 	doc.save('dutyCalendar.pdf');
 }
 
