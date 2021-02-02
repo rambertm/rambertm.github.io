@@ -216,8 +216,8 @@ function addDoc(e){
 	let docName = field.value;
 	document.getElementById('members').appendChild(child).appendChild(document.createTextNode(docName));
 	dutyObj['dr' + drNo].name = docName;
-	html2canvas(child).then(function(canvas){
-		dutyObj.dr1.img = canvas.toDataURL('image/jpeg');
+	html2canvas(child).then(function(canvas, drNo){
+		dutyObj['dr' + drNo].img = canvas.toDataURL('image/jpeg');
 	});
 	let outputChild = document.getElementById('output').childNodes;
 	for(let i = 0; i < outputChild.length ; i ++){
