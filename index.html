@@ -187,7 +187,10 @@ let dutyObj = {
 	dr6: new createObjDr()
 };
 function generatePDF(){
-	console.log(dutyObj.dr1);
+	console.log('obj.dr1: ', dutyObj.dr1);
+	console.log('obj[dr1]: ', dutyObj['dr' + drNo]);
+	console.log('obj.dr1.img: ', dutyObj.dr1.img);
+	console.log('obj[dr1].img: ', dutyObj['dr' + drNo].img);
 	/*
 	html2canvas(document.getElementById('calendar')).then(function(canvas){
 		let calendarIMG = canvas.toDataURL('image/jpeg');
@@ -215,10 +218,6 @@ function addDoc(e){
 	dutyObj['dr' + drNo].name = docName;
 	html2canvas(child).then(function(canvas){
 		dutyObj['dr' + drNo].img = canvas.toDataURL('image/jpeg');
-		console.log('obj.dr1: ', dutyObj.dr1);
-		console.log('obj[dr1]: ', dutyObj['dr' + drNo]);
-		console.log('obj.dr1.img: ', dutyObj.dr1.img);
-		console.log('obj[dr1].img: ', dutyObj['dr' + drNo].img);
 	});
 	console.log(dutyObj.dr1);
 	let outputChild = document.getElementById('output').childNodes;
