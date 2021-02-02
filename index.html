@@ -187,7 +187,9 @@ let dutyObj = {
 	dr6: new createObjDr()
 };
 function generatePDF(){
-	console.log('inside func generatePDF drNo: ', drNo);
+	console.log('dr1: ', dutyObj.dr1);
+	console.log('dr2: ', dutyObj.dr2);
+	console.log('dr6: ', dutyObj.dr6);
 	/*
 	html2canvas(document.getElementById('calendar')).then(function(canvas){
 		let calendarIMG = canvas.toDataURL('image/jpeg');
@@ -214,9 +216,10 @@ function addDoc(e){
 	let docName = field.value;
 	document.getElementById('members').appendChild(child).appendChild(document.createTextNode(docName));
 	dutyObj['dr' + drNo].name = docName;
+	let drNoCopy = drNo;
 	html2canvas(child).then(function(canvas){
-		console.log('inside func addDoc, html2canvas: ', drNo);
-		dutyObj['dr' + drNo].img = canvas.toDataURL('image/jpeg');
+		console.log('inside func addDoc, html2canvas: , drNoCopy', drNoCopy);
+		dutyObj['dr' + drNoCopy].img = canvas.toDataURL('image/jpeg');
 	});
 	let outputChild = document.getElementById('output').childNodes;
 	for(let i = 0; i < outputChild.length ; i ++){
