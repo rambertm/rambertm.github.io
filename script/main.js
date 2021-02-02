@@ -11,12 +11,12 @@ let dutyObj = {
 	dr6: new createObjDr()
 };
 
-function pdfInsertDrImg(no, x, y){
-	doc.addImage(dutyObj['dr' + no].img, 'JPEG', x, y, 18, 6);
+function pdfInsertDrImg(doc, no, x, y){
+	doc.addImage(dutyObj['dr' + no].img, 'JPEG', x, y, 16, 6);
 }
 function generatePDF(){
 	let doc = new jspdf.jsPDF("p", "mm", "a4");
-	pdfInsertDrImg(1, 20, 10)
+	pdfInsertDrImg(doc, 1, 20, 10)
 	doc.save('dutyCalendar.pdf');
 }
 function addDoc(e){
