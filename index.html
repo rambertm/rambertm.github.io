@@ -204,11 +204,12 @@ function generatePDF(){
 	*/
 	
 }
-
+console.log('initial drNo: ', drNo);
 function addDoc(e){
 	if (drNo > 6){
 		return
 	}
+	console.log('inside func addDOC: ', drNo);
 	let child = document.createElement('div');
 	child.className = 'dr';
 	child.classList.add('dr' + drNo);
