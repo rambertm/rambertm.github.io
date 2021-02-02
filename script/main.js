@@ -11,18 +11,9 @@ let dutyObj = {
 	dr6: new createObjDr()
 };
 function generatePDF(){
-	window.open(dutyObj.dr1.img);
-	/*
-	html2canvas(document.getElementById('calendar')).then(function(canvas){
-		let calendarIMG = canvas.toDataURL('image/jpeg');
-		window.open(calendarIMG);
-		//let doc = new jspdf.jsPDF("p", "mm", "a4");
-		//doc.addImage(calendarIMG, 'JPEG', 0, 0, 190, 100);
-		//doc.save('dutyCalendar.pdf');
-		window.scrollTo(0, document.body.scrollHeight || document.documentElement.scrollHeight);
-	});
-	*/
-	
+	let doc = new jspdf.jsPDF("p", "mm", "a4");
+	doc.addImage(dutyObj.dr1.img, 'JPEG', 0, 0, 73, 25);
+	doc.save('dutyCalendar.pdf');
 }
 function addDoc(e){
 	if (drNo > 6){
