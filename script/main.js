@@ -12,7 +12,7 @@ let dutyObj = {
 };
 function generatePDF(){
 	let doc = new jspdf.jsPDF("p", "mm", "a4");
-	doc.addImage(dutyObj.dr1.img, 'JPEG', 0, 0, 12, 4);
+	doc.addImage(dutyObj.dr1.img, 'JPEG', 0, 0, 18, 6);
 	doc.save('dutyCalendar.pdf');
 }
 function addDoc(e){
