@@ -12,7 +12,7 @@ let dutyObj = {
 };
 
 function pdfInsertDrImg(doc, no, x, y){
-	doc.addImage(dutyObj['dr' + no].img, 'JPEG', x, y, 16, 6);
+	doc.addImage(dutyObj['dr' + no].img, 'JPEG', x, y, 19.3, 6.6);
 }
 function generatePDF(){
 	let doc = new jspdf.jsPDF("p", "mm", "a4");
