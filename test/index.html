@@ -9,8 +9,9 @@
   console.log(new Promise(function(res, rej){
     res({name: 'jack', job:'doc'});
   })
-  .then(function(result){
-    console.log('end');
+  .then(function(data){
+    console.log(data);
+    return 'test - value'
   }));
 </script>
 </body>
