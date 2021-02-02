@@ -7,12 +7,10 @@
 <h1> HELLO WORLD! </h1>
 <script>
   console.log(new Promise(function(res, rej){
-    setTimeout(function(){
-      res(1);
-      }, 2000);
+    res({name: 'jack', job:'doc'});
   })
   .then(function(result){
-    console.log(result);
+    console.log('end');
   }));
 </script>
 </body>
