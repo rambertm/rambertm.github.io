@@ -6,7 +6,19 @@
 <body>
 <h1> HELLO WORLD! </h1>
 <script>
-  throw new Error('test error');
+  new Promise(function(res, rej){
+    setTimeout(function(){
+      res(1);
+      }, 2000);
+  })
+  .then(function(result){
+    console.log(result);
+    return result + 10;
+  })
+  .then(function(result){
+    console.log(result);
+    return result + 100;
+  });
 </script>
 </body>
 </html>
