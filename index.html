@@ -216,6 +216,7 @@ function addDoc(e){
 	html2canvas(child).then(function(canvas){
 		dutyObj['dr' + drNo].img = canvas.toDataURL('image/jpeg');
 	});
+	console.log(dutyObj.dr1);
 	let outputChild = document.getElementById('output').childNodes;
 	for(let i = 0; i < outputChild.length ; i ++){
 		let newChildDiv = document.createElement('div');
