@@ -186,9 +186,9 @@ let dutyObj = {
 	dr5: new createObjDr(),
 	dr6: new createObjDr()
 };
-
 function generatePDF(){
-	window.scrollTo(0,0);
+	window.open(dutyObj.dr1.img);
+	/*
 	html2canvas(document.getElementById('calendar')).then(function(canvas){
 		let calendarIMG = canvas.toDataURL('image/jpeg');
 		window.open(calendarIMG);
@@ -197,6 +197,7 @@ function generatePDF(){
 		//doc.save('dutyCalendar.pdf');
 		window.scrollTo(0, document.body.scrollHeight || document.documentElement.scrollHeight);
 	});
+	*/
 	
 }
 
@@ -212,6 +213,9 @@ function addDoc(e){
 	let docName = field.value;
 	document.getElementById('members').appendChild(child).appendChild(document.createTextNode(docName));
 	dutyObj['dr' + drNo].name = docName;
+	html2canvas(child).then(function(canvas){
+		dutyObj['dr' + drNo].img = canvas.toDataURL('image/jpeg');
+	}
 	let outputChild = document.getElementById('output').childNodes;
 	for(let i = 0; i < outputChild.length ; i ++){
 		let newChildDiv = document.createElement('div');
@@ -555,6 +559,7 @@ function updateOutputByMonth(targetMonth){
 
 function createObjDr(){
 	this.name = "";
+	this.img = null;
 	this.month1 = 0;
 	this.month1_holiday = 0;
 	this.month2 = 0;
