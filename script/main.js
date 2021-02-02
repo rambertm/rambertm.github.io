@@ -17,6 +17,7 @@ function pdfInsertDrImg(doc, no, x, y){
 function generatePDF(){
 	let doc = new jspdf.jsPDF("p", "mm", "a4");
 	pdfInsertDrImg(doc, 1, 20, 10)
+	pdfInsertDrImg(doc, 2, 40, 10)
 	doc.save('dutyCalendar.pdf');
 }
 function addDoc(e){
