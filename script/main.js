@@ -32,7 +32,8 @@ async function generatePDF(){
 	const row = worksheet.getRow(5);
 	row.getCell(1).value = 5;
 	const buff = await workbook.xlsx.writeBuffer();
-	console.log(buff);
+	saveAs(new Blob([buff]), 'text.xlsx')
+	
 }
 
 function addDoc(e){
