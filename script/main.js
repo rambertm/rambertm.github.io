@@ -382,7 +382,6 @@ function updateOutputByMonth(targetMonth){
 
 function createObjDr(){
 	this.name = "";
-	this.img = "";
 	this.month1 = 0;
 	this.month1_holiday = 0;
 	this.month2 = 0;
