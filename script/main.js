@@ -15,7 +15,7 @@ function pdfInsertDrImg(doc, no, x, y){
 	doc.addImage(dutyObj['dr' + no].img, 'JPEG', x, y, 19.3, 6.6);
 }
 */
-function generatePDF(){
+async function generatePDF(){
 	const workbook = new ExcelJS.Workbook();
 	const worksheet = workbook.addWorksheet('My Sheet');
 	worksheet.columns = [
@@ -30,7 +30,7 @@ function generatePDF(){
 	worksheet.getColumn(6).values = [1,2,3,4,5];
 	const row = worksheet.getRow(5);
 	row.getCell(1).value = 5;
-	workbook.xlsx.writeFile('testfile.xlsx');
+	await workbook.xlsx.writeFile('testfile.xlsx');
 }
 
 function addDoc(e){
