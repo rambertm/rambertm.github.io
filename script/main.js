@@ -14,13 +14,25 @@ let dutyObj = {
 function pdfInsertDrImg(doc, no, x, y){
 	doc.addImage(dutyObj['dr' + no].img, 'JPEG', x, y, 19.3, 6.6);
 }
-function generatePDF(){
-	let doc = new jspdf.jsPDF("p", "mm", "a4");
-	pdfInsertDrImg(doc, 1, 20, 10)
-	pdfInsertDrImg(doc, 2, 40, 10)
-	doc.save('dutyCalendar.pdf');
-}
 */
+function generatePDF(){
+	const workbook = new ExcelJS.Workbook();
+	const sheet = workbook.addWorksheet('My Sheet');
+	worksheet.columns = [
+		  { header: 'Id', key: 'id', width: 10 },
+		  { header: 'Name', key: 'name', width: 32 },
+		  { header: 'D.O.B.', key: 'DOB', width: 10, outlineLevel: 1 }
+		];
+	const idCol = worksheet.getColumn('id');
+	const nameCol = worksheet.getColumn('B');
+	const dobCol = worksheet.getColumn(3);
+	dobCol.header = 'Date of Birth';
+	worksheet.getColumn(6).values = [1,2,3,4,5];
+	const row = worksheet.getRow(5);
+	row.getCell(1).value = 5;
+	await workbook.xlsx.writeFile('testfile.xlsx');
+}
+
 function addDoc(e){
 	if (drNo > 6){
 		return
