@@ -10,7 +10,7 @@ let dutyObj = {
 	dr5: new createObjDr(),
 	dr6: new createObjDr()
 };
-
+/*
 function pdfInsertDrImg(doc, no, x, y){
 	doc.addImage(dutyObj['dr' + no].img, 'JPEG', x, y, 19.3, 6.6);
 }
@@ -20,6 +20,7 @@ function generatePDF(){
 	pdfInsertDrImg(doc, 2, 40, 10)
 	doc.save('dutyCalendar.pdf');
 }
+*/
 function addDoc(e){
 	if (drNo > 6){
 		return
@@ -32,10 +33,12 @@ function addDoc(e){
 	let docName = field.value;
 	document.getElementById('members').appendChild(child).appendChild(document.createTextNode(docName));
 	dutyObj['dr' + drNo].name = docName;
+	/*
 	let drNoCopy = drNo;
 	html2canvas(child).then(function(canvas){
 		dutyObj['dr' + drNoCopy].img = canvas.toDataURL('image/jpeg');
 	});
+	*/
 	let outputChild = document.getElementById('output').childNodes;
 	for(let i = 0; i < outputChild.length ; i ++){
 		let newChildDiv = document.createElement('div');
