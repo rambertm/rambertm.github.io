@@ -10,7 +10,7 @@ let dutyObj = {
 	dr5: new createObjDr(),
 	dr6: new createObjDr()
 };
-function todayIntoString(){
+function getTodayString(){
 	let today = new Date();
 	return today.getFullYear() + ("0" + (today.getMonth() + 1)).slice(-2) + ("0" + today.getDate()).slice(-2);
 }
@@ -26,25 +26,38 @@ function getDrNames(){
 	return drNames;
 }
 async function generatePDF(){
-	/*const workbook = new ExcelJS.Workbook();
-	const worksheet = workbook.addWorksheet('My Sheet');
-	worksheet.columns = [
-		  { header: 'Id', key: 'id', width: 10 },
-		  { header: 'Name', key: 'name', width: 32 },
-		  { header: 'D.O.B.', key: 'DOB', width: 10, outlineLevel: 1 }
-		];
-	const idCol = worksheet.getColumn('id');
-	const nameCol = worksheet.getColumn('B');
-	const dobCol = worksheet.getColumn(3);
-	dobCol.header = 'Date of Birth';
-	worksheet.getColumn(6).values = [1,2,3,4,5];
-	const row = worksheet.getRow(5);
-	row.getCell(1).value = 5;
+	const workbook = new ExcelJS.Workbook();
+	const worksheet = workbook.addWorksheet();
+	const title = getTodayString() + getDrNames();
+	
+	worksheet.views = [{state: 'frozen', xSplit: 2];
+	worksheet.mergeCells("A1:B1");
+	worksheet.mergeCells("C1:D1");
+    	worksheet.mergeCells("E1:F1");
+	worksheet.mergeCells("G1:H1");
+    	worksheet.mergeCells("I1:J1");
+    	worksheet.mergeCells("K1:L1");
+    	worksheet.mergeCells("M1:N1");
+	getCell('A1').value = '월';
+  	getCell('C1').value = '화';
+  	getCell('E1').value = '수';
+    	getCell('G1').value = '목';
+    	getCell('I1').value = '금';
+    	getCell('K1').value = '토';
+    	getCell('M1').value = '일';
+    	const colMon = worksheet.getColumn('A');
+	const colTue = worksheet.getColumn('B');
+	const colWed = worksheet.getColumn('C');
+	const colThu = worksheet.getColumn('D');
+	const colFri = worksheet.getColumn('E');
+	const colSat = worksheet.getColumn('F');
+	const colSun = worksheet.getColumn('G');
+			    
+	
+	
 	const buff = await workbook.xlsx.writeBuffer();
-	saveAs(new Blob([buff]), 'text.xlsx')
-	*/
-	console.log(todayIntoString());
-	console.log(getDrNames());
+	saveAs(new Blob([buff]), title)
+	
 }
 
 function addDoc(e){
