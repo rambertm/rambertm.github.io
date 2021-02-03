@@ -36,6 +36,23 @@ async function generatePDF(){
 }
 function initExcel(worksheet){
 	worksheet.views = [{state: 'frozen', ySplit: 1}];
+	worksheet.getRow(1).alignment = { horizontal: 'center' };
+	worksheet.columns = [
+		{ header: '월', width: 10 },
+		{ header: '', width: 5 },
+		{ header: '화', width: 10 },
+		{ header: '', width: 5 },
+		{ header: '수', width: 10 },
+		{ header: '', width: 5 },
+		{ header: '목', width: 10 },
+		{ header: '', width: 5 },
+		{ header: '금', width: 10 },
+		{ header: '', width: 5 },
+		{ header: '토', width: 10 },
+		{ header: '', width: 5 },
+		{ header: '일', width: 10 },
+		{ header: '', width: 5 }
+	];
 	worksheet.mergeCells("A1:B1");
 	worksheet.mergeCells("C1:D1");
     	worksheet.mergeCells("E1:F1");
@@ -43,15 +60,6 @@ function initExcel(worksheet){
     	worksheet.mergeCells("I1:J1");
     	worksheet.mergeCells("K1:L1");
     	worksheet.mergeCells("M1:N1");
-	worksheet.getCell('A1').value = '월';
-  	worksheet.getCell('C1').value = '화';
-  	worksheet.getCell('E1').value = '수';
-    	worksheet.getCell('G1').value = '목';
-    	worksheet.getCell('I1').value = '금';
-    	worksheet.getCell('K1').value = '토';
-    	worksheet.getCell('M1').value = '일';		   
-	worksheet.getCell('A1').width= 10;	  
-	worksheet.getCell('B1').width= 8;
 }
 
 function addDoc(e){
