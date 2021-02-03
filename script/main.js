@@ -28,7 +28,7 @@ function getDrNames(){
 async function generatePDF(){
 	const workbook = new ExcelJS.Workbook();
 	const worksheet = workbook.addWorksheet();
-	const title = getTodayString() + getDrNames();
+	const title = getTodayString() + getDrNames() + '.xlsx';
 	initExcel(worksheet);
 	const buff = await workbook.xlsx.writeBuffer();
 	saveAs(new Blob([buff]), title)
