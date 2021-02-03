@@ -28,14 +28,14 @@ function getDrNames(){
 async function generatePDF(){
 	const workbook = new ExcelJS.Workbook();
 	const worksheet = workbook.addWorksheet();
-	const title = getTodayString() + getDrNames() + '.xlsx';
+	const title = '전담의 Duty_' + getTodayString() + '( ' + getDrNames() + ' ).xlsx';
 	initExcel(worksheet);
 	const buff = await workbook.xlsx.writeBuffer();
 	saveAs(new Blob([buff]), title)
 
 }
 function initExcel(worksheet){
-	worksheet.views = [{state: 'frozen', xSplit: 2}];
+	worksheet.views = [{state: 'frozen', ySplit: 1}];
 	worksheet.mergeCells("A1:B1");
 	worksheet.mergeCells("C1:D1");
     	worksheet.mergeCells("E1:F1");
