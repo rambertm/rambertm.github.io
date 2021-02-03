@@ -39,7 +39,7 @@ function initExcel(worksheet){
 	worksheet.getRow(1).alignment = { horizontal: 'center' };
 	worksheet.columns = [
 		{ header: '월', width: 10 },
-		{ header: '', width: 5, style: {border:{bottom:'thin'}} },
+		{ header: '', width: 5, style: {border:{right:{style: 'thin'}}} },
 		{ header: '화', width: 10 },
 		{ header: '', width: 5 },
 		{ header: '수', width: 10 },
