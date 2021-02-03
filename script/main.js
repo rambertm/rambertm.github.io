@@ -16,11 +16,11 @@ function todayIntoString(){
 }
 function getDrNames(){
 	let drNames = "";
-	for(let i = 0; i < 6; i ++){
-		let target = document.querySelector('.dr.dr' + i).textContent;
+	for(let i = 1; i < 7; i ++){
+		let target = document.querySelector('.dr.dr' + i);
 		if (target) {
-			drNames = drNames + target;
-		}
+			let name = target.textContent;
+			if (name) { drNames = (drNames ? drNames + ', ' + name : name);	}
 	}
 	return drNames;
 }
