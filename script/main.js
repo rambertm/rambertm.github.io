@@ -17,7 +17,8 @@ function todayIntoString(){
 function getDrNames(){
 	let drNames = "";
 	for(let i = 0; i < 6; i ++){
-		if (let target = document.querySelector('.dr.dr' + i)){
+		let target = document.querySelector('.dr.dr' + i);
+		if target {
 			console.log(target.textContent);
 		}
 	}
