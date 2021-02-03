@@ -10,14 +10,21 @@ let dutyObj = {
 	dr5: new createObjDr(),
 	dr6: new createObjDr()
 };
-/*
-function pdfInsertDrImg(doc, no, x, y){
-	doc.addImage(dutyObj['dr' + no].img, 'JPEG', x, y, 19.3, 6.6);
+function todayIntoString(){
+	let today = new Date();
+	return '' + today.getFullYear() + (today.getMonth() + 1) + today.getDay()
 }
-*/
-
+function getDrNames(){
+	let drNames = "";
+	for(let i = 0; i < 6; i ++){
+		if (let target = document.querySelector('.dr.dr' + i)){
+			console.log(target.textContent);
+		}
+	}
+	
+}
 async function generatePDF(){
-	const workbook = new ExcelJS.Workbook();
+	/*const workbook = new ExcelJS.Workbook();
 	const worksheet = workbook.addWorksheet('My Sheet');
 	worksheet.columns = [
 		  { header: 'Id', key: 'id', width: 10 },
@@ -33,7 +40,9 @@ async function generatePDF(){
 	row.getCell(1).value = 5;
 	const buff = await workbook.xlsx.writeBuffer();
 	saveAs(new Blob([buff]), 'text.xlsx')
-	
+	*/
+	console.log(todayIntoString());
+	getDrNames();
 }
 
 function addDoc(e){
