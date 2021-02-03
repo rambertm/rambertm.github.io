@@ -18,7 +18,7 @@ function getDrNames(){
 	let drNames = "";
 	for(let i = 0; i < 6; i ++){
 		let target = document.querySelector('.dr.dr' + i);
-		if target {
+		if (target) {
 			console.log(target.textContent);
 		}
 	}
