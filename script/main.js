@@ -30,14 +30,28 @@ async function generateExcel(){
 	const worksheet = workbook.addWorksheet();
 	const title = 'Duty_' + getTodayString() + '( ' + getDrNames() + ' ).xlsx';
 	initExcel(worksheet);
+	importCalendarRow(worksheet, 1);
 	const buff = await workbook.xlsx.writeBuffer();
 	saveAs(new Blob([buff]), title)
-
 }
+function importCalendarRow(worksheet, row){
+	//let calendarCell = getCalendarCell(row, 1);
+	let drNames = "";
+	for(let i = 1; i < 7; i ++){
+		let target = document.querySelector('.dr.dr' + i);
+		if (target) {
+			let name = target.textContent;
+			worksheet.getCell('A' + (i + 1)).value = name;
+		}
+	}
+}
+
 function initExcel(worksheet){
-	worksheet.views = [{state: 'frozen', ySplit: 1}];
+	worksheet.views = [{state: 'frozen', xSplit: 1, ySplit: 1}];
 	worksheet.getRow(1).alignment = { horizontal: 'center' };
+	worksheet.getColumn(1).alignment = { horizontal: 'center' };
 	worksheet.columns = [
+		{ header: '', width: 10 },
 		{ header: '월', width: 10 },
 		{ header: '', width: 5, style: {border:{right:{style: 'thin'}}} },
 		{ header: '화', width: 10 },
@@ -53,14 +67,20 @@ function initExcel(worksheet){
 		{ header: '일', width: 10 },
 		{ header: '', width: 5 }
 	];
-	worksheet.mergeCells("A1:B1");
-	worksheet.mergeCells("C1:D1");
-    	worksheet.mergeCells("E1:F1");
-	worksheet.mergeCells("G1:H1");
-    	worksheet.mergeCells("I1:J1");
-    	worksheet.mergeCells("K1:L1");
-    	worksheet.mergeCells("M1:N1");
-	worksheet.getCell('B1').border = {right: {style: 'thin'}};
+	worksheet.mergeCells("B1:C1");
+	worksheet.mergeCells("D1:E1");
+    	worksheet.mergeCells("F1:G1");
+	worksheet.mergeCells("H1:I1");
+    	worksheet.mergeCells("J1:K1");
+    	worksheet.mergeCells("L1:M1");
+    	worksheet.mergeCells("N1:O1");
+	worksheet.getCell('C1').border = {right: {style: 'thin'}};
+	worksheet.getCell('E1').border = {right: {style: 'thin'}};
+	worksheet.getCell('G1').border = {right: {style: 'thin'}};
+	worksheet.getCell('I1').border = {right: {style: 'thin'}};
+	worksheet.getCell('K1').border = {right: {style: 'thin'}};
+	worksheet.getCell('M1').border = {right: {style: 'thin'}};
+	worksheet.getCell('O1').border = {right: {style: 'thin'}};
 }
 
 function addDoc(e){
