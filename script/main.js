@@ -35,7 +35,7 @@ async function generatePDF(){
 
 }
 function initExcel(worksheet){
-	worksheet.views = [{state: 'frozen', xSplit: 2];
+	worksheet.views = [{state: 'frozen', xSplit: 2}];
 	worksheet.mergeCells("A1:B1");
 	worksheet.mergeCells("C1:D1");
     	worksheet.mergeCells("E1:F1");
