@@ -21,6 +21,7 @@ function getDrNames(){
 		if (target) {
 			let name = target.textContent;
 			if (name) { drNames = (drNames ? drNames + ', ' + name : name);	}
+		}
 	}
 	return drNames;
 }
