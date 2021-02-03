@@ -30,7 +30,7 @@ function generatePDF(){
 	worksheet.getColumn(6).values = [1,2,3,4,5];
 	const row = worksheet.getRow(5);
 	row.getCell(1).value = 5;
-	await workbook.xlsx.writeFile('testfile.xlsx');
+	workbook.xlsx.writeFile('testfile.xlsx');
 }
 
 function addDoc(e){
