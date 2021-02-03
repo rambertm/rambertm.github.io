@@ -29,7 +29,12 @@ async function generatePDF(){
 	const workbook = new ExcelJS.Workbook();
 	const worksheet = workbook.addWorksheet();
 	const title = getTodayString() + getDrNames();
-	
+	initExcel(worksheet);
+	const buff = await workbook.xlsx.writeBuffer();
+	saveAs(new Blob([buff]), title)
+
+}
+function initExcel(worksheet){
 	worksheet.views = [{state: 'frozen', xSplit: 2];
 	worksheet.mergeCells("A1:B1");
 	worksheet.mergeCells("C1:D1");
@@ -44,20 +49,9 @@ async function generatePDF(){
     	getCell('G1').value = '목';
     	getCell('I1').value = '금';
     	getCell('K1').value = '토';
-    	getCell('M1').value = '일';
-    	const colMon = worksheet.getColumn('A');
-	const colTue = worksheet.getColumn('B');
-	const colWed = worksheet.getColumn('C');
-	const colThu = worksheet.getColumn('D');
-	const colFri = worksheet.getColumn('E');
-	const colSat = worksheet.getColumn('F');
-	const colSun = worksheet.getColumn('G');
-			    
-	
-	
-	const buff = await workbook.xlsx.writeBuffer();
-	saveAs(new Blob([buff]), title)
-	
+    	getCell('M1').value = '일';		   
+	getCell('A1').width= 10;	  
+	getCell('B1').width= 8;
 }
 
 function addDoc(e){
