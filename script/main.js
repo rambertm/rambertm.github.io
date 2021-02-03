@@ -258,7 +258,7 @@ function removeClassAll(className){
 	}
 }
 
-function getCell(row, col){
+function getCalendarCell(row, col){
 	if ((row > 53) || (col > 7)){
 		return
 	}
@@ -269,7 +269,7 @@ function resetCalendar(){
 	removeClassAll('selected');
 	for(let r = 1; r < 54; r++){
 		for(let i = 1; i < 8 ; i++){
-			let cell = getCell(r, i);
+			let cell = getCalendarCell(r, i);
 			cell.innerHTML = cell.firstChild.textContent;
 		}
 	}
@@ -285,7 +285,7 @@ function fillCalendar(){
 	let firstEmptyRow = 0;
 	for(let r = 1; r < 54; r++){
 		for(let i = 1; i < 8 ; i++){
-			let cell = getCell(r, i);
+			let cell = getCalendarCell(r, i);
 			if (cell.childNodes.length > 1){
 				firstDataRow = r;
 				break;
@@ -299,7 +299,7 @@ function fillCalendar(){
 		for(let r = firstDataRow + 1; r < 54 ; r++){
 			let isEmpty = true;
 			for(let i = 1; i < 8 ; i++){
-				if (getCell(r, i).childNodes.length > 1){
+				if (getCalendarCell(r, i).childNodes.length > 1){
 					isEmpty = false;
 					break;
 				}
@@ -335,8 +335,8 @@ function copyRow(origin, target){
 		return
 	}
 	for(let i = 1; i < 8; i++){
-		let originCell = getCell(origin, i);
-		let targetCell = getCell(target, i);
+		let originCell = getCalendarCell(origin, i);
+		let targetCell = getCalendarCell(target, i);
 		updateDutyHours(targetCell, false);
 		targetCell.innerHTML = targetCell.firstChild.textContent;
 		for(let i = 1; i < originCell.childNodes.length; i++){
