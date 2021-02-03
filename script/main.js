@@ -43,15 +43,15 @@ function initExcel(worksheet){
     	worksheet.mergeCells("I1:J1");
     	worksheet.mergeCells("K1:L1");
     	worksheet.mergeCells("M1:N1");
-	getCell('A1').value = '월';
-  	getCell('C1').value = '화';
-  	getCell('E1').value = '수';
-    	getCell('G1').value = '목';
-    	getCell('I1').value = '금';
-    	getCell('K1').value = '토';
-    	getCell('M1').value = '일';		   
-	getCell('A1').width= 10;	  
-	getCell('B1').width= 8;
+	worksheet.getCell('A1').value = '월';
+  	worksheet.getCell('C1').value = '화';
+  	worksheet.getCell('E1').value = '수';
+    	worksheet.getCell('G1').value = '목';
+    	worksheet.getCell('I1').value = '금';
+    	worksheet.getCell('K1').value = '토';
+    	worksheet.getCell('M1').value = '일';		   
+	worksheet.getCell('A1').width= 10;	  
+	worksheet.getCell('B1').width= 8;
 }
 
 function addDoc(e){
