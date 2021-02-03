@@ -25,10 +25,10 @@ function getDrNames(){
 	}
 	return drNames;
 }
-async function generatePDF(){
+async function generateExcel(){
 	const workbook = new ExcelJS.Workbook();
 	const worksheet = workbook.addWorksheet();
-	const title = '전담의 Duty_' + getTodayString() + '( ' + getDrNames() + ' ).xlsx';
+	const title = 'Duty_' + getTodayString() + '( ' + getDrNames() + ' ).xlsx';
 	initExcel(worksheet);
 	const buff = await workbook.xlsx.writeBuffer();
 	saveAs(new Blob([buff]), title)
@@ -37,6 +37,13 @@ async function generatePDF(){
 function initExcel(worksheet){
 	worksheet.views = [{state: 'frozen', ySplit: 1}];
 	worksheet.getRow(1).alignment = { horizontal: 'center' };
+	worksheet.mergeCells("A1:B1");
+	worksheet.mergeCells("C1:D1");
+    	worksheet.mergeCells("E1:F1");
+	worksheet.mergeCells("G1:H1");
+    	worksheet.mergeCells("I1:J1");
+    	worksheet.mergeCells("K1:L1");
+    	worksheet.mergeCells("M1:N1");
 	worksheet.columns = [
 		{ header: '월', width: 10 },
 		{ header: '', width: 5, style: {border:{right:{style: 'thin'}}} },
@@ -53,13 +60,7 @@ function initExcel(worksheet){
 		{ header: '일', width: 10 },
 		{ header: '', width: 5 }
 	];
-	worksheet.mergeCells("A1:B1");
-	worksheet.mergeCells("C1:D1");
-    	worksheet.mergeCells("E1:F1");
-	worksheet.mergeCells("G1:H1");
-    	worksheet.mergeCells("I1:J1");
-    	worksheet.mergeCells("K1:L1");
-    	worksheet.mergeCells("M1:N1");
+
 }
 
 function addDoc(e){
