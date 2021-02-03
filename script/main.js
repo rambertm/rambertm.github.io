@@ -12,17 +12,17 @@ let dutyObj = {
 };
 function todayIntoString(){
 	let today = new Date();
-	return '' + today.getFullYear() + (today.getMonth() + 1) + today.getDay()
+	return today.getFullYear() + ("0" + (today.getMonth() + 1)).slice(-2) + ("0" + today.getDate()).slice(-2);
 }
 function getDrNames(){
 	let drNames = "";
 	for(let i = 0; i < 6; i ++){
-		let target = document.querySelector('.dr.dr' + i);
+		let target = document.querySelector('.dr.dr' + i).textContent;
 		if (target) {
-			console.log(target.textContent);
+			drNames = drNames + target;
 		}
 	}
-	
+	return drNames;
 }
 async function generatePDF(){
 	/*const workbook = new ExcelJS.Workbook();
@@ -43,7 +43,7 @@ async function generatePDF(){
 	saveAs(new Blob([buff]), 'text.xlsx')
 	*/
 	console.log(todayIntoString());
-	getDrNames();
+	console.log(getDrNames());
 }
 
 function addDoc(e){
