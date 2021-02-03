@@ -17,7 +17,7 @@ function pdfInsertDrImg(doc, no, x, y){
 */
 function generatePDF(){
 	const workbook = new ExcelJS.Workbook();
-	const sheet = workbook.addWorksheet('My Sheet');
+	const worksheet = workbook.addWorksheet('My Sheet');
 	worksheet.columns = [
 		  { header: 'Id', key: 'id', width: 10 },
 		  { header: 'Name', key: 'name', width: 32 },
