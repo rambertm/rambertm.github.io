@@ -28,14 +28,15 @@ async function generateExcel(){
 	saveAs(new Blob([buff]), title)
 }
 function setFirstColumn(worksheet){
-	//let calendarCell = getCalendarCell(row, 1);
-	let drNames = "";
-	for(let i = 1; i < 7; i ++){
-		let target = document.querySelector('.dr.dr' + i);
-		if (target) {
-			let name = target.textContent;
-			worksheet.getCell('A' + (i + 1)).value = name;
+	let drCount = Object.keys(dutyObj).length;
+	if (!drCount){return};
+	let firstCol = worksheet.getColumn(1);
+	let startLine = 1;
+	for(let i = 0; i < 53 ; i++){
+		for(let i = 1; i <= drCount; i++){
+			firstCol.getCell(i + startLine).value = dutyObj['dr' + i].name;
 		}
+		let startLine = startLine + drCount;
 	}
 }
 
