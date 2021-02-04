@@ -45,14 +45,17 @@ function initExcel(worksheet){
 	worksheet.getColumn(1).alignment = { horizontal: 'center' };
 	worksheet.columns = [
 		{ header: '', width: 10 },
-		{ header: '월', width: 10, style: {border:{right:{style: 'thin'}}} },
-		{ header: '화', width: 10, style: {border:{right:{style: 'thin'}}} },
-		{ header: '수', width: 10, style: {border:{right:{style: 'thin'}}} },
-		{ header: '목', width: 10, style: {border:{right:{style: 'thin'}}} },
-		{ header: '금', width: 10, style: {border:{right:{style: 'thin'}}} },
-		{ header: '토', width: 10, style: {border:{right:{style: 'thin'}}} },
-		{ header: '일', width: 10, style: {border:{right:{style: 'thin'}}} },
+		{ header: '월', width: 10 },
+		{ header: '화', width: 10 },
+		{ header: '수', width: 10 },
+		{ header: '목', width: 10 },
+		{ header: '금', width: 10 },
+		{ header: '토', width: 10 },
+		{ header: '일', width: 10 },
 	];
+	for(let i = 2; i < 9 ; i++){
+		worksheet.getRow(1).getCell(i).border = { right: { style: 'thin' } };
+	}
 }
 
 function addDoc(e){
