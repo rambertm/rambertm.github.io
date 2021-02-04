@@ -33,7 +33,9 @@ function setFirstColumn(worksheet){
 	let firstCol = worksheet.getColumn(1);
 	let startLine = 1;
 	for(let i = 0; i < 53 ; i++){
+		console.log('in first for loop: ', startLine);
 		for(let i = 1; i <= drCount; i++){
+			console.log('in second for loop: ', startLine);
 			firstCol.getCell(i + startLine).value = dutyObj['dr' + i].name;
 		}
 		let startLine = startLine + drCount;
@@ -54,9 +56,6 @@ function initExcel(worksheet){
 		{ header: '토', width: 10 },
 		{ header: '일', width: 10, style: {border:{right:{style: 'thin'}}}  },
 	];
-	for(let i = 2; i < 8 ; i++){
-		worksheet.getRow(1).getCell(i).border = { right: { style: 'thin' } };
-	}
 }
 
 function addDoc(e){
