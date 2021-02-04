@@ -32,6 +32,7 @@ function setFirstColumn(worksheet){
 	if (!drCount){return};
 	let firstCol = worksheet.getColumn(1);
 	let startLine = 1;
+	console.log('outside loop: ', startLine);
 	for(let i = 0; i < 53 ; i++){
 		console.log('in first for loop: ', startLine);
 		for(let i = 1; i <= drCount; i++){
