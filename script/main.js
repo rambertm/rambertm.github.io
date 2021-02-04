@@ -2,14 +2,7 @@ let drNo = 1;
 let holiday = ['2021/2/11', '2021/2/12', '2021/2/13', '2021/3/1', '2021/5/5', '2021/5/19', '2021/9/20', '2021/9/21', '2021/9/22', '2022/2/1', '2022/2/2', '2022/2/3', '2022/3/1', '2022/5/5', '2022/6/6', '2022/8/15', '2022/9/9', '2022/10/3'];
 let ddElements = [];
 let tableBody = document.getElementById('tableBody');
-let dutyObj = {
-	dr1: new createObjDr(),
-	dr2: new createObjDr(),
-	dr3: new createObjDr(),
-	dr4: new createObjDr(),
-	dr5: new createObjDr(),
-	dr6: new createObjDr()
-};
+let dutyObj = {};
 function getTodayString(){
 	let today = new Date();
 	return today.getFullYear() + ("0" + (today.getMonth() + 1)).slice(-2) + ("0" + today.getDate()).slice(-2);
@@ -30,11 +23,11 @@ async function generateExcel(){
 	const worksheet = workbook.addWorksheet();
 	const title = 'Duty_' + getTodayString() + '( ' + getDrNames() + ' ).xlsx';
 	initExcel(worksheet);
-	importCalendarRow(worksheet, 1);
+	setFirstColumn(worksheet);
 	const buff = await workbook.xlsx.writeBuffer();
 	saveAs(new Blob([buff]), title)
 }
-function importCalendarRow(worksheet, row){
+function setFirstColumn(worksheet){
 	//let calendarCell = getCalendarCell(row, 1);
 	let drNames = "";
 	for(let i = 1; i < 7; i ++){
@@ -52,35 +45,14 @@ function initExcel(worksheet){
 	worksheet.getColumn(1).alignment = { horizontal: 'center' };
 	worksheet.columns = [
 		{ header: '', width: 10 },
-		{ header: '월', width: 10 },
-		{ header: '', width: 5, style: {border:{right:{style: 'thin'}}} },
-		{ header: '화', width: 10 },
-		{ header: '', width: 5 },
-		{ header: '수', width: 10 },
-		{ header: '', width: 5 },
-		{ header: '목', width: 10 },
-		{ header: '', width: 5 },
-		{ header: '금', width: 10 },
-		{ header: '', width: 5 },
-		{ header: '토', width: 10 },
-		{ header: '', width: 5 },
-		{ header: '일', width: 10 },
-		{ header: '', width: 5 }
+		{ header: '월', width: 10, style: {border:{right:{style: 'thin'}}} },
+		{ header: '화', width: 10, style: {border:{right:{style: 'thin'}}} },
+		{ header: '수', width: 10, style: {border:{right:{style: 'thin'}}} },
+		{ header: '목', width: 10, style: {border:{right:{style: 'thin'}}} },
+		{ header: '금', width: 10, style: {border:{right:{style: 'thin'}}} },
+		{ header: '토', width: 10, style: {border:{right:{style: 'thin'}}} },
+		{ header: '일', width: 10, style: {border:{right:{style: 'thin'}}} },
 	];
-	worksheet.mergeCells("B1:C1");
-	worksheet.mergeCells("D1:E1");
-    	worksheet.mergeCells("F1:G1");
-	worksheet.mergeCells("H1:I1");
-    	worksheet.mergeCells("J1:K1");
-    	worksheet.mergeCells("L1:M1");
-    	worksheet.mergeCells("N1:O1");
-	worksheet.getCell('C1').border = {right: {style: 'thin'}};
-	worksheet.getCell('E1').border = {right: {style: 'thin'}};
-	worksheet.getCell('G1').border = {right: {style: 'thin'}};
-	worksheet.getCell('I1').border = {right: {style: 'thin'}};
-	worksheet.getCell('K1').border = {right: {style: 'thin'}};
-	worksheet.getCell('M1').border = {right: {style: 'thin'}};
-	worksheet.getCell('O1').border = {right: {style: 'thin'}};
 }
 
 function addDoc(e){
@@ -94,6 +66,7 @@ function addDoc(e){
 	let field = document.getElementById('docName');
 	let docName = field.value;
 	document.getElementById('members').appendChild(child).appendChild(document.createTextNode(docName));
+	dutyObj['dr' + drNo] = new createObjDr();
 	dutyObj['dr' + drNo].name = docName;
 	/*
 	let drNoCopy = drNo;
