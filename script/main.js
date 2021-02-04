@@ -51,9 +51,9 @@ function initExcel(worksheet){
 		{ header: '목', width: 10 },
 		{ header: '금', width: 10 },
 		{ header: '토', width: 10 },
-		{ header: '일', width: 10 },
+		{ header: '일', width: 10, style: {border:{right:{style: 'thin'}}}  },
 	];
-	for(let i = 2; i < 9 ; i++){
+	for(let i = 2; i < 8 ; i++){
 		worksheet.getRow(1).getCell(i).border = { right: { style: 'thin' } };
 	}
 }
