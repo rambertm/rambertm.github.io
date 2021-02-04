@@ -36,6 +36,14 @@ function setFirstColumn(worksheet){
 			worksheet.getCell('A' + (startLine + i)).value = dutyObj['dr' + i].name;
 		}
 		startLine = startLine + drCount;
+		worksheet.getCell('A' + startLine).border = { bottom: {style: 'thin'}};
+		worksheet.getCell('B' + startLine).border = { bottom: {style: 'thin'}};
+		worksheet.getCell('C' + startLine).border = { bottom: {style: 'thin'}};
+		worksheet.getCell('D' + startLine).border = { bottom: {style: 'thin'}};
+		worksheet.getCell('E' + startLine).border = { bottom: {style: 'thin'}};
+		worksheet.getCell('F' + startLine).border = { bottom: {style: 'thin'}};
+		worksheet.getCell('G' + startLine).border = { bottom: {style: 'thin'}};
+		worksheet.getCell('H' + startLine).border = { bottom: {style: 'thin'}};
 	}
 }
 
@@ -51,7 +59,7 @@ function initExcel(worksheet){
 		{ header: '목', width: 10 },
 		{ header: '금', width: 10 },
 		{ header: '토', width: 10 },
-		{ header: '일', width: 10, style: {border:{right:{style: 'thin'}}}  },
+		{ header: '일', width: 10, style: {border:{right:{style: 'thin'}}}},
 	];
 }
 
