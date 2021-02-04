@@ -30,7 +30,7 @@ async function generateExcel(){
 function setFirstColumn(worksheet){
 	let drCount = Object.keys(dutyObj).length;
 	if (!drCount){return};
-	let startLine = 1;
+	let startLine = 2;
 	for(let i = 0; i < 53 ; i++){
 		for(let i = 1; i <= drCount; i++){
 			worksheet.getCell('A' + (startLine + i)).value = dutyObj['dr' + i].name;
@@ -44,6 +44,7 @@ function setFirstColumn(worksheet){
 		worksheet.getCell('F' + startLine).border = { bottom: {style: 'thin'}};
 		worksheet.getCell('G' + startLine).border = { bottom: {style: 'thin'}};
 		worksheet.getCell('H' + startLine).border = { bottom: {style: 'thin'}, right: {style: 'thin'}};
+		startLine = startLine + 1;
 	}
 }
 
