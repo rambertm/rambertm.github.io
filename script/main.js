@@ -43,7 +43,7 @@ function setFirstColumn(worksheet){
 		worksheet.getCell('E' + startLine).border = { bottom: {style: 'thin'}};
 		worksheet.getCell('F' + startLine).border = { bottom: {style: 'thin'}};
 		worksheet.getCell('G' + startLine).border = { bottom: {style: 'thin'}};
-		worksheet.getCell('H' + startLine).border = { bottom: {style: 'thin'}};
+		worksheet.getCell('H' + startLine).border = { bottom: {style: 'thin'}, right: {style: 'thin'}};
 	}
 }
 
