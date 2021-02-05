@@ -47,7 +47,6 @@ function importCalendar(worksheet){
 			}
 		}
 	}
-	worksheet.getColumn(8).border = { right: {style: 'thin'}};
 }
 
 
