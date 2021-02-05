@@ -25,22 +25,28 @@ async function generateExcel(){
 	saveAs(new Blob([buff]), title);
 }
 function importCalendar(worksheet){
-	let calendarCell = getCalendarCell(1, 1);
-	let childs = calendarCell.childNodes;
-	worksheet.getCell('B2').value = childs[0].textContent;
-	for(let i = 1; i < childs.length; i++){
-		let child = childs[i];
-		let drNumber = child.className.split(' ')[1].slice(-1);
-		let grandChild = child.firstElementChild;
-		let workhour = "";
-		if (grandChild){
-			workhour = parseInt(grandChild.textContent.split(' ')[1]);
-		}
-		let drCell = 'B' + (2 + parseInt(child.className.split(' ')[1].slice(-1)));
-		console.log('drNumber: ', drNumber, 'workhour: ', workhour, 'drCell: ', drCell);
-		worksheet.getCell(drCell).value = workhour;
-	}
+	for(let calRow = 1; calRow < 54; calRow++){
+		let cellRow = 2 + (calRow - 1) * dutyObj.count;
+		for (let c = 1; c < 8; c++){
+			let calendarCell = getCalendarCell(calRow, c);
+			let colChar = String.fromCharCode(65 + c);
+			let childs = calendarCell.childNodes;
+			worksheet.getCell(colChar + cellRow).value = childs[0].textContent;
+			for(let i = 1; i < childs.length; i++){
+				let child = childs[i];
+				let drNumber = child.className.split(' ')[1].slice(-1);
+				let grandChild = child.firstElementChild;
+				let workhour = "";
+				if (grandChild){
+					workhour = parseInt(grandChild.textContent.split(' ')[1]);
+				}
+				let drCell = colChar + (cellRow + parseInt(child.className.split(' ')[1].slice(-1)));
+				console.log('drNumber: ', drNumber, 'workhour: ', workhour, 'drCell: ', drCell);
+				worksheet.getCell(drCell).value = workhour;
+			}
 
+		}
+	}
 }
 
 
