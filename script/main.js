@@ -56,14 +56,21 @@ function importCalendar(worksheet){
 function parseExcelByMonth(worksheet){
 	let startMonth = worksheet.getCell('H2').value.split('/')[0];
 	let thisMonth = startMonth;
-	let nth = 1;
 	let cellsByDr = ["", "", "", "", "", ""];
-	let dateRow = 2 + (dutyObj.count + 1) * (nth - 1);
-	for(let i = 0; i < 7; i++){
-		let cellCol = String.fromCharCode(66 + i);
-		if (worksheet.getCell(cellCol + dateRow).value.split('/')[0] === thisMonth){
-			for(let i = 1; i <= dutyObj.count; i++){
-				cellsByDr[i-1] = cellsByDr[i-1] + cellCol + (dateRow + i);
+	for(let nth = 1; nth < 5; nth++){
+		let dateRow = 2 + (dutyObj.count + 1) * (nth - 1);
+		/*
+		if (worksheet.getCell('B' + dateRow).value.split('/')[0] !== thisMonth){
+			thisMonth = ((thisMonth === 12) ? 1 : (thisMonth + 1));
+			
+		}
+		*/
+		for(let i = 0; i < 7; i++){
+			let cellCol = String.fromCharCode(66 + i);
+			if (worksheet.getCell(cellCol + dateRow).value.split('/')[0] === thisMonth){
+				for(let i = 1; i <= dutyObj.count; i++){
+					cellsByDr[i-1] = cellsByDr[i-1] + cellCol + (dateRow + i);
+				}
 			}
 		}
 	}
