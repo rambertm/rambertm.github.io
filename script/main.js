@@ -43,7 +43,7 @@ function importCalendar(worksheet){
 				}
 				let drCell = colChar + (cellRow + parseInt(child.className.split(' ')[1].slice(-1)));
 				worksheet.getCell(drCell).value = workhour;
-				worksheet.getCell(drCell).fill = { type: 'pattern', pattern:'solid', fgColor:{argb: 'FFFF0000'} };
+				worksheet.getCell(drCell).fill = { type: 'pattern', pattern:'solid', fgColor:{argb: drColorTable[drNumber]} };
 			}
 		}
 	}
