@@ -32,7 +32,9 @@ function importCalendar(worksheet){
 		let child = childs[i];
 		let drNumber = child.className.slice(-1);
 		let workhour = child.firstChild.textContent;
-		worksheet.getCell('B' + (2 + parseInt(drNumber))).value = workhour;
+		let dr = 'B' + (2 + parseInt(drNumber));
+		console.log('drNumber: ', drNumber, 'workhour: ', workhour, 'dr: ', dr);
+		//worksheet.getCell('B' + (2 + parseInt(drNumber))).value = workhour;
 	}
 
 }
