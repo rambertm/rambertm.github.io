@@ -26,8 +26,8 @@ async function generateExcel(){
 }
 function importCalendar(worksheet){
 	let calendarCell = getCalendarCell(1, 1);
-	let date = calendarCell.childNodes[0];
-	
+	let childs = calendarCell.childNodes;
+	worksheet.getCell('B2').value = childs[0];
 
 }
 
