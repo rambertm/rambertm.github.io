@@ -42,9 +42,8 @@ function importCalendar(worksheet){
 					workhour = parseInt(grandChild.textContent.split(' ')[1]);
 				}
 				let drCell = colChar + (cellRow + parseInt(child.className.split(' ')[1].slice(-1)));
-				console.log('drNumber: ', drNumber, 'workhour: ', workhour, 'drCell: ', drCell);
 				worksheet.getCell(drCell).value = workhour;
-				worksheet.getCell(drCell).fill = { bgColor: {argb: drColorTable[drNumber] } };
+				worksheet.getCell(drCell).fill = { bgColor: {argb:'FF0000FF'} };
 			}
 
 		}
@@ -55,7 +54,7 @@ function importCalendar(worksheet){
 function initExcel(worksheet){
 	worksheet.views = [{state: 'frozen', xSplit: 1, ySplit: 1}];
 	worksheet.getRow(1).alignment = { horizontal: 'center' };
-	worksheet.getColumn(1).alignment = { horizontal: 'center' };
+	//worksheet.getColumn(1).alignment = { horizontal: 'center' };
 	worksheet.columns = [
 		{ header: '', width: 10 },
 		{ header: '월', width: 10 },
@@ -69,8 +68,10 @@ function initExcel(worksheet){
 	if (!dutyObj.count){return};
 	let startLine = 2;
 	for(let i = 0; i < 53 ; i++){
+		worksheet.getRow(startLine).alignment = { horizontal: 'center' };
 		for(let i = 1; i <= dutyObj.count; i++){
 			worksheet.getCell('A' + (startLine + i)).value = dutyObj['dr' + i].name;
+			worksheet.getRow(startLine + i).alignment = { horizontal: 'center' };
 		}
 		startLine = startLine + dutyObj.count;
 		worksheet.getCell('A' + startLine).border = { bottom: {style: 'thin'}};
