@@ -1,6 +1,7 @@
 let drNo = 1;
 let holiday = ['2021/2/11', '2021/2/12', '2021/2/13', '2021/3/1', '2021/5/5', '2021/5/19', '2021/9/20', '2021/9/21', '2021/9/22', '2022/2/1', '2022/2/2', '2022/2/3', '2022/3/1', '2022/5/5', '2022/6/6', '2022/8/15', '2022/9/9', '2022/10/3'];
 let ddElements = [];
+let drColorTable = ["", "FFFF7F50", "FF00BFFF", "FFFFD700", "FF98FB98", "FFDDA0DD", "FFFFDAB9"];
 let tableBody = document.getElementById('tableBody');
 let dutyObj = {count: 0};
 function getTodayString(){
@@ -43,6 +44,7 @@ function importCalendar(worksheet){
 				let drCell = colChar + (cellRow + parseInt(child.className.split(' ')[1].slice(-1)));
 				console.log('drNumber: ', drNumber, 'workhour: ', workhour, 'drCell: ', drCell);
 				worksheet.getCell(drCell).value = workhour;
+				worksheet.getCell(drCell).fill = { bgColor: {argb: drColorTable[drNumber] } };
 			}
 
 		}
@@ -96,9 +98,7 @@ function addDoc(e){
 	document.getElementById('members').appendChild(child).appendChild(document.createTextNode(docName));
 	dutyObj['dr' + drNo] = new createObjDr();
 	dutyObj['dr' + drNo].name = docName;
-	dutyObj['dr' + drNo].color = child.style.backgroundColor;
 	dutyObj.count++;
-	console.log(dutyObj.count, dutyObj['dr' + drNo].color);
 	let outputChild = document.getElementById('output').childNodes;
 	for(let i = 0; i < outputChild.length ; i ++){
 		let newChildDiv = document.createElement('div');
@@ -442,7 +442,6 @@ function updateOutputByMonth(targetMonth){
 
 function createObjDr(){
 	this.name = "";
-	this.color = "";
 	this.month1 = 0;
 	this.month1_holiday = 0;
 	this.month2 = 0;
