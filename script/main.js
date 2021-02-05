@@ -27,7 +27,13 @@ async function generateExcel(){
 function importCalendar(worksheet){
 	let calendarCell = getCalendarCell(1, 1);
 	let childs = calendarCell.childNodes;
-	worksheet.getCell('B2').value = childs[0];
+	worksheet.getCell('B2').value = childs[0].textContent;
+	for(let i = 1; i < childs.length; i++){
+		let child = childs[i];
+		let drNumber = child.className.slice(-1);
+		let workhour = child.firstChild.textContent;
+		worksheet.getCell('B' + (2 + parseInt(drNumber))).value = workhour;
+	}
 
 }
 
