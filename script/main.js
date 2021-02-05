@@ -26,7 +26,7 @@ async function generateExcel(){
 }
 function importCalendar(worksheet){
 	for(let calRow = 1; calRow < 54; calRow++){
-		let cellRow = 2 + (calRow - 1) * dutyObj.count;
+		let cellRow = 2 + ((calRow - 1) * (dutyObj.count + 1));
 		for (let c = 1; c < 8; c++){
 			let calendarCell = getCalendarCell(calRow, c);
 			let colChar = String.fromCharCode(65 + c);
@@ -97,6 +97,7 @@ function addDoc(e){
 	dutyObj['dr' + drNo] = new createObjDr();
 	dutyObj['dr' + drNo].name = docName;
 	dutyObj.count++;
+	console.log(dutyObj.count);
 	let outputChild = document.getElementById('output').childNodes;
 	for(let i = 0; i < outputChild.length ; i ++){
 		let newChildDiv = document.createElement('div');
