@@ -2,19 +2,16 @@ let drNo = 1;
 let holiday = ['2021/2/11', '2021/2/12', '2021/2/13', '2021/3/1', '2021/5/5', '2021/5/19', '2021/9/20', '2021/9/21', '2021/9/22', '2022/2/1', '2022/2/2', '2022/2/3', '2022/3/1', '2022/5/5', '2022/6/6', '2022/8/15', '2022/9/9', '2022/10/3'];
 let ddElements = [];
 let tableBody = document.getElementById('tableBody');
-let dutyObj = {};
+let dutyObj = {count: 0};
 function getTodayString(){
 	let today = new Date();
 	return today.getFullYear() + ("0" + (today.getMonth() + 1)).slice(-2) + ("0" + today.getDate()).slice(-2);
 }
 function getDrNames(){
 	let drNames = "";
-	for(let i = 1; i < 7; i ++){
-		let target = document.querySelector('.dr.dr' + i);
-		if (target) {
-			let name = target.textContent;
-			if (name) { drNames = (drNames ? drNames + ', ' + name : name);	}
-		}
+	for(let i = 1; i <= dutyObj.count; i ++){
+		let name = dutyObj['dr' + i].name;
+		if (name) { drNames = (drNames ? drNames + ', ' + name : name);	}
 	}
 	return drNames;
 }
@@ -23,30 +20,17 @@ async function generateExcel(){
 	const worksheet = workbook.addWorksheet();
 	const title = 'Duty_' + getTodayString() + '( ' + getDrNames() + ' ).xlsx';
 	initExcel(worksheet);
-	setFirstColumn(worksheet);
+	importCalendar(worksheet);
 	const buff = await workbook.xlsx.writeBuffer();
-	saveAs(new Blob([buff]), title)
+	saveAs(new Blob([buff]), title);
 }
-function setFirstColumn(worksheet){
-	let drCount = Object.keys(dutyObj).length;
-	if (!drCount){return};
-	let startLine = 2;
-	for(let i = 0; i < 53 ; i++){
-		for(let i = 1; i <= drCount; i++){
-			worksheet.getCell('A' + (startLine + i)).value = dutyObj['dr' + i].name;
-		}
-		startLine = startLine + drCount;
-		worksheet.getCell('A' + startLine).border = { bottom: {style: 'thin'}};
-		worksheet.getCell('B' + startLine).border = { bottom: {style: 'thin'}};
-		worksheet.getCell('C' + startLine).border = { bottom: {style: 'thin'}};
-		worksheet.getCell('D' + startLine).border = { bottom: {style: 'thin'}};
-		worksheet.getCell('E' + startLine).border = { bottom: {style: 'thin'}};
-		worksheet.getCell('F' + startLine).border = { bottom: {style: 'thin'}};
-		worksheet.getCell('G' + startLine).border = { bottom: {style: 'thin'}};
-		worksheet.getCell('H' + startLine).border = { bottom: {style: 'thin'}, right: {style: 'thin'}};
-		startLine = startLine + 1;
-	}
+function importCalendar(worksheet){
+	let calendarCell = getCalendarCell(1, 1);
+	let date = calendarCell.childNodes[0];
+	
+
 }
+
 
 function initExcel(worksheet){
 	worksheet.views = [{state: 'frozen', xSplit: 1, ySplit: 1}];
@@ -62,6 +46,23 @@ function initExcel(worksheet){
 		{ header: '토', width: 10 },
 		{ header: '일', width: 10, style: {border:{right:{style: 'thin'}}}},
 	];
+	if (!dutyObj.count){return};
+	let startLine = 2;
+	for(let i = 0; i < 53 ; i++){
+		for(let i = 1; i <= dutyObj.count; i++){
+			worksheet.getCell('A' + (startLine + i)).value = dutyObj['dr' + i].name;
+		}
+		startLine = startLine + dutyObj.count;
+		worksheet.getCell('A' + startLine).border = { bottom: {style: 'thin'}};
+		worksheet.getCell('B' + startLine).border = { bottom: {style: 'thin'}};
+		worksheet.getCell('C' + startLine).border = { bottom: {style: 'thin'}};
+		worksheet.getCell('D' + startLine).border = { bottom: {style: 'thin'}};
+		worksheet.getCell('E' + startLine).border = { bottom: {style: 'thin'}};
+		worksheet.getCell('F' + startLine).border = { bottom: {style: 'thin'}};
+		worksheet.getCell('G' + startLine).border = { bottom: {style: 'thin'}};
+		worksheet.getCell('H' + startLine).border = { bottom: {style: 'thin'}, right: {style: 'thin'}};
+		startLine = startLine + 1;
+	}
 }
 
 function addDoc(e){
@@ -77,12 +78,7 @@ function addDoc(e){
 	document.getElementById('members').appendChild(child).appendChild(document.createTextNode(docName));
 	dutyObj['dr' + drNo] = new createObjDr();
 	dutyObj['dr' + drNo].name = docName;
-	/*
-	let drNoCopy = drNo;
-	html2canvas(child).then(function(canvas){
-		dutyObj['dr' + drNoCopy].img = canvas.toDataURL('image/jpeg');
-	});
-	*/
+	dutyObj.count++;
 	let outputChild = document.getElementById('output').childNodes;
 	for(let i = 0; i < outputChild.length ; i ++){
 		let newChildDiv = document.createElement('div');
