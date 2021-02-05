@@ -55,14 +55,21 @@ function importCalendar(worksheet){
 
 function parseExcelByMonth(worksheet){
 	let startMonth = worksheet.getCell('H2').value.split('/')[0];
-	let cellsInMonth = "";
+	let thisMonth = startMonth;
+	let nth = 1;
+	let cellsByDr = ["", "", "", "", "", ""];
+	let dateRow = 2 + (dutyObj.count + 1) * (nth - 1);
 	for(let i = 0; i < 7; i++){
 		let cellCol = String.fromCharCode(66 + i);
-		if (worksheet.getCell(cellCol + 2).value.split('/')[0] === startMonth){
-			cellsInMonth = cellsInMonth + cellCol + 2;
+		if (worksheet.getCell(cellCol + dateRow).value.split('/')[0] === thisMonth){
+			for(let i = 1; i <= dutyObj.count; i++){
+				cellsByDr[i-1] = cellsByDr[i-1] + cellCol + (dateRow + i);
+			}
 		}
 	}
-	console.log(cellsInMonth);
+	for(let i = 1; i <= dutyObj.count; i++){
+		console.log(cellsByDr[i-1]);
+	}
 }
 
 
@@ -318,7 +325,7 @@ function resetCalendar(){
 			cell.innerHTML = cell.firstChild.textContent;
 		}
 	}
-	for(let i = 1; i < 7; i++){
+	for(let i = 1; i <= dutyObj.count; i++){
 		dutyObj['dr' + i].reset();
 	}
 	updateOutput();
