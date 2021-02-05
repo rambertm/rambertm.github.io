@@ -31,7 +31,11 @@ function importCalendar(worksheet){
 	for(let i = 1; i < childs.length; i++){
 		let child = childs[i];
 		let drNumber = child.className.split(' ')[1].slice(-1);
-		let workhour = child.firstChild.textContent;
+		let grandChild = child.firstElementChild;
+		let workhour = "";
+		if (grandChild){
+			workhour = grandChild.textContent.split(' ')[1];
+		}
 		let drCell = 'B' + (2 + parseInt(child.className.split(' ')[1].slice(-1)));
 		console.log('drNumber: ', drNumber, 'workhour: ', workhour, 'drCell: ', drCell);
 		worksheet.getCell(drCell).value = workhour;
