@@ -96,8 +96,9 @@ function addDoc(e){
 	document.getElementById('members').appendChild(child).appendChild(document.createTextNode(docName));
 	dutyObj['dr' + drNo] = new createObjDr();
 	dutyObj['dr' + drNo].name = docName;
+	dutyObj['dr' + drNo].color = child.style.backgroundColor;
 	dutyObj.count++;
-	console.log(dutyObj.count);
+	console.log(dutyObj.count, dutyObj['dr' + drNo].color);
 	let outputChild = document.getElementById('output').childNodes;
 	for(let i = 0; i < outputChild.length ; i ++){
 		let newChildDiv = document.createElement('div');
