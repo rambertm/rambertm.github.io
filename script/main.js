@@ -53,6 +53,7 @@ function importCalendar(worksheet){
 function initExcel(worksheet){
 	worksheet.views = [{state: 'frozen', xSplit: 1, ySplit: 1}];
 	worksheet.getRow(1).alignment = { horizontal: 'center' };
+	worksheet.getCell('H1').border = { right: {style: 'thin'}};
 	worksheet.columns = [
 		{ header: '', width: 10 },
 		{ header: '월', width: 10 },
@@ -67,9 +68,11 @@ function initExcel(worksheet){
 	let startLine = 2;
 	for(let i = 0; i < 53 ; i++){
 		worksheet.getRow(startLine).alignment = { horizontal: 'center' };
+		worksheet.getCell('H' + startLine).border = { right: {style: 'thin'}};
 		for(let i = 1; i <= dutyObj.count; i++){
 			worksheet.getCell('A' + (startLine + i)).value = dutyObj['dr' + i].name;
 			worksheet.getRow(startLine + i).alignment = { horizontal: 'center' };
+			worksheet.getCell('H' + (startLine + i)).border = { right: {style: 'thin'}};
 		}
 		startLine = startLine + dutyObj.count;
 		worksheet.getCell('A' + startLine).border = { bottom: {style: 'thin'}};
@@ -79,7 +82,7 @@ function initExcel(worksheet){
 		worksheet.getCell('E' + startLine).border = { bottom: {style: 'thin'}};
 		worksheet.getCell('F' + startLine).border = { bottom: {style: 'thin'}};
 		worksheet.getCell('G' + startLine).border = { bottom: {style: 'thin'}};
-		worksheet.getCell('H' + startLine).border = { bottom: {style: 'thin'}, right: {style: 'thin'}};
+		worksheet.getCell('H' + startLine).border = { bottom: {style: 'thin'}};
 		startLine = startLine + 1;
 	}
 }
