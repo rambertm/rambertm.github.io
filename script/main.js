@@ -2,6 +2,7 @@ let drNo = 1;
 let holiday = ['2021/2/11', '2021/2/12', '2021/2/13', '2021/3/1', '2021/5/5', '2021/5/19', '2021/9/20', '2021/9/21', '2021/9/22', '2022/2/1', '2022/2/2', '2022/2/3', '2022/3/1', '2022/5/5', '2022/6/6', '2022/8/15', '2022/9/9', '2022/10/3'];
 let ddElements = [];
 let drColorTable = ["", "FFFF7F50", "FF00BFFF", "FFFFD700", "FF98FB98", "FFDDA0DD", "FFFFDAB9"];
+let cellsByMonth = ["", "", "", "", "", "", "", "", "", "", "", ""];
 let tableBody = document.getElementById('tableBody');
 let dutyObj = {count: 0};
 function getTodayString(){
@@ -22,10 +23,12 @@ async function generateExcel(){
 	const title = 'Duty_' + getTodayString() + '( ' + getDrNames() + ' ).xlsx';
 	initExcel(worksheet);
 	importCalendar(worksheet);
+	parseExcelByMonth(worksheet);
 	const buff = await workbook.xlsx.writeBuffer();
 	saveAs(new Blob([buff]), title);
 }
 function importCalendar(worksheet){
+	let startMonth = getCalendarCell(1, 7).firstChild.textContent.split('/')[0];
 	for(let calRow = 1; calRow < 54; calRow++){
 		let cellRow = 2 + ((calRow - 1) * (dutyObj.count + 1));
 		for (let c = 1; c < 8; c++){
@@ -47,7 +50,19 @@ function importCalendar(worksheet){
 			}
 		}
 	}
-	worksheet.getCell('J2').value = { formula: "SUM(B2,H2)"} 
+	//worksheet.getCell('J2').value = { formula: "SUM(G9,G12,F11,F8)"} 
+}
+
+function parseExcelByMonth(worksheet){
+	let startMonth = worksheet.getCell('H2').value.split('/')[0];
+	let cellsInMonth = "";
+	for(let i = 0; i < 7; i++){
+		let cellCol = String.fromCharCode(66 + i);
+		if (worksheet.getCell(cellCol + 2).value.split('/')[0] === startMonth){
+			cellsInMonth = cellsInMonth + cellCol + 2;
+		}
+	}
+	console.log(cellsInMonth);
 }
 
 
