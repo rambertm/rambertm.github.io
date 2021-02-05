@@ -43,10 +43,11 @@ function importCalendar(worksheet){
 				}
 				let drCell = colChar + (cellRow + parseInt(child.className.split(' ')[1].slice(-1)));
 				worksheet.getCell(drCell).value = workhour;
-				worksheet.getCell(drCell).fill = { type: 'pattern', pattern:'darkTrellis', fgColor:{argb: 'FFFF0000'}, bgColor: { argb: drColorTable[drNumber] } };
+				worksheet.getCell(drCell).fill = { type: 'pattern', pattern:'solid', fgColor:{argb: 'FFFF0000'} };
 			}
 		}
 	}
+	worksheet.getColumn(8).border = { right: {style: 'thin'}};
 }
 
 
