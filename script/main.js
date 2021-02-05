@@ -47,6 +47,7 @@ function importCalendar(worksheet){
 			}
 		}
 	}
+	worksheet.getCell('J2').value = { formula: "SUM(B2,H2)"} 
 }
 
 
