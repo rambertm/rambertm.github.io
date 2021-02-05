@@ -30,11 +30,11 @@ function importCalendar(worksheet){
 	worksheet.getCell('B2').value = childs[0].textContent;
 	for(let i = 1; i < childs.length; i++){
 		let child = childs[i];
-		let drNumber = child.className.slice(-1);
+		let drNumber = child.className.split(' ')[1].slice(-1);
 		let workhour = child.firstChild.textContent;
-		let dr = 'B' + (2 + parseInt(drNumber));
-		console.log('drNumber: ', drNumber, 'workhour: ', workhour, 'dr: ', dr);
-		//worksheet.getCell('B' + (2 + parseInt(drNumber))).value = workhour;
+		let drCell = 'B' + (2 + parseInt(child.className.split(' ')[1].slice(-1)));
+		console.log('drNumber: ', drNumber, 'workhour: ', workhour, 'drCell: ', drCell);
+		worksheet.getCell(drCell).value = workhour;
 	}
 
 }
