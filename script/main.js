@@ -43,7 +43,7 @@ function importCalendar(worksheet){
 				}
 				let drCell = colChar + (cellRow + parseInt(child.className.split(' ')[1].slice(-1)));
 				worksheet.getCell(drCell).value = workhour;
-				worksheet.getCell(drCell).fill = { type: 'pattern', pattern:'none', bgColor: { argb: drColorTable[drNumber] } };
+				worksheet.getCell(drCell).fill = { type: 'pattern', pattern:'solid', bgColor: { argb: drColorTable[drNumber] } };
 			}
 		}
 	}
@@ -53,7 +53,6 @@ function importCalendar(worksheet){
 function initExcel(worksheet){
 	worksheet.views = [{state: 'frozen', xSplit: 1, ySplit: 1}];
 	worksheet.getRow(1).alignment = { horizontal: 'center' };
-	//worksheet.getColumn(1).alignment = { horizontal: 'center' };
 	worksheet.columns = [
 		{ header: '', width: 10 },
 		{ header: '월', width: 10 },
@@ -62,7 +61,7 @@ function initExcel(worksheet){
 		{ header: '목', width: 10 },
 		{ header: '금', width: 10 },
 		{ header: '토', width: 10 },
-		{ header: '일', width: 10, style: {border:{right:{style: 'thin'}}}},
+		{ header: '일', width: 10 }
 	];
 	if (!dutyObj.count){return};
 	let startLine = 2;
