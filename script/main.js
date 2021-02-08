@@ -98,8 +98,8 @@ function sumByMonth(worksheet){
 					sum = sum + ',' + cellName.slice(0, 1) + (parseInt(cellName.slice(1)) + dr);
 				}
 			}
-			sum = '=SUM(' + sum.slice(1) + ')';
-			worksheet.getCell('J' + (parseInt(startLine) + dr)).value = sum;
+			sum = 'SUM(' + sum.slice(1) + ')';
+			worksheet.getCell('J' + (parseInt(startLine) + dr)).value = {formula: sum};
 		}
 	}
 }
