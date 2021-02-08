@@ -24,8 +24,9 @@ body {
 #calendarMenu {
   margin: 10px;
 }
-#calendarMenu>button {
+#calendarMenu > button {
   height: 24px;
+  line-height: 24px;
 }
 #calendarWeekdays {
   margin: 10px;
