@@ -87,7 +87,7 @@ function sumByMonth(worksheet){
 	for(let i = 0; i < months.length; i++){
 		let thisMonthDays = months[i];
 		let startLine = thisMonthDays[0].slice(1);
-		let thisMonth = worksheet.getCell(thisMonthDays[0]).value.slice(0, 1);
+		let thisMonth = worksheet.getCell(thisMonthDays[0]).value.split('/')[0];
 		worksheet.getCell('J' + startLine).value = thisMonth + '월';
 		for(let dr = 1; dr <= dutyObj.count; dr++){
 			let sum = "";
