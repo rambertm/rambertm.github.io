@@ -5,6 +5,7 @@ let drColorTable = ["", "FFFF7F50", "FF00BFFF", "FFFFD700", "FF98FB98", "FFDDA0D
 let cellsByMonth = ["", "", "", "", "", "", "", "", "", "", "", ""];
 let tableBody = document.getElementById('tableBody');
 let dutyObj = {count: 0};
+
 function getTodayString(){
 	let today = new Date();
 	return today.getFullYear() + ("0" + (today.getMonth() + 1)).slice(-2) + ("0" + today.getDate()).slice(-2);
@@ -51,7 +52,6 @@ function importCalendar(worksheet){
 		}
 	}
 }
-
 function sumByMonth(worksheet){
 	let nthWeek = 1;
 	let months = [];
@@ -104,8 +104,6 @@ function sumByMonth(worksheet){
 		}
 	}
 }
-
-
 function initExcel(worksheet){
 	worksheet.views = [{state: 'frozen', xSplit: 1, ySplit: 1}];
 	worksheet.getRow(1).alignment = { horizontal: 'center' };
@@ -145,7 +143,7 @@ function initExcel(worksheet){
 	}
 }
 
-function addDoc(e){
+function addDoc(){
 	if (drNo > 6){
 		return
 	}
@@ -170,6 +168,13 @@ function addDoc(e){
 	field.value = "";
 	drNo++;
 }
+document.getElementById('addDoc').addEventListener('keydown', function(event){
+	event.stopPropagation();
+	if (event.keyCode === 13){
+	    	addDoc();
+		event.target.value = "";
+	}
+});
 
 function initCalendar(){
 	let today = new Date();
