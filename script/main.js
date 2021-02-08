@@ -23,7 +23,7 @@ async function generateExcel(){
 	const title = 'Duty_' + getTodayString() + '( ' + getDrNames() + ' ).xlsx';
 	initExcel(worksheet);
 	importCalendar(worksheet);
-	parseExcelByMonth(worksheet);
+	sumByMonth(worksheet);
 	const buff = await workbook.xlsx.writeBuffer();
 	saveAs(new Blob([buff]), title);
 }
@@ -53,29 +53,34 @@ function importCalendar(worksheet){
 	//worksheet.getCell('J2').value = { formula: "SUM(G9,G12,F11,F8)"} 
 }
 
-function parseExcelByMonth(worksheet){
-	let startMonth = worksheet.getCell('H2').value.split('/')[0];
-	let thisMonth = startMonth;
-	let cellsByDr = ["", "", "", "", "", ""];
-	for(let nth = 1; nth < 5; nth++){
-		let dateRow = 2 + (dutyObj.count + 1) * (nth - 1);
-		/*
-		if (worksheet.getCell('B' + dateRow).value.split('/')[0] !== thisMonth){
-			thisMonth = ((thisMonth === 12) ? 1 : (thisMonth + 1));
-			
-		}
-		*/
+function sumByMonth(worksheet){
+	let nthWeek = 1;
+	for(let nthMonth = 0; nthMonth < 12; nthMonth++){
+		let nthRow = 2 + (dutyObj.count + 1) * (nthWeek - 1);
+		let thisMonth = worksheet.getCell('H' + nthRow).value.split('/')[0]
+		let thisMonthDays = [];
 		for(let i = 0; i < 7; i++){
 			let cellCol = String.fromCharCode(66 + i);
-			if (worksheet.getCell(cellCol + dateRow).value.split('/')[0] === thisMonth){
-				for(let i = 1; i <= dutyObj.count; i++){
-					cellsByDr[i-1] = cellsByDr[i-1] + cellCol + (dateRow + i);
-				}
+			if (worksheet.getCell(cellCol + nthRow).value.split('/')[0] === thisMonth){
+				thisMonthDays.push(cellCol + nthRow);
 			}
 		}
-	}
-	for(let i = 1; i <= dutyObj.count; i++){
-		console.log(cellsByDr[i-1]);
+		nthWeek++;
+		nthRow = 2 + (dutyObj.count + 1) * (nthWeek - 1);
+		let nextWeekMonth = worksheet.getCell('H' + nthRow).value.split('/')[0];
+		while (nextWeekMonth === thisMonth){
+			thisMonthDays.push('B' + nthRow + ':H' + nthRow);
+			nthWeek++;
+			nthRow = 2 + (dutyObj.count + 1) * (nthWeek - 1);
+			nextWeekMonth = worksheet.getCell('H' + nthRow).value.split('/')[0];
+		}
+		for(let i = 0; i < 7; i++){
+			let cellCol = String.fromCharCode(66 + i);
+			if (worksheet.getCell(cellCol + nthRow).value.split('/')[0] === thisMonth){
+				thisMonthDays.push(cellCol + nthRow);
+			}
+		}
+		console.log(thisMonthDays);
 	}
 }
 
@@ -92,7 +97,10 @@ function initExcel(worksheet){
 		{ header: '목', width: 10 },
 		{ header: '금', width: 10 },
 		{ header: '토', width: 10 },
-		{ header: '일', width: 10 }
+		{ header: '일', width: 10 },
+		{ header: '', width: 10 },
+		{ header: '', width: 10 },
+		{ header: '월별 합계', width: 10 }
 	];
 	if (!dutyObj.count){return};
 	let startLine = 2;
