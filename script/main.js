@@ -99,7 +99,7 @@ function sumByMonth(worksheet){
 				}
 			}
 			sum = '=SUM(' + sum.slice(1) + ')';
-			worksheet.getCell('J' + (startLine + dr)).value = sum;
+			worksheet.getCell('J' + (parseInt(startLine) + dr)).value = sum;
 		}
 	}
 }
