@@ -36,6 +36,9 @@ function importCalendar(worksheet){
 			let colChar = String.fromCharCode(65 + c);
 			let childs = calendarCell.childNodes;
 			worksheet.getCell(colChar + cellRow).value = childs[0].textContent;
+			if (calendarCell.className.includes('colHoliday')){
+				worksheet.getCell(colChar + cellRow).font={color: { argb: 'FFFF0000' }};
+			}
 			for(let i = 1; i < childs.length; i++){
 				let child = childs[i];
 				let drNumber = child.className.split(' ')[1].slice(-1);
@@ -167,7 +170,7 @@ function addDoc(){
 	field.value = "";
 	drNo++;
 }
-document.getElementById('addDoc').addEventListener('keydown', function(event){
+document.getElementById('docName').addEventListener('keydown', function(event){
 	event.stopPropagation();
 	if (event.keyCode === 13){
 	    	addDoc();
