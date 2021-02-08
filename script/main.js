@@ -100,6 +100,7 @@ function sumByMonth(worksheet){
 			}
 			sum = 'SUM(' + sum.slice(1) + ')';
 			worksheet.getCell('J' + (parseInt(startLine) + dr)).value = {formula: sum};
+			worksheet.getCell('J' + (parseInt(startLine) + dr)).fill = { type: 'pattern', pattern:'solid', fgColor:{argb: drColorTable[dr]} };
 		}
 	}
 }
