@@ -83,7 +83,15 @@ function sumByMonth(worksheet){
 		}
 		months.push(thisMonthDays);
 	}
-	console.log(months);
+	for(let i = 0; i < months.length; i++){
+		let thisMonthDays = months[i];
+		let startLine = thisMonthDays[0].slice(1);
+		let thisMonth = worksheet.getCell(thisMonthDays[0]).value.slice(1);
+		worksheet.getCell('J' + startLine).value = thisMonth + '월'
+	
+	}
+	
+	
 }
 
 
