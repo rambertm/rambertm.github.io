@@ -55,6 +55,7 @@ function importCalendar(worksheet){
 
 function sumByMonth(worksheet){
 	let nthWeek = 1;
+	let months = [];
 	for(let nthMonth = 0; nthMonth < 12; nthMonth++){
 		let nthRow = 2 + (dutyObj.count + 1) * (nthWeek - 1);
 		let thisMonth = worksheet.getCell('H' + nthRow).value.split('/')[0]
@@ -80,8 +81,9 @@ function sumByMonth(worksheet){
 				thisMonthDays.push(cellCol + nthRow);
 			}
 		}
-		console.log(thisMonthDays);
+		months.push(thisMonthDays);
 	}
+	console.log(months);
 }
 
 
