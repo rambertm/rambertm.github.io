@@ -50,7 +50,6 @@ function importCalendar(worksheet){
 			}
 		}
 	}
-	//worksheet.getCell('J2').value = { formula: "SUM(G9,G12,F11,F8)"} 
 }
 
 function sumByMonth(worksheet){
@@ -86,12 +85,23 @@ function sumByMonth(worksheet){
 	for(let i = 0; i < months.length; i++){
 		let thisMonthDays = months[i];
 		let startLine = thisMonthDays[0].slice(1);
-		let thisMonth = worksheet.getCell(thisMonthDays[0]).value.slice(1);
-		worksheet.getCell('J' + startLine).value = thisMonth + '월'
-	
+		let thisMonth = worksheet.getCell(thisMonthDays[0]).value.slice(0, 1);
+		worksheet.getCell('J' + startLine).value = thisMonth + '월';
+		for(let dr = 1; dr <= dutyObj.count; dr++){
+			let sum = "";
+			for(let i = 0; i < thisMonthDays.length; i++){
+				let cellName = thisMonthDays[i];
+				if (cellName.includes(':')){
+					let cells = cellName.split(':');
+					sum = sum + ',' + cells[0].slice(0, 1) + (parseInt(cells[0].slice(1)) + dr) + ':' + cells[1].slice(0, 1) + (parseInt(cells[1].slice(1)) + dr);
+				}else{
+					sum = sum + ',' + cellName.slice(0, 1) + (parseInt(cellName.slice(1)) + dr);
+				}
+			}
+			sum = '=SUM(' + sum.slice(1) + ')';
+			worksheet.getCell('J' + (startLine + dr)).value = sum;
+		}
 	}
-	
-	
 }
 
 
@@ -108,7 +118,6 @@ function initExcel(worksheet){
 		{ header: '금', width: 10 },
 		{ header: '토', width: 10 },
 		{ header: '일', width: 10 },
-		{ header: '', width: 10 },
 		{ header: '', width: 10 },
 		{ header: '월별 합계', width: 10 }
 	];
