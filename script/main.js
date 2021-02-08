@@ -1,9 +1,8 @@
+const holidays = ['2021/2/11', '2021/2/12', '2021/2/13', '2021/3/1', '2021/5/5', '2021/5/19', '2021/9/20', '2021/9/21', '2021/9/22', '2022/2/1', '2022/2/2', '2022/2/3', '2022/3/1', '2022/5/5', '2022/6/6', '2022/8/15', '2022/9/9', '2022/10/3'];
+const drColorTable = ["", "FFFF7F50", "FF00BFFF", "FFFFD700", "FF98FB98", "FFDDA0DD", "FFFFDAB9"];
+const tableBody = document.getElementById('tableBody');
 let drNo = 1;
-let holiday = ['2021/2/11', '2021/2/12', '2021/2/13', '2021/3/1', '2021/5/5', '2021/5/19', '2021/9/20', '2021/9/21', '2021/9/22', '2022/2/1', '2022/2/2', '2022/2/3', '2022/3/1', '2022/5/5', '2022/6/6', '2022/8/15', '2022/9/9', '2022/10/3'];
 let ddElements = [];
-let drColorTable = ["", "FFFF7F50", "FF00BFFF", "FFFFD700", "FF98FB98", "FFDDA0DD", "FFFFDAB9"];
-let cellsByMonth = ["", "", "", "", "", "", "", "", "", "", "", ""];
-let tableBody = document.getElementById('tableBody');
 let dutyObj = {count: 0};
 
 function getTodayString(){
@@ -198,8 +197,8 @@ function initCalendar(){
 			if ((day.getDay() === 0) || (day.getDay() === 6)){
 				td.classList.add('colHoliday');
 			}else{
-				for(let i = 0; i < holiday.length; i++){
-					if (fullDate === holiday[i]){
+				for(let i = 0; i < holidays.length; i++){
+					if (fullDate === holidays[i]){
 						td.classList.add('colHoliday');
 						break;
 					}
