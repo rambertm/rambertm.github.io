@@ -22,8 +22,11 @@
     });
     let customButton = new goog.ui.CustomButton('customButton');
     customButton.render(goog.dom.getElement('testDiv'));
-    goog.events.listen(customButton, 'activate', function(e){
+    goog.events.listen(customButton, goog.ui.Component.EventType.ACTION, function(e){
       console.log('custom Button activate');
+    });
+    customButton.listen(goog.ui.Component.EventType.ENTER, function(e){
+      console.log('ENTER');
     });
     console.log(customButton);
 </script>
