@@ -4,6 +4,10 @@
   <meta charset="UTF-8">
   <title>test page</title>
   <script src='https://google.github.io/closure-library/source/closure/goog/base.js'></script>
+  <script>
+    goog.require('goog.ui.LabelInput');
+    goog.require('goog.dom');
+  </script>
 </head>
 <body>
   <h1> HELLO WORLD! </h1>
@@ -15,10 +19,6 @@
       
       
   <script>
-  'use strict';
-    goog.require('goog.ui.LabelInput');
-    goog.require('goog.dom');
-    
     var $ = goog.dom.getElement;
 
     var li1 = new goog.ui.LabelInput;
