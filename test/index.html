@@ -6,13 +6,21 @@
 <body>
 <h1> HELLO WORLD! </h1>
 <script>
-  console.log(new Promise(function(res, rej){
+  console.log('new Promise: ', new Promise(function(res, rej){
+    console.log('in Promise');
     res({name: 'jack', job:'doc'});
   })
   .then(function(data){
-    console.log(data);
+    console.log('first then - data: ', data);
     return 'test - value'
-  }));
+  }).then(function(data){
+    console.log('2nd then - data: ', data);
+  })
+             
+             
+             
+             
+);
 </script>
 </body>
 </html>
