@@ -16,9 +16,10 @@
     let button = new goog.ui.Button('hello');
     button.render(goog.dom.getElement('testDiv'));
     button.addClassName('testClass');
-    console.log('Action key: ', button.listen(goog.ui.Component.EventType.ACTION, function(e){
+    let testmsg = button.listen(goog.ui.Component.EventType.ACTION, function(e){
       console.log('ACTION!');
-    }););
+    });
+    console.log('Action key: ', testmsg);
     button.listen(goog.ui.Component.EventType.ACTIVATE, function(e){
       console.log('ACTIVATE');
     });
