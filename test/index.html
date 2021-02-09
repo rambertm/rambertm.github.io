@@ -19,9 +19,6 @@
     button.listen(goog.ui.Component.EventType.ACTION, function(e){
       console.log('ACTION!');
     });
-    button.listen(goog.ui.Component.EventType.BEFORE_SHOW, function(e){
-      console.log('BEFORE_SHOW');
-    });
     button.listen(goog.ui.Component.EventType.ACTIVATE, function(e){
       console.log('ACTIVATE');
     });
@@ -31,11 +28,7 @@
     button.listen(goog.ui.Component.EventType.ENTER, function(e){
       console.log('ENTER');
     });
-    button.listen(goog.ui.Component.EventType.LEAVE, function(e){
-      console.log('LEAVE');
-    });
-    button.listen(goog.ui.Component.EventType.DEACTIVATE, function(e){
-      console.log('DEACTIVATE');
+
     });
     //goog.events.dispatchEvent(button, goog.ui.Component.EventType.ACTION);
 </script>
