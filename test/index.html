@@ -17,7 +17,7 @@
     button.render(goog.dom.getElement('testDiv'));
     button.addClassName('testClass');
     console.log(button.getElement());
-    button.listen(goog.events.EventType.CLICK, function(e){
+    button.listen(goog.ui.Component.EventType.ACTION, function(e){
       console.log('worked!');
     });
     
