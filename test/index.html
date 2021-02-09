@@ -11,15 +11,16 @@
 </head>
 <body>
   <h1> HELLO WORLD! </h1>
-  <button id='testbutton'> testButton </button>
   <div id='testDiv'></div>
   <script> 
-      goog.events.listen(document.getElementById('testbutton'),
-                         goog.events.EventType.CLICK, function(e){
-         console.log('hi');
-      });
     let button = new goog.ui.Button('hello');
     button.render(goog.dom.getElement('testDiv'));
+    button.addClassName('testClass');
+    console.log(button.getElement());
+    button.listen(goog.events.EventType.CLICK, function(e){
+      console.log('worked!');
+    });
+    
 </script>
 </body>
 </html>
