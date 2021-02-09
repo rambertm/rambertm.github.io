@@ -1,28 +1,33 @@
 <!doctype html>
 <html>
 <head>
-<title>test page</title>
+  <meta charset="UTF-8">
+  <title>test page</title>
+  <script src='https://google.github.io/closure-library/source/closure/goog/base.js'></script>
 </head>
 <body>
-<h1> HELLO WORLD! </h1>
-<script>
+  <h1> HELLO WORLD! </h1>
+    <form>
+    <input id=i name=i label='Search, add, or invite 1'>
+    <div id=d></div>
+    <button type="button">Faux Submit</button>
+    </form>
+      
+      
+  <script>
   'use strict';
-  console.log('new Promise: ', new Promise(function(res, rej){
-    console.log('in Promise');
-    res({name: 'jack', job:'doc'});
-  })
-  .then(function(data){
-    console.log('first then - data: ', data);
-    return 'test - value'
-  }).then(function(data){
-    console.log('2nd then - data: ', data);
-    return 'test-value2'
-  })
-             
-             
-             
-             
-);
+    goog.require('goog.ui.LabelInput');
+    goog.require('goog.dom');
+    
+    var $ = goog.dom.getElement;
+
+    var li1 = new goog.ui.LabelInput;
+    li1.decorate($('i'));
+
+    var li2 = new goog.ui.LabelInput('Search, add, or invite 2');
+    var el = li2.render($('d'));
+    li2.getElement().name = 'dynamic';
+  
 </script>
 </body>
 </html>
