@@ -5,29 +5,14 @@
   <title>test page</title>
   <script src='https://google.github.io/closure-library/source/closure/goog/base.js'></script>
   <script>
-    goog.require('goog.ui.LabelInput');
-    goog.require('goog.dom');
+    
   </script>
 </head>
 <body>
   <h1> HELLO WORLD! </h1>
-    <form>
-    <input id=i name=i label='Search, add, or invite 1'>
-    <div id=d></div>
-    <button type="button">Faux Submit</button>
-    </form>
-      
-      
+
   <script>
-    var $ = goog.dom.getElement;
-
-    var li1 = new goog.ui.LabelInput;
-    li1.decorate($('i'));
-
-    var li2 = new goog.ui.LabelInput('Search, add, or invite 2');
-    var el = li2.render($('d'));
-    li2.getElement().name = 'dynamic';
-  
+throw new Error('hi this is a new error');
 </script>
 </body>
 </html>
