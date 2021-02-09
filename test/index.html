@@ -5,14 +5,18 @@
   <title>test page</title>
   <script src='https://google.github.io/closure-library/source/closure/goog/base.js'></script>
   <script>
-    
+    goog.require('goog.events');
+    goog.require('goog.events.EventType');
   </script>
 </head>
 <body>
   <h1> HELLO WORLD! </h1>
-
-  <script>
-throw new Error('hi this is a new error');
+  <button id='testbutton'> testButton </button>
+  <script> 
+      goog.events.listen(document.getElementById('testbutton'),
+                         goog.events.EventType.CLICK, function(e){
+         console.log('hi');
+      });
 </script>
 </body>
 </html>
