@@ -7,6 +7,7 @@
   <script>
     goog.require('goog.events');
     goog.require('goog.ui.Button');
+    goog.require('goog.ui.CustomButton');
   </script>
 </head>
 <body>
@@ -15,23 +16,14 @@
   <script> 
     let button = new goog.ui.Button('hello');
     button.render(goog.dom.getElement('testDiv'));
-    button.addClassName('testClass');
     let testACTION = button.listen(goog.ui.Component.EventType.ACTION, function(e){
       console.log('ACTION!');
     });
-    console.log('Action Listener: ', testACTION);
-    let testActivate = button.listen(goog.ui.Component.EventType.ACTIVATE, function(e){
-      console.log('ACTIVATE');
+    let customButton = new goog.ui.CustomButton('customButton');
+    customButton.render(goog.dom.getElement('testDiv'));
+    goog.events.listen(customButton, 'activate', function(e){
+      console.log('custom Button activate');
     });
-    console.log('Action Listener: ', testACTIVATE);
-    button.listen(goog.ui.Component.EventType.FOCUS, function(e){
-      console.log('FOCUS');
-    });
-    button.listen(goog.ui.Component.EventType.ENTER, function(e){
-      console.log('ENTER');
-    });
-
-    //goog.events.dispatchEvent(button, goog.ui.Component.EventType.ACTION);
 </script>
 </body>
 </html>
