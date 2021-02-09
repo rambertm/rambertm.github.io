@@ -16,11 +16,10 @@
     let button = new goog.ui.Button('hello');
     button.render(goog.dom.getElement('testDiv'));
     button.addClassName('testClass');
-    console.log(button.getElement());
     button.listen(goog.ui.Component.EventType.ACTION, function(e){
       console.log('worked!');
     });
-    
+    goog.events.dispatchEvent(button, goog.ui.Component.EventType.ACTION);
 </script>
 </body>
 </html>
