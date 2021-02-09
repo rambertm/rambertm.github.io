@@ -16,13 +16,14 @@
     let button = new goog.ui.Button('hello');
     button.render(goog.dom.getElement('testDiv'));
     button.addClassName('testClass');
-    let testmsg = button.listen(goog.ui.Component.EventType.ACTION, function(e){
+    let testACTION = button.listen(goog.ui.Component.EventType.ACTION, function(e){
       console.log('ACTION!');
     });
-    console.log('Action key: ', testmsg);
-    button.listen(goog.ui.Component.EventType.ACTIVATE, function(e){
+    console.log('Action Listener: ', testACTION);
+    let testActivate = button.listen(goog.ui.Component.EventType.ACTIVATE, function(e){
       console.log('ACTIVATE');
     });
+    console.log('Action Listener: ', testACTIVATE);
     button.listen(goog.ui.Component.EventType.FOCUS, function(e){
       console.log('FOCUS');
     });
