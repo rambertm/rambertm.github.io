@@ -6,21 +6,20 @@
   <script src='https://google.github.io/closure-library/source/closure/goog/base.js'></script>
   <script>
     goog.require('goog.events');
+    goog.require('goog.ui.button');
   </script>
 </head>
 <body>
   <h1> HELLO WORLD! </h1>
   <button id='testbutton'> testButton </button>
-  <button id='testbutton2'> testButton2 </button>
+  <div id='testDiv'></div>
   <script> 
       goog.events.listen(document.getElementById('testbutton'),
                          goog.events.EventType.CLICK, function(e){
          console.log('hi');
       });
-    goog.events.listen(document.getElementById('testbutton2'),
-                       goog.events.EventType.CLICK, function(e){
-      goog.events.dispatchEvent(document.getElementById('testbutton'), goog.events.EventType.CLICK);
-    });
+    let button = new Button();
+    button.render(goog.dom.getElement('testDiv'));
 </script>
 </body>
 </html>
