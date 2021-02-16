@@ -5,6 +5,7 @@
   <title>test page</title>
   <script src='https://google.github.io/closure-library/source/closure/goog/base.js'></script>
   <script>
+    goog.require('goog.dom');
     goog.require('goog.events');
     goog.require('goog.ui.Button');
     goog.require('goog.ui.CustomButton');
@@ -16,6 +17,7 @@
 <body>
   <h1> HELLO WORLD! </h1>
   <div id='testDiv'></div>
+  <div id='testDiv2'></div>
   <script> 
     let button = new goog.ui.Button('hello');
     button.render(goog.dom.getElement('testDiv'));
@@ -34,7 +36,8 @@
       console.log('ENTER');
     });
     let testHTML = goog.html.SafeHtml.create('span', {'style': {'color': 'red'}}, 'testContent');
-    console.log(testHTML);
+    goog.dom.getElement('testDiv2').innerHTML = goog.html.SafeHtml.unwrap(testHTML);
+    
 </script>
 </body>
 </html>
