@@ -9,6 +9,8 @@
     goog.require('goog.ui.Button');
     goog.require('goog.ui.CustomButton');
     goog.require('goog.ui.Css3ButtonRenderer');
+    goog.require('goog.html.SafeHtml');
+    
   </script>
 </head>
 <body>
@@ -23,12 +25,16 @@
     let customButton = new goog.ui.CustomButton('customButton');
     customButton.render(goog.dom.getElement('testDiv'));
     goog.events.listen(customButton, goog.ui.Component.EventType.ACTION, function(e){
-      console.log('custom Button activate');
+      if (true){
+        throw new Error('this is a artificial error');
+        console.log('after Error msg');
+      }
     });
     customButton.listen(goog.ui.Component.EventType.ENTER, function(e){
       console.log('ENTER');
     });
-    console.log(customButton);
+    let testHTML = goog.html.SafeHtml.create('span', {'style': {'color': 'red'}}, 'testContent');
+    console.log(testHTML);
 </script>
 </body>
 </html>
