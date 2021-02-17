@@ -11,6 +11,7 @@
     goog.require('goog.ui.CustomButton');
     goog.require('goog.ui.Css3ButtonRenderer');
     goog.require('goog.html.SafeHtml');
+    goog.require('goog.ui.tree.TreeControl');
     
   </script>
 </head>
@@ -19,24 +20,20 @@
   <div id='testDiv'></div>
   <div id='testDiv2'></div>
   <script> 
-    let button = new goog.ui.Button('hello');
-    button.render(goog.dom.getElement('testDiv'));
-    let testACTION = button.listen(goog.ui.Component.EventType.ACTION, function(e){
-      console.log('ACTION!');
-    });
     let customButton = new goog.ui.CustomButton('customButton');
     customButton.render(goog.dom.getElement('testDiv'));
     goog.events.listen(customButton, goog.ui.Component.EventType.ACTION, function(e){
-      if (true){
-        throw new Error('this is a artificial error');
-        console.log('after Error msg');
+      try {
+        if (true){
+          throw new Error('this is a artificial error');
+          console.log('after Error msg');
+        }
+      }catch(error){
+        console.error(error);
+      }finally{
+        console.log('finally...');
       }
     });
-    customButton.listen(goog.ui.Component.EventType.ENTER, function(e){
-      console.log('ENTER');
-    });
-    let testHTML = goog.html.SafeHtml.create('span', {'style': {'color': 'red'}}, 'testContent');
-    goog.dom.getElement('testDiv2').innerHTML = goog.html.SafeHtml.unwrap(testHTML);
     
 </script>
 </body>
