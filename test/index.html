@@ -35,6 +35,14 @@
       }
     });
     let tree = new goog.ui.tree.TreeControl('root');
+    tree.setText('countries');
+    let child = tree.getTree().createNode('');
+    child.setText('korea');
+    tree.add(child);
+    let child2 = tree.getTree().createNode('');
+    child2.setText('USA');
+    tree.add(child2);
+    
     tree.render(goog.dom.getElement('testDiv2'));
 </script>
 </body>
