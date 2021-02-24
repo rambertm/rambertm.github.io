@@ -7,13 +7,7 @@
   <script src='https://google.github.io/closure-library/source/closure/goog/base.js'></script>
   <script>
     goog.require('goog.dom');
-    goog.require('goog.events');
-    goog.require('goog.ui.Button');
-    goog.require('goog.ui.CustomButton');
-    goog.require('goog.ui.Css3ButtonRenderer');
-    goog.require('goog.html.SafeHtml');
-    goog.require('goog.ui.tree.TreeControl');
-    
+
   </script>
 </head>
 <body>
@@ -21,30 +15,7 @@
   <div id='testDiv'></div>
   <div id='testDiv2'></div>
   <script> 
-    let customButton = new goog.ui.CustomButton('customButton');
-    customButton.render(goog.dom.getElement('testDiv'));
-    goog.events.listen(customButton, goog.ui.Component.EventType.ACTION, function(e){
-      try {
-        if (true){
-          throw new Error('this is a artificial error');
-          console.log('after Error msg');
-        }
-      }catch(error){
-        console.error(error);
-      }finally{
-        console.log('finally...');
-      }
-    });
-    let tree = new goog.ui.tree.TreeControl('root');
-    tree.setText('countries');
-    let child = tree.getTree().createNode('');
-    child.setText('korea');
-    tree.add(child);
-    let child2 = tree.getTree().createNode('');
-    child2.setText('USA');
-    tree.add(child2);
-    
-    tree.render(goog.dom.getElement('testDiv2'));
+
 </script>
 </body>
 </html>
