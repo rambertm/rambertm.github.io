@@ -164,7 +164,7 @@ function addDoc(){
 		let newChildDiv = document.createElement('div');
 		newChildDiv.className = 'dr' + drNo;
 		newChildDiv.style.width = '150px';
-		newChildDiv.innerHTML = docName + ':&nbsp;&nbsp;&nbsp;0 시간';
+		newChildDiv.innerHTML = docName + ':&nbsp;&nbsp;&nbsp;0';
 		outputChild[i].appendChild(newChildDiv);
 	}
 	field.value = "";
@@ -495,7 +495,7 @@ function updateOutputByMonth(targetMonth){
 				}
 			}
 			let workHours = dutyObj[drQuery]['month' + targetMonth] + dutyObj[drQuery]['month' + targetMonth + '_holiday'];
-			childDr.innerHTML = dutyObj[drQuery].name + ':&nbsp;&nbsp;&nbsp;' + workHours + ' 시간';
+			childDr.innerHTML = dutyObj[drQuery].name + ':&nbsp;&nbsp;&nbsp;' + workHours + ' Hour(s)';
 		}
 	}
 }
