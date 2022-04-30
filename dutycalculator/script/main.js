@@ -1,4 +1,3 @@
-const holidays = ['2021/2/11', '2021/2/12', '2021/2/13', '2021/3/1', '2021/5/5', '2021/5/19', '2021/9/20', '2021/9/21', '2021/9/22', '2022/2/1', '2022/2/2', '2022/2/3', '2022/3/1', '2022/5/5', '2022/6/6', '2022/8/15', '2022/9/9', '2022/10/3'];
 const drColorTable = ["", "FFFF7F50", "FF00BFFF", "FFFFD700", "FF98FB98", "FFDDA0DD", "FFFFDAB9"];
 const tableBody = document.getElementById('tableBody');
 let drNo = 1;
@@ -112,15 +111,15 @@ function initExcel(worksheet){
 	worksheet.getCell('H1').border = { right: {style: 'thin'}};
 	worksheet.columns = [
 		{ header: '', width: 10 },
-		{ header: '월', width: 10 },
-		{ header: '화', width: 10 },
-		{ header: '수', width: 10 },
-		{ header: '목', width: 10 },
-		{ header: '금', width: 10 },
-		{ header: '토', width: 10 },
-		{ header: '일', width: 10 },
+		{ header: 'Mon', width: 10 },
+		{ header: 'Tue', width: 10 },
+		{ header: 'Wed', width: 10 },
+		{ header: 'Thu', width: 10 },
+		{ header: 'Fri', width: 10 },
+		{ header: 'Sat', width: 10 },
+		{ header: 'Sun', width: 10 },
 		{ header: '', width: 10 },
-		{ header: '월별 합계', width: 10 }
+		{ header: 'monthly total', width: 10 }
 	];
 	if (!dutyObj.count){return};
 	let startLine = 2;
@@ -199,13 +198,6 @@ function initCalendar(){
 			td.setAttribute('draggable', true);
 			if ((day.getDay() === 0) || (day.getDay() === 6)){
 				td.classList.add('colHoliday');
-			}else{
-				for(let i = 0; i < holidays.length; i++){
-					if (fullDate === holidays[i]){
-						td.classList.add('colHoliday');
-						break;
-					}
-				}
 			}
 			tr.appendChild(td).innerHTML = date;
 			day.setDate(day.getDate() + 1);
