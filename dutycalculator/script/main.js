@@ -1,4 +1,5 @@
 const drColorTable = ["", "FFFF7F50", "FF00BFFF", "FFFFD700", "FF98FB98", "FFDDA0DD", "FFFFDAB9"];
+const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 const tableBody = document.getElementById('tableBody');
 let drNo = 1;
 let ddElements = [];
@@ -87,7 +88,7 @@ function sumByMonth(worksheet){
 		let thisMonthDays = months[i];
 		let startLine = thisMonthDays[0].slice(1);
 		let thisMonth = worksheet.getCell(thisMonthDays[0]).value.split('/')[0];
-		worksheet.getCell('J' + startLine).value = thisMonth + '월';
+		worksheet.getCell('J' + startLine).value = monthNames[thisMonth - 1];
 		for(let dr = 1; dr <= dutyObj.count; dr++){
 			let sum = "";
 			for(let i = 0; i < thisMonthDays.length; i++){
