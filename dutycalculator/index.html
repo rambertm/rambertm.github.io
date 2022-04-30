@@ -1,8 +1,12 @@
 <!doctype HTML>
-<html>
+<html lang="en" dir="ltr">
 <head>
 	<title>Duty calculator</title>
 	<meta charset='UTF-8'>
+	<meta name="author" content="Hyun">
+	<meta name='description' content='Calculate weekly and weekend working hours by month. You can download it as an excel file.'>
+	<meta property='og:title' content='Duty calculator'>
+	<meta property='og:description' content='Calculate weekly and weekend working hours by month. You can download it as an excel file.'>
 	<link rel='stylesheet' href='./css/style.css'>
 	<script type='text/javascript' src='./script/polyfill.js'></script>
 	<script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.2.0/exceljs.min.js'></script>
@@ -20,7 +24,7 @@
 					<button onclick='generateExcel()'>Download</button>
 				</div>
 				<div id='calendarWeekdays'>
-					<div style='border-left:1px solid black;'>월</div><div>화</div><div>수</div><div>목</div><div>금</div><div style='color:red;'>토</div><div style='color:red;'>일</div>
+					<div style='border-left:1px solid black;'>Mon</div><div>Tue</div><div>Wed</div><div>Thu</div><div>Fri</div><div style='color:red;'>Sat</div><div style='color:red;'>Sun</div>
 				</div>
 			</div>
 			<div id='calendarBody'>
