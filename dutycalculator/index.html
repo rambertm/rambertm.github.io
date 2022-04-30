@@ -1,0 +1,50 @@
+<!doctype HTML>
+<html>
+<head>
+	<title>Duty calculator</title>
+	<meta charset='UTF-8'>
+	<link rel='stylesheet' href='/css/style.css'>
+	<script type='text/javascript' src='/script/polyfill.js'></script>
+	<script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.2.0/exceljs.min.js'></script>
+	<script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.0/FileSaver.min.js '></script>
+	<script defer type='text/javascript' src='/script/main.js'></script>
+</head>
+
+<body>
+	<div id='mainContainer'>
+		<div id=calendar>
+			<div id='calendarHead'>
+				<div id='calendarMenu' data-html2canvas-ignore='true'>
+					<button onclick='fillCalendar()'>자동완성</button>
+					<button onclick='resetCalendar()'>초기화</button>
+					<button onclick='generateExcel()'>Download</button>
+				</div>
+				<div id='calendarWeekdays'>
+					<div style='border-left:1px solid black;'>월</div><div>화</div><div>수</div><div>목</div><div>금</div><div style='color:red;'>토</div><div style='color:red;'>일</div>
+				</div>
+			</div>
+			<div id='calendarBody'>
+				<table id='calendarTable'>
+					<colgroup>
+						<col class='colOdd'><col class='colEven'><col class='colOdd'><col class='colEven'><col class='colOdd'><col class='colHoliday'><col class='colHoliday'>
+					</colgroup>
+					<tbody id='tableBody'></tbody>
+				</table>
+			</div>
+		</div>
+		<div id='control'>
+			<fieldset id='members'>
+				<legend>Members</legend>
+				<label for='docName'>Name: </label>
+				<input type='text' id='docName' maxlength='4' style='width:75px'>
+				<button onclick='addDoc()'>Add</button>
+			</fieldset>
+			<div id='output'><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div style='border-bottom:0px;'></div></div>
+		</div>
+	</div>
+	<footer>
+		<p>* 모바일 환경 또는 인터넷 익스플로러를 이용하시는 경우 정상적으로 작동하지 않습니다. 엣지, 크롬, 파이어폭스 등 표준 브라우저를 사용해 주세요.
+		<br>* 버그 및 개선점은 rambertm@naver.com 으로 연락해주세요.</p>
+	</footer>
+</body>
+</html>
