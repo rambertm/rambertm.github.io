@@ -164,7 +164,7 @@ function addDoc(){
 		let newChildDiv = document.createElement('div');
 		newChildDiv.className = 'dr' + drNo;
 		newChildDiv.style.width = '150px';
-		newChildDiv.innerHTML = docName + ':&nbsp;&nbsp;&nbsp;0';
+		newChildDiv.innerHTML = docName + ':&nbsp;&nbsp;&nbsp;0 Hour(s)';
 		outputChild[i].appendChild(newChildDiv);
 	}
 	field.value = "";
