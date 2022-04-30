@@ -208,8 +208,9 @@ function initOutput(){
 	let today = new Date();
 	let child = document.getElementById('output').childNodes;
 	let day = new Date(today);
+	const formatYM = Intl.DateTimeFormat('default', { year: 'numeric', month: 'long' });
 	for(let i = 0; i < child.length; i++){
-		child[i].innerHTML = day.getFullYear() + '년 ' + (day.getMonth() + 1) + '월';
+		child[i].innerHTML = formatYM.format(day);
 		day.setMonth(day.getMonth() + 1);
 	}
 }
@@ -295,7 +296,7 @@ function promptWorkHour(target){
 	let name = target.firstChild.textContent;
 	let day = target.parentNode.firstChild.textContent;
 	updateDutyHours(target.parentNode, false);
-	let workHours = parseFloat(window.prompt(name + '님의 ' + day + '일 근무시간을 입력해주세요.'));
+	let workHours = parseFloat(window.prompt('Please Enter working hours of ' + name));
 	if ((workHours > 0) && (workHours <= 24)){
 		if (Number.isSafeInteger(workHours)){
 			workHours = Math.floor(workHours);
