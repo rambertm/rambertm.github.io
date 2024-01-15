@@ -36,7 +36,7 @@ function InitUnitSelect(type){
   const unitSelect = document.querySelector('.army__unitselect__' + type);
   for(const key in window[type.toUpperCase()]){
     let button = document.createElement('button');
-    button.style.backgroundImage = "url('./images/" + type + "_" + key + ".webp')";
+    button.style.backgroundImage = "url('/cocArmyGenerator/images/" + type + "_" + key + ".webp')";
     button.className = 'army__unitselect--disabledTH';
     button.value = type + '_' + key;
     unitSelect.appendChild(button);
@@ -335,7 +335,7 @@ Army.prototype.draw = function(foodCategory, unitType, unitName, count){
     if (count === 1){
       child = document.createElement('button');
       child.className = 'bgcolor--' + unitType;
-      child.style.backgroundImage = "url('../images/" + unitType + "_" + unitName + ".webp')";
+      child.style.backgroundImage = "url('/cocArmyGenerator/images/" + unitType + "_" + unitName + ".webp')";
       child.value = unitType + '_' + unitName;
       child.addEventListener('click', UnitDisplayClickListener);
       let grandChild = document.createElement('span');
