@@ -51,7 +51,7 @@ header a {
 }
 .army__infotable__unitcount__icon {
   display: inline-block;
-  background-image: url('./COCimages/misc.png');
+  background-image: url('../images/misc.png');
   background-size: 75px 29px;
   background-repeat: no-repeat;
   background-position: 0 0;
@@ -79,7 +79,7 @@ header a {
 }
 .army__infotable__spellcount__icon {
   display: inline-block;
-  background-image: url('./COCimages/misc.png');
+  background-image: url('../images/misc.png');
   background-size: 75px 29px;
   background-repeat: no-repeat;
   background-position: -23px 0;
@@ -188,7 +188,7 @@ header a {
   position: absolute;
   display: inline-block;
   user-select: none;
-  background-image: url('./COCimages/misc.png');
+  background-image: url('../images/misc.png');
   background-size: 75px 29px;
   background-repeat: no-repeat;
   background-position: -55px 0;
