@@ -3,6 +3,7 @@
 }
 body {
   margin: 0px;
+  padding: 10px;
   font-family: Georgia, "맑은 고딕", serif;
   overflow-x: hidden;
   word-break: keep-all;
@@ -14,11 +15,32 @@ body {
   user-select: none;
 }
 
-
-.footer {
+.util {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+.util__rect {
+  width: 200px;
+  margin: 5px;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+}
+.util__rect__name {
+  font-size: 16px;
+  text-align: center;
+}
+.util__rect__description {
+  font-size: 14px;
+}
+.util img {
+  width: 100%;
+  object-fit: contain;
+}
+footer {
   margin-top: 20px;
-  padding: 20px 40px;
+  padding: 10px 20px;
   background-color: rgb(244, 244, 246);
   color: #6e6e73;
-  font-size: 12px;
+  font-size: 14px;
 }
