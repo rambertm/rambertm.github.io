@@ -1,0 +1,24 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0px;
+  font-family: Georgia, "맑은 고딕", serif;
+  overflow-x: hidden;
+  word-break: keep-all;
+}
+.noselect {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+
+.footer {
+  margin-top: 20px;
+  padding: 20px 40px;
+  background-color: rgb(244, 244, 246);
+  color: #6e6e73;
+  font-size: 12px;
+}
