@@ -2,6 +2,8 @@
   box-sizing: border-box;
 }
 body {
+  width: 100%;
+  height: 100%;
   margin: 0px;
   font-family: Georgia, "맑은 고딕", serif;
   -moz-user-select: none;
@@ -29,7 +31,7 @@ body {
   vertical-align: top;
 }
 #calendarWeekdays {
-  margin: 10px;
+  margin: 0 10px 10px 10px;
 }
 #calendarWeekdays div {
   display: inline-block;
@@ -41,8 +43,7 @@ body {
 }
 #calendarBody {
   width: 780px;
-  max-height: calc(100% - 70px);
-  max-height: 80vh;
+  max-height: 90vh;
   margin-left: 10px;
   overflow-x: hidden;
   overflow-y: scroll;
