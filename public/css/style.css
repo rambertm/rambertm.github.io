@@ -44,3 +44,14 @@ footer {
   color: #6e6e73;
   font-size: 14px;
 }
+.attributions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+.attributions a {
+  margin: 2px 2px;
+  padding: 2px;
+  border: 1px solid darkgray;
+  border-radius: 5px;
+}
