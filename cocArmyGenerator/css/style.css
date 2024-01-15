@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'clashmagic';
-  src: url('./fonts/Clash-Regular.otf') format('opentype');
+  src: url('../fonts/Clash-Regular.otf') format('opentype');
 }
 
 * {
