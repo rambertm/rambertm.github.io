@@ -36,7 +36,7 @@ function InitUnitSelect(type){
   const unitSelect = document.querySelector('.army__unitselect__' + type);
   for(const key in window[type.toUpperCase()]){
     let button = document.createElement('button');
-    button.style.backgroundImage = "url('../images/" + type + "_" + key + ".webp')";
+    button.style.backgroundImage = "url('./images/" + type + "_" + key + ".webp')";
     button.className = 'army__unitselect--disabledTH';
     button.value = type + '_' + key;
     unitSelect.appendChild(button);
