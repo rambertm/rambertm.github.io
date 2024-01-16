@@ -57,6 +57,9 @@ footer {
 }
 
 @media (max-width: 440px) {
+  .util {
+  justify-content: center;
+  }
   .util__rect {
     width: 180px;
   }
@@ -65,7 +68,14 @@ footer {
   .util__rect {
     width: 150px;
   }
-  @media (max-width: 340px) {
+  .util__rect__name {
+    font-size: 15px;
+  }
+  .util__rect__description {
+    font-size: 13px;
+  }
+}
+@media (max-width: 340px) {
   .util__rect {
     width: 120px;
   }
