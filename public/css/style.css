@@ -56,11 +56,12 @@ footer {
   border: 1px solid darkgray;
   border-radius: 5px;
 }
-
-@media (max-width: 440px) {
+@media (max-width: 650px) {
   .util {
-  justify-content: center;
+    justify-content: center;
   }
+}
+@media (max-width: 440px) {
   .util__rect {
     width: 180px;
   }
