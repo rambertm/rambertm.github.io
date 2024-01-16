@@ -55,3 +55,9 @@ footer {
   border: 1px solid darkgray;
   border-radius: 5px;
 }
+
+@media (max-width: 500px) {
+  .util__rect {
+    width: 180px;
+  }
+}
