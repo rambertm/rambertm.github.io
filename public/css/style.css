@@ -56,8 +56,8 @@ footer {
   border-radius: 5px;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 400px) {
   .util__rect {
-    width: 180px;
+    width: 150px;
   }
 }
