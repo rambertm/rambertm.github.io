@@ -65,4 +65,14 @@ footer {
   .util__rect {
     width: 150px;
   }
+  @media (max-width: 340px) {
+  .util__rect {
+    width: 120px;
+  }
+  .util__rect__name {
+    font-size: 14px;
+  }
+  .util__rect__description {
+    font-size: 12px;
+  }
 }
