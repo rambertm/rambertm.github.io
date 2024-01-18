@@ -59,7 +59,7 @@ body {
   height: 150px;
   border-radius: 10px;
   text-align: center;
-  background-image: url("./images/logo_flipgame.webp");
+  background-image: url("/flipGame/images/logo_flipgame.webp");
   background-size: contain;
 }
 .adventures__flipgame__name {
