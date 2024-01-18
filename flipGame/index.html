@@ -27,8 +27,8 @@
           <div class="adventures__flipgame__setdeck">
             <label for="flipgame__deck">Choose Deck:</label>
             <select id="flipgame__deck" name="">
-              <option value="hst">Hearthstone</option>
-              <option value="coc">clash of clans</option>
+              <option value="coc"> Clash of Clans </option>
+              <option value="wow"> World of Warcraft </option>
             </select>
           </div>
           <div class="adventures__flipgame__menu__buttons">
@@ -39,5 +39,21 @@
       </div>
     </div>
     <div class="gamefield"></div>
+    <script type="module">
+      import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js'
+      import { getFirestore } from 'https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js'
+      import { collection, doc, setDoc, getDoc, query, where, getDocs, orderBy, limit, Timestamp, addDoc } from 'https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js'
+      const firebaseConfig = {
+        apiKey: "AIzaSyDpEhK4uifhsnUd07Ab4L7v1Ih_QDLaWpg",
+        authDomain: "minigame-45d62.firebaseapp.com",
+        projectId: "minigame-45d62",
+        storageBucket: "minigame-45d62.appspot.com",
+        messagingSenderId: "64406979719",
+        appId: "1:64406979719:web:a4f30d296a3f99cfe56422"
+      };
+      const app = initializeApp(firebaseConfig);
+      const db = getFirestore(app);
+      window.FIREBASE = {db, collection, doc, setDoc, getDoc, query, where, getDocs, orderBy, limit, Timestamp, addDoc};
+    </script>
   </body>
 </html>
