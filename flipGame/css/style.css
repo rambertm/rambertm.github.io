@@ -187,7 +187,7 @@ body {
   background-size: contain;
 }
 .FGPG__roping--show {
-  background-image: url('/images/rope.webp');
+  background-image: url('/flipGame/images/rope.webp');
   background-repeat: repeat-x;
   z-index: 2;
 }
@@ -203,7 +203,7 @@ body {
   height: 90px;
   right: -45px;
   top: -30px;
-  background-image: url('/images/spark02.webp');
+  background-image: url('/flipGame/images/spark02.webp');
   background-repeat: no-repeat;
   background-size: contain;
   z-index: 1;
