@@ -8,28 +8,28 @@ const FUNC = {
 };
 const SOUND = {
   fx: {
-    cardflip: new Howl({src: ["/sounds/fx/cardflip.mp3"]}),
-    achieve01: new Howl({src: ["/sounds/fx/achieve01.mp3"]}),
-    firstblood: new Howl({src: ["/sounds/fx/firstblood.mp3"]}),
-    doublekill: new Howl({src: ["/sounds/fx/doublekill.mp3"]}),
-    triplekill: new Howl({src: ["/sounds/fx/triplekill.mp3"]}),
-    megakill: new Howl({src: ["/sounds/fx/megakill.mp3"]}),
-    ultrakill: new Howl({src: ["/sounds/fx/ultrakill.mp3"]}),
-    monsterkill: new Howl({src: ["/sounds/fx/monsterkill.mp3"]}),
-    killingspree: new Howl({src: ["/sounds/fx/killingspree.mp3"]}),
-    ownage: new Howl({src: ["/sounds/fx/ownage.mp3"]}),
-    dominating: new Howl({src: ["/sounds/fx/dominating.mp3"]}),
-    unstoppable: new Howl({src: ["/sounds/fx/unstoppable.mp3"]}),
-    rampage: new Howl({src: ["/sounds/fx/rampage.mp3"]}),
-    wickedsick: new Howl({src: ["/sounds/fx/wickedsick.mp3"]}),
-    godlike: new Howl({src: ["/sounds/fx/godlike.mp3"]}),
-    holyshit: new Howl({src: ["/sounds/fx/holyshit.mp3"]}),
-    ropeburning: new Howl({src: ["/sounds/fx/ropeburning.mp3"]}),
-    defeat01: new Howl({src: ["/sounds/fx/defeat01.mp3"]}),
+    cardflip: new Howl({src: ["./sounds/fx/cardflip.mp3"]}),
+    achieve01: new Howl({src: ["./sounds/fx/achieve01.mp3"]}),
+    firstblood: new Howl({src: ["./sounds/fx/firstblood.mp3"]}),
+    doublekill: new Howl({src: ["./sounds/fx/doublekill.mp3"]}),
+    triplekill: new Howl({src: ["./sounds/fx/triplekill.mp3"]}),
+    megakill: new Howl({src: ["./sounds/fx/megakill.mp3"]}),
+    ultrakill: new Howl({src: ["./sounds/fx/ultrakill.mp3"]}),
+    monsterkill: new Howl({src: ["./sounds/fx/monsterkill.mp3"]}),
+    killingspree: new Howl({src: ["./sounds/fx/killingspree.mp3"]}),
+    ownage: new Howl({src: ["./sounds/fx/ownage.mp3"]}),
+    dominating: new Howl({src: ["./sounds/fx/dominating.mp3"]}),
+    unstoppable: new Howl({src: ["./sounds/fx/unstoppable.mp3"]}),
+    rampage: new Howl({src: ["./sounds/fx/rampage.mp3"]}),
+    wickedsick: new Howl({src: ["./sounds/fx/wickedsick.mp3"]}),
+    godlike: new Howl({src: ["./sounds/fx/godlike.mp3"]}),
+    holyshit: new Howl({src: ["./sounds/fx/holyshit.mp3"]}),
+    ropeburning: new Howl({src: ["./sounds/fx/ropeburning.mp3"]}),
+    defeat01: new Howl({src: ["./sounds/fx/defeat01.mp3"]}),
   },
   bgm: {
-    loop01: new Howl({src: ["/sounds/bgm/pixabay-loop_instantrave.mp3"], loop: true}),
-    badass01: new Howl({src: ["/sounds/bgm/bensound-badass.mp3"], loop: true}),
+    loop01: new Howl({src: ["./sounds/bgm/pixabay-loop_instantrave.mp3"], loop: true}),
+    badass01: new Howl({src: ["./sounds/bgm/bensound-badass.mp3"], loop: true}),
   },
 };
 const VFX = {
@@ -419,7 +419,7 @@ class FlipGame {
 }
 class FG_Card {
   constructor(frontImg, backImgNo, source){
-    const backUrl = "url('/images/cardbacks/" + backImgNo + ".webp')";
+    const backUrl = "url('./images/cardbacks/" + backImgNo + ".webp')";
     this.element = document.createElement('div');
     this.element.className = "FGPG__card";
     this.name = frontImg;
@@ -428,7 +428,7 @@ class FG_Card {
     const back = document.createElement('div');
     const front = document.createElement('div');
     front.className = "FGPG__card__front";
-    front.style.backgroundImage = "url('/images/characters/" + source + "/" + frontImg + "')";
+    front.style.backgroundImage = "url('./images/characters/" + source + "/" + frontImg + "')";
     back.className = "FGPG__card__back";
     back.style.backgroundImage = backUrl;
     this.element.appendChild(back);
