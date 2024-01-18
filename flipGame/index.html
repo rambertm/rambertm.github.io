@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <title> FlipGame </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, maximum-scale=1.0, minimum-scale=1, user-scalable=yes, initial-scale=1.0">
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="description" content="Enjoy Flip Games!!">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Flip Game">
+    <meta property="og:description" content="A game where you turn over a card and find the matching card.">
+    <meta property="og:image" content="https://rambertm.github.io/public/image/flipGame.jpg">
+    <meta property="og:url" content="https://rambertm.github.io/flipGame">
+    <link href="./css/shake.css" rel="stylesheet">
+    <link href="./css/style.css" rel="stylesheet">
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js" integrity="sha512-6+YN/9o9BWrk6wSfGxQGpt3EUK6XeHi6yeHV+TYD2GR0Sj/cggRpXr1BrAQf0as6XslxomMUxXp2vIl+fv0QRA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script defer src="./script/main.js"></script>
+  </head>
+  <body>
+    <div class="adventures">
+      <div class="adventures__flipgame">
+        <div class="adventures__flipgame__name">Flip Game<div class="filter--innershine"></div></div>
+        <div class="adventures__flipgame__menu">
+          <div class="adventures__flipgame__setdeck">
+            <label for="flipgame__deck">Choose Deck:</label>
+            <select id="flipgame__deck" name="">
+              <option value="hst">Hearthstone</option>
+              <option value="coc">clash of clans</option>
+            </select>
+          </div>
+          <div class="adventures__flipgame__menu__buttons">
+            <div class="adventures__flipgame__menu__record">ranking<div class="filter--innershine"></div></div>
+            <div class="adventures__flipgame__menu__go">GO!<div class="filter--innershine"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="gamefield"></div>
+  </body>
+</html>
