@@ -55,6 +55,7 @@ class FlipGame {
   static images = [];
   static difficulty = 7;
   static maxLv = 40;
+  static deckFullName = {coc: "Clash of Clans", wow: "World of Warcraft"};
   constructor(lv, deckName){
     this.lv = lv;
     this.score = 0;
@@ -224,21 +225,71 @@ class FlipGame {
     SOUND.bgm.loop01.stop();
     this.showRecord();
   }
-  showRecord(){
+showRecord(){
     const gameField = document.querySelector('.gamefield');
-    const recordField = document.createElement('div');
-    recordField.className = "record";
-    recordField.textContent = "FlipGame Record"
+    this.recordField = document.createElement('div');
+    this.recordField.className = "record";
+    this.recordField.textContent = "FlipGame Record"
+    this.recordBoard = document.createElement('div');
+    this.recordBoard.className = "record__score";
+    const deckName = document.createElement('div');
+    deckName.textContent = FlipGame.deckFullName[this.source];
     const lvDiv = document.createElement('div');
     lvDiv.textContent = "Level: " + this.lv;
     const scoreDiv = document.createElement('div');
     scoreDiv.textContent = "Score: " + this.score;
     const maxComboDiv = document.createElement('div');
     maxComboDiv.textContent = "Max Combo: " + this.maxCombo;
-    gameField.appendChild(recordField);
-    recordField.appendChild(lvDiv);
-    recordField.appendChild(scoreDiv);
-    recordField.appendChild(maxComboDiv);
+    const nameField = document.createElement('div');
+    nameField.textContent = "Nickname: "
+    const name = document.createElement('input');
+    name.className = "record__name";
+    name.setAttribute('maxLength', 20);
+    const sendButton = document.createElement('button');
+    sendButton.className = "record__send"
+    sendButton.textContent = "Send";
+    sendButton.addEventListener('click', async () => {
+      this.recordBoard.remove();
+      const flipGameRef = FIREBASE.collection(FIREBASE.db, 'flipgame');
+      const docRef = await FIREBASE.addDoc(flipGameRef, {
+        player: name.value,
+        lv: this.lv,
+        score: this.score,
+        maxcombo: this.maxCombo,
+        date: FIREBASE.Timestamp.fromDate(new Date()),
+        deck: this.source,
+      });
+      const grid = document.createElement('div');
+      grid.className = "record__grid";
+      grid.appendChild(document.createElement('div')).textContent = "Rank";
+      grid.appendChild(document.createElement('div')).textContent = "Player";
+      grid.appendChild(document.createElement('div')).textContent = "Score";
+      grid.appendChild(document.createElement('div')).textContent = "Date";
+      grid.appendChild(document.createElement('div')).textContent = "Lv";
+      grid.appendChild(document.createElement('div')).textContent = "Combo";
+      let i = 1;
+      const q = FIREBASE.query(flipGameRef, FIREBASE.orderBy("score", "desc"), FIREBASE.limit(20));
+      const docSnap = await FIREBASE.getDocs(q);
+      docSnap.forEach((doc) => {
+        const data = doc.data();
+        grid.appendChild(document.createElement('div')).textContent = i;
+        grid.appendChild(document.createElement('div')).textContent = data.player;
+        grid.appendChild(document.createElement('div')).textContent = data.score;
+        grid.appendChild(document.createElement('div')).textContent = data.date.toDate().toLocaleDateString();
+        grid.appendChild(document.createElement('div')).textContent = data.lv;
+        grid.appendChild(document.createElement('div')).textContent = data.maxcombo;
+        i++;
+      });
+      this.recordField.appendChild(grid);
+    });
+    gameField.appendChild(this.recordField).appendChild(this.recordBoard);
+    nameField.appendChild(name);
+    this.recordBoard.appendChild(deckName);
+    this.recordBoard.appendChild(lvDiv);
+    this.recordBoard.appendChild(scoreDiv);
+    this.recordBoard.appendChild(maxComboDiv);
+    this.recordBoard.appendChild(nameField);
+    this.recordBoard.appendChild(sendButton);
   }
   hitPair(found){
     found.state = 'set';
