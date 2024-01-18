@@ -1,0 +1,570 @@
+html {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 1280px;
+  width: 100%;
+  height: 100%;
+  margin:0;
+  background-color: silver;
+  font-family: "Noto Sans KR", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  overflow-x: hidden;
+  overflow-y: scroll;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+:root {
+  --color-darkblue: #0c162d;
+  --color-lightdarkblue: #202637;
+  --color-lightblue: #6ec5dc;
+  --color-cyan: #00cfc8;
+  --color-pink: #ea4aaa;
+  --body-background: #136198;
+  --wow-yellow: #ddc56b;
+  --wow-green: #1eff00;
+  --wow-blue: #0070dd;
+  --wow-purple: #a335ee;
+  --wow-orange: #ff8000;
+  --wow-white: #e6e6e6;
+  --wow-choco: #110d0a;
+  --wow-brown: #2c2723;
+  --wow-darkbrown: #15120e;
+  --wow-lightbrown: #2b190f;
+  --mainheader-tall: 75px;
+  --mainheader-short: 45px;
+}
+
+.adventures {
+  display: flex;
+  width: 100%;
+  padding: 60px 40px;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  gap: 20px 5px;
+}
+.adventures__flipgame {
+  width: 360px;
+  height: 150px;
+  border-radius: 10px;
+  text-align: center;
+  background-image: url("/images/logo_flipgame.webp");
+  background-size: contain;
+}
+.adventures__flipgame__name {
+  position: relative;
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  background-color: var(--wow-orange);
+  color: white;
+}
+.adventures__flipgame__menu {
+  width: 100%;
+  height: 110px;
+}
+.adventures__flipgame__setdeck {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+}
+.adventures__flipgame__setdeck > label {
+  width: 90px;
+  height: 35px;
+  color: white;
+  font-size: 1.3rem;
+  border-radius: 5px;
+  background: rgb(110,193,53);
+}
+.adventures__flipgame__setdeck > select {
+  height: 35px;
+}
+.adventures__flipgame__menu__buttons {
+  display: flex;
+  width: 100%;
+  height: 50px;
+  color: white;
+  font-size: 1.2rem;
+  align-items: center;
+  justify-content: space-around;
+}
+.adventures__flipgame__menu__record {
+  position: relative;
+  width: 100px;
+  height: 50px;
+  margin: auto;
+  line-height: 50px;
+  border-radius: 10px;
+  cursor: pointer;
+  background: rgb(110,193,53);
+}
+.adventures__flipgame__menu__go {
+  position: relative;
+  width: 100px;
+  height: 50px;
+  margin: auto;
+  line-height: 50px;
+  border-radius: 10px;
+  cursor: pointer;
+  background: rgb(110,193,53);
+}
+.gamefield {
+  position: relative;
+  width: 100%;
+}
+
+.FGPG__status {
+  display: flex;
+  width: 90%;
+  height: 50px;
+  line-height: 45px;
+  margin: 5px auto 0 auto;
+  padding: 2px 5px;
+  border: 1px solid white;
+  border-bottom: 0;
+  border-radius: 10px 10px 0 0;
+  background-color: black;
+  color: white;
+  font-size: 1.2rem;
+  text-align: center;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.FGPG__status__level {
+  width: 100px;
+}
+.FGPG__status__timer {
+  width: 130px;
+  height: 45px;
+  line-height: 45px;
+  border-radius: 10px;
+  border: 1px solid white;
+  box-shadow: inset 0 0 10px white;
+}
+.FGPG__status__clickcounter {
+  width: 100px;
+  height: 45px;
+  line-height: 45px;
+  border-radius: 10px;
+  border: 1px solid white;
+  box-shadow: inset 0 0 10px white;
+}
+.FGPG__status__score {
+  width: 150px;
+  height: 45px;
+  line-height: 45px;
+}
+.FGPG__status__exit {
+  width: 40px;
+  line-height: 33px;
+  border: 1px solid white;
+  border-radius: 5px;
+  font-size: 1.6rem;
+  cursor: pointer;
+}
+.FGPG__roping {
+  width: 90%;
+  height: 30px;
+  margin: 0 auto;
+  border-left: 1px solid white;
+  border-right: 1px solid white;
+  background-color: black;
+  background-size: contain;
+}
+.FGPG__roping--show {
+  background-image: url('/images/rope.webp');
+  background-repeat: repeat-x;
+  z-index: 2;
+}
+.FGPG__roping__mask {
+  position: relative;
+  width: 0;
+  height: 30px;
+  background-color: black;
+}
+.FGPG__roping__spark {
+  position: absolute;
+  width: 90px;
+  height: 90px;
+  right: -45px;
+  top: -30px;
+  background-image: url('/images/spark02.webp');
+  background-repeat: no-repeat;
+  background-size: contain;
+  z-index: 1;
+}
+.FGPG__ground {
+  display: flex;
+  width: 95%;
+  min-height: 300px;
+  margin: 0 auto;
+  box-shadow: inset 0 0 20px white;
+  border-radius: 10px;
+  color: white;
+  font-size: 2.0rem;
+  background-color: var(--wow-choco);
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2px;
+}
+.FGPG__card {
+  width: 100px;
+  height: 150px;
+  transition-property: transform;
+  transition-duration: 0.8s;
+  transform-style: preserve-3d;
+}
+.FGPG__card--small {
+  width: 90px;
+  height: 135px;
+}
+.FGPG__card--smaller {
+  width: 80px;
+  height: 120px;
+}
+.FGPG__card--smallest {
+  width: 70px;
+  height: 105px;
+}
+.FGPG__card--ultrasmall {
+  width: 60px;
+  height: 90px;
+}
+.FGPG__card__back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: contain;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+}
+.FGPG__card__front {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  box-shadow: inset 0 0 2px 4px rgb(201, 175, 82);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: rgb(45, 49, 51);
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+  transform: rotateY(180deg);
+}
+.FGPG__ground__exitboxcontainer {
+  position: absolute;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  font-size: 1.6rem;
+  background-color: rgba(80, 80, 80, 0.5);
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.FGPG__ground__exitbox {
+  width: 300px;
+  height: 100px;
+  background-color: black;
+  border-radius: 10px;
+  color: white;
+}
+.FGPG__ground__exitbox__msg {
+  width: 100%;
+  height: 50%;
+}
+.FGPG__ground__exitbox__buttons {
+  display: flex;
+  width: 100%;
+  height: 50%;
+  padding: 2px;
+  align-items: center;
+  justify-content: space-around;
+}
+.FGPG__ground__exitbox__buttons__yes {
+  width: 100px;
+  border: 1px solid white;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.FGPG__ground__exitbox__buttons__no {
+  width: 100px;
+  border: 1px solid white;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.record {
+  width: 300px;
+  min-height: 200px;
+  margin: auto;
+  padding: 10px;
+  background-color: beige;
+  text-align: center;
+  border: 1px solid black;
+  border-radius: 10px;
+  font-size: 28px;
+  font-weight: bold;
+}
+.record > div {
+  margin-top: 8px;
+  font-size: 22px;
+  font-weight: normal;
+}
+
+.display--none {
+  display: none;
+}
+.display--hidden {
+  visibility: hidden;
+}
+.transform--scaleshrink {
+  transform: scale(0.95, 0.95);
+}
+.filter--gray {
+  -webkit-filter: grayscale(100%);
+  -moz-filter: grayscale(100%);
+  -ms-filter: grayscale(100%);
+  -o-filter: grayscale(100%);
+  filter: grayscale(100%);
+}
+.filter--innershine {
+  position: absolute;
+  mix-blend-mode: soft-light;
+  background-color: rgba(255, 255, 255, 1);
+  width: 94%;
+  height: 45%;
+  top: 5%;
+  left: 3%;
+  border-radius: 10px;
+  pointer-events: none;
+}
+.border--limeblur {
+  border: 1px solid lime;
+  box-shadow: inset 0 0 10px lime;
+}
+.border--tomatoblur {
+  border: 1px solid tomato;
+  box-shadow: inset 0 0 10px tomato;
+}
+.border--gray {
+  border: 1px solid gray;
+  box-shadow: inset 0 0 10px gray;
+}
+.border--wowwhite {
+  border: 1px solid var(--wow-white);
+  box-shadow: inset 0 0 10px var(--wow-white);
+}
+.border--wowgreen {
+  border: 1px solid var(--wow-green);
+  box-shadow: inset 0 0 10px var(--wow-green);
+}
+.border--wowblue {
+  border: 1px solid var(--wow-blue);
+  box-shadow: inset 0 0 10px var(--wow-blue);
+}
+.border--wowpurple {
+  border: 1px solid var(--wow-purple);
+  box-shadow: inset 0 0 10px var(--wow-purple);
+}
+.border--woworange {
+  border: 1px solid var(--wow-orange);
+  box-shadow: inset 0 0 10px var(--wow-orange);
+}
+
+.gradient--bg--blue {
+	background: linear-gradient(-45deg, #ee7752, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient--horzwave 15s ease infinite;
+}
+
+.gradient--bg--purple {
+	background: linear-gradient(90deg, rgba(164,129,146,1) 0%, rgba(161,164,141,1) 17%, rgba(139,114,184,1) 50%, rgba(42,199,249,1) 100%);
+	background-size: 200% 200%;
+	animation: gradient--horzwave 15s ease infinite;
+}
+
+.gradient--color--rainbow {
+	animation: rainbow 1s infinite;
+}
+.move--ltr--ropemask {
+  animation: move--ltr--ropemask 23s linear;
+}
+@keyframes gradient--horzwave {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+@keyframes rainbow {
+  0% {
+		color: red;
+	}
+	15% {
+		color: orange;
+	}
+	30% {
+		color: yellow;
+	}
+	45% {
+		color: green;
+	}
+	60% {
+		color: blue;
+	}
+	75% {
+		color: indigo;
+	}
+	90% {
+		color: purple;
+	}
+	100% {
+		color: red;
+	}
+}
+@keyframes move--ltr--ropemask {
+  0% {width: 0;}
+  90% {width: 100%;}
+  100% {width: 100%;}
+}
+
+@media screen and (max-width: 450px) {
+  .FGPG__status {
+    height: 35px;
+    line-height: 35px;
+    font-size: 0.9rem;
+  }
+  .FGPG__status__timer {
+    height: 32px;
+    line-height: 32px;
+  }
+  .FGPG__status__clickcounter {
+    height: 32px;
+    line-height: 32px;
+  }
+  .FGPG__status__score {
+    height: 32px;
+    line-height: 32px;
+  }
+  .FGPG__status__exit {
+    height: 32px;
+    line-height: 32px;
+  }
+  .FGPG__roping {
+    height: 20px;
+  }
+  .FGPG__roping__mask {
+    height: 20px;
+  }
+  .FGPG__roping__spark {
+    width: 50px;
+    height: 50px;
+    right: -25px;
+    top: -15px;
+  }
+  .FGPG__ground {
+    min-height: 75px;
+  }
+  .FGPG__card {
+    width: 50px;
+    height: 75px;
+  }
+  .FGPG__card--small {
+    width: 40px;
+    height: 60px;
+  }
+  .FGPG__card--smaller {
+    width: 30px;
+    height: 45px;
+  }
+  .FGPG__card--smallest {
+    width: 30px;
+    height: 45px;
+  }
+  .FGPG__card--ultrasmall {
+    width: 30px;
+    height: 45px;
+  }
+}
+@media screen and (orientation: landscape) and (max-height: 600px) {
+  .FGPG__status {
+    height: 35px;
+    line-height: 35px;
+    font-size: 0.9rem;
+  }
+  .FGPG__status__timer {
+    height: 32px;
+    line-height: 32px;
+  }
+  .FGPG__status__clickcounter {
+    height: 32px;
+    line-height: 32px;
+  }
+  .FGPG__status__score {
+    height: 32px;
+    line-height: 32px;
+  }
+  .FGPG__status__exit {
+    height: 32px;
+    line-height: 32px;
+  }
+  .FGPG__roping {
+    height: 20px;
+  }
+  .FGPG__roping__mask {
+    height: 20px;
+  }
+  .FGPG__roping__spark {
+    width: 50px;
+    height: 50px;
+    right: -25px;
+    top: -15px;
+  }
+  .FGPG__ground {
+    min-height: 75px;
+  }
+  .FGPG__card {
+    width: 50px;
+    height: 75px;
+  }
+  .FGPG__card--small {
+    width: 40px;
+    height: 60px;
+  }
+  .FGPG__card--smaller {
+    width: 30px;
+    height: 45px;
+  }
+  .FGPG__card--smallest {
+    width: 30px;
+    height: 45px;
+  }
+  .FGPG__card--ultrasmall {
+    width: 30px;
+    height: 45px;
+  }
+}
