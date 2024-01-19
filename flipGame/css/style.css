@@ -531,13 +531,22 @@ body {
     width: 30px;
     height: 45px;
   }
+	.record {
+	  width: 400px;
+	  max-height: 500px;
+	  font-size: 18px;
+	}
+	.record__grid {
+	  grid-template-columns: 30px 20px 110px 60px 70px 30px 40px;
+	  font-size: 11px;
+	}
 }
 
 @media screen and (max-width: 375px) {
 	.record {
 	  width: 370px;
 	  max-height: 500px;
-	  font-size: 22px;
+	  font-size: 16px;
 	}
 	.record__grid {
 	  grid-template-columns: 30px 20px 100px 50px 70px 25px 35px;
