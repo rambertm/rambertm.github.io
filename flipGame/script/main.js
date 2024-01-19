@@ -262,6 +262,7 @@ showRecord(){
       const grid = document.createElement('div');
       grid.className = "record__grid";
       grid.appendChild(document.createElement('div')).textContent = "Rank";
+      grid.appendChild(document.createElement('div'));
       grid.appendChild(document.createElement('div')).textContent = "Player";
       grid.appendChild(document.createElement('div')).textContent = "Score";
       grid.appendChild(document.createElement('div')).textContent = "Date";
@@ -273,6 +274,7 @@ showRecord(){
       docSnap.forEach((doc) => {
         const data = doc.data();
         grid.appendChild(document.createElement('div')).textContent = i;
+        grid.appendChild(document.createElement('img')).src = "/images" + data.deck + ".webp";
         grid.appendChild(document.createElement('div')).textContent = data.player;
         grid.appendChild(document.createElement('div')).textContent = data.score;
         grid.appendChild(document.createElement('div')).textContent = data.date.toDate().toLocaleDateString();
