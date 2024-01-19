@@ -51,7 +51,6 @@ const CARDIMAGES = {
 }
 
 class FlipGame {
-  static now = null;
   static images = [];
   static difficulty = 7;
   static maxLv = 40;
@@ -218,7 +217,6 @@ class FlipGame {
     setTimeout(()=>{SOUND.fx.defeat01.play()}, 1000);
   }
   destroy(){
-    FlipGame.now = null;
     this.totalField.remove();
     clearInterval(this.gameTimer);
     clearInterval(this.roundTimer);
@@ -490,6 +488,6 @@ class FG_Card {
 }
 document.querySelector('.adventures__flipgame__menu__go').addEventListener('click', () => {
   const deckName = document.getElementById("flipgame__deck").value;
-  FlipGame.now = new FlipGame(1, deckName);
+  new FlipGame(1, deckName);
   document.querySelector('.adventures').remove();
 })
