@@ -274,7 +274,7 @@ showRecord(){
       docSnap.forEach((doc) => {
         const data = doc.data();
         grid.appendChild(document.createElement('div')).textContent = i;
-        grid.appendChild(document.createElement('img')).src = "/images" + data.deck + ".webp";
+        grid.appendChild(document.createElement('img')).src = "/flipGame/images/" + data.deck + ".webp";
         grid.appendChild(document.createElement('div')).textContent = data.player;
         grid.appendChild(document.createElement('div')).textContent = data.score;
         grid.appendChild(document.createElement('div')).textContent = data.date.toDate().toLocaleDateString();
