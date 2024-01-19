@@ -341,6 +341,7 @@ body {
   grid-template-columns: 30px 20px 118px 65px 75px 30px 45px;
   grid-auto-rows: minmax(20px, auto);
   grid-gap: 1px;
+  margin-top: 4px;
   font-size: 12px;
 }
 .record__grid > div {
@@ -541,6 +542,18 @@ body {
   .record__grid {
 		grid-template-columns: 30px 20px 110px 60px 70px 30px 40px;
 		font-size: 11px;
+	}
+}
+
+@media screen and (max-width: 400px) {
+	.record {
+	  width: 375px;
+	  max-height: 500px;
+	  font-size: 16px;
+	}
+	.record__grid {
+	  grid-template-columns: 30px 20px 100px 50px 70px 25px 30px;
+	  font-size: 10px;
 	}
 }
 
