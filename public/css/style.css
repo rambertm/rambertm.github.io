@@ -15,26 +15,26 @@ body {
   user-select: none;
 }
 
-.util {
+.rectcontainer {
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
 }
-.util__rect {
+.rect {
   width: 200px;
   margin: 5px;
   border: 1px solid lightgray;
   border-radius: 5px;
 }
-.util__rect__name {
+.rect__name {
   font-size: 16px;
   text-align: center;
 }
-.util__rect__description {
+.rect__description {
   padding: 1px 2px;
   font-size: 14px;
 }
-.util img {
+.rect img {
   width: 100%;
   object-fit: contain;
 }
@@ -57,12 +57,12 @@ footer {
   border-radius: 5px;
 }
 @media (max-width: 650px) {
-  .util {
+  .rectcontainer {
     justify-content: center;
   }
 }
 @media (max-width: 440px) {
-  .util__rect {
+  .rect {
     width: 180px;
   }
   footer {
@@ -71,24 +71,24 @@ footer {
   }
 }
 @media (max-width: 400px) {
-  .util__rect {
+  .rect {
     width: 150px;
   }
-  .util__rect__name {
+  .rect__name {
     font-size: 15px;
   }
-  .util__rect__description {
+  .rect__description {
     font-size: 13px;
   }
 }
 @media (max-width: 340px) {
-  .util__rect {
+  .rect {
     width: 120px;
   }
-  .util__rect__name {
+  .rect__name {
     font-size: 14px;
   }
-  .util__rect__description {
+  .rect__description {
     font-size: 12px;
   }
 }
