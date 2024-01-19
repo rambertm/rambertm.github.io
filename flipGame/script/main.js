@@ -481,7 +481,7 @@ class FG_Card {
     const back = document.createElement('div');
     const front = document.createElement('div');
     front.className = "FGPG__card__front";
-    front.style.backgroundImage = "url('./images/characters/" + source + "/" + frontImg + "'.webp)";
+    front.style.backgroundImage = "url('./images/characters/" + source + "/" + frontImg + ".webp')";
     back.className = "FGPG__card__back";
     back.style.backgroundImage = backUrl;
     this.element.appendChild(back);
