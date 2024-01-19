@@ -47,7 +47,7 @@ const VFX = {
 };
 const CARDIMAGES = {
   coc: ["siegemachines_battleblimp.webp", "siegemachines_flameflinger.webp", "siegemachines_loglauncher.webp", "siegemachines_siegebarracks.webp", "siegemachines_stoneslammer.webp", "siegemachines_wallwrecker.webp", "spells_bat.webp", "spells_clone.webp", "spells_earthquake.webp", "spells_freeze.webp", "spells_haste.webp", "spells_healing.webp", "spells_invisibility.webp", "spells_jump.webp", "spells_lightning.webp", "spells_poison.webp", "spells_rage.webp", "spells_skeleton.webp", "superunits_archer.webp", "superunits_balloon.webp", "superunits_barbarian.webp", "superunits_bowler.webp", "superunits_dragon.webp", "superunits_giant.webp", "superunits_goblin.webp", "superunits_icehound.webp", "superunits_infernodragon.webp", "superunits_minion.webp", "superunits_valkyrie.webp", "superunits_wallbreaker.webp", "superunits_witch.webp", "superunits_wizard.webp", "units_archer.webp", "units_babydragon.webp", "units_balloon.webp", "units_barbarian.webp", "units_bowler.webp", "units_dragon.webp", "units_dragonrider.webp", "units_electrodragon.webp", "units_giant.webp", "units_goblin.webp", "units_golem.webp", "units_headhunter.webp", "units_healer.webp", "units_hogrider.webp", "units_icegolem.webp", "units_lavahound.webp", "units_miner.webp", "units_minion.webp", "units_pekka.webp", "units_valkyrie.webp", "units_wallbreaker.webp", "units_witch.webp", "units_wizard.webp", "units_yeti.webp"],
-  hst: [],
+  wow: ["valeera01.webp", "valeera02.webp", "jaina01.webp", "jaina02.webp", "jaina03.webp", "jaina04.webp", "jaina05.webp", "aranna.webp", "annhylde.webp", "anduin01.webp", "anduin02.webp", "thrall01.webp", "thrall02.webp", "thrall03.webp", "alleria.webp", "varian.webp", "rexxar.webp"]
 }
 
 class FlipGame {
