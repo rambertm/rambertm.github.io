@@ -314,6 +314,10 @@ body {
 }
 
 .record {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: 450px;
   min-height: 200px;
   max-height: 800px;
