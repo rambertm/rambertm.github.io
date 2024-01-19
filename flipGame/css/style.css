@@ -532,6 +532,19 @@ body {
     height: 45px;
   }
 }
+
+@media screen and (max-width: 375px) {
+	.record {
+	  width: 370px;
+	  max-height: 500px;
+	  font-size: 22px;
+	}
+	.record__grid {
+	  grid-template-columns: 30px 105px 60px 75px 30px 40px;
+	  font-size: 11px;
+	}
+}
+
 @media screen and (orientation: landscape) and (max-height: 600px) {
   .FGPG__status {
     height: 35px;
