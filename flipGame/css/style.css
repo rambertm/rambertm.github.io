@@ -531,14 +531,14 @@ body {
     width: 30px;
     height: 45px;
   }
-	.record {
-	  width: 400px;
-	  max-height: 500px;
-	  font-size: 18px;
+  .record {
+		width: 400px;
+		max-height: 600px;
+		font-size: 18px;
 	}
-	.record__grid {
-	  grid-template-columns: 30px 20px 110px 60px 70px 30px 40px;
-	  font-size: 11px;
+  .record__grid {
+		grid-template-columns: 30px 20px 110px 60px 70px 30px 40px;
+		font-size: 11px;
 	}
 }
 
