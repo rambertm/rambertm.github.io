@@ -540,8 +540,8 @@ body {
 	  font-size: 22px;
 	}
 	.record__grid {
-	  grid-template-columns: 30px 105px 60px 75px 30px 40px;
-	  font-size: 11px;
+	  grid-template-columns: 30px 20px 100px 50px 70px 25px 35px;
+	  font-size: 10px;
 	}
 }
 
