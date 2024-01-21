@@ -1,5 +1,6 @@
 {
- "name": "App",
+ "name": "DIY",
+ "display": "standalone",
  "icons": [
   {
    "src": "/public/images/icon/android-icon-36x36.png",
