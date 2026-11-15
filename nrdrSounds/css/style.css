@@ -23,11 +23,6 @@ body {
   font-size: 32px;
 }
 
-.page-header p {
-  color: #999da8;
-  margin-top: 10px;
-}
-
 /* Main */
 #unit-container {
   max-width: 1000px;
