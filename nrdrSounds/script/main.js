@@ -4,12 +4,12 @@ const UNIT_GROUPS = [
     name: "Elite",
     units: [
       {
-        id: "elite_2ndmizukage",
+        id: "elite_gengetsu",
         name: "겐게츠",
-        image: "./images/elite_2ndmizukage.png",
+        image: "./images/elite_gengetsu.png",
         sounds: {
-          entry: "./sounds/elite_2ndmizukage_entry.mp3",
-          skill: "./sounds/elite_2ndmizukage_skill.mp3",
+          entry: "./sounds/elite_gengetsu_entry.mp3",
+          skill: "./sounds/elite_gengetsu_skill.mp3",
         },
       }
     ],
