@@ -5,9 +5,12 @@ const UNIT_GROUPS = [
     units: [
       {
         id: "elite_2ndmizukage",
-        name: "2대 미즈카게 갠게츠",
+        name: "겐게츠",
         image: "./images/elite_2ndmizukage.png",
-        sound: "./sounds/elite_2ndmizukage.mp3",
+        sounds: {
+          entry: "./sounds/elite_2ndmizukage_entry.mp3",
+          skill: "./sounds/elite_2ndmizukage_skill.mp3",
+        },
       }
     ],
   },
@@ -18,7 +21,9 @@ const UNIT_GROUPS = [
         id: "epic_hinata",
         name: "히나타",
         image: "./images/epic_hinata.png",
-        sound: "./sounds/epic_hinata.mp3",
+        sounds: {
+          entry: "./sounds/epic_hinata_entry.mp3",
+        },
       },
     ],
   },
@@ -29,6 +34,25 @@ const container = document.getElementById("unit-container");
 const audio = new Audio();
 
 let currentButton = null;
+
+function createSoundButton(imageSrc, label, soundSrc, type) {
+  const button = document.createElement("button");
+  button.type = "button";
+  button.className = `sound-button ${type}-button`;
+  button.setAttribute("aria-label", label);
+
+  const image = document.createElement("img");
+  image.src = imageSrc;
+  image.alt = "";
+
+  button.appendChild(image);
+
+  button.addEventListener("click", () => {
+    playSound(soundSrc, button);
+  });
+
+  return button;
+}
 
 function renderUnits() {
   UNIT_GROUPS.forEach((group) => {
@@ -42,26 +66,30 @@ function renderUnits() {
     grid.className = "unit-grid";
 
     group.units.forEach((unit) => {
-      const button = document.createElement("button");
-      button.type = "button";
-      button.className = "unit-button";
-      button.setAttribute("aria-pressed", "false");
-      button.setAttribute("aria-label", `${unit.name} sound`);
+      const unitCard = document.createElement("div");
+      unitCard.className = "unit-card";
+      
+      const entryButton = createSoundButton(
+        unit.image,
+        unit.name,
+        unit.sounds.entry,
+        "entry"
+      );
+      
+      unitCard.appendChild(entryButton);
 
-      const image = document.createElement("img");
-      image.src = unit.image;
-      image.alt = unit.name;
-
-      const name = document.createElement("span");
-      name.textContent = unit.name;
-
-      button.append(image, name);
-
-      button.addEventListener("click", () => {
-        playSound(unit, button);
-      });
-
-      grid.appendChild(button);
+      if (unit.sounds.skill) {
+        const skillButton = createSoundButton(
+          unit.image,
+          `${unit.name} Skill`,
+          unit.sounds.skill,
+          "skill"
+        );
+      
+        unitCard.appendChild(skillButton);
+      }
+      
+      grid.appendChild(unitCard);
     });
 
     section.append(heading, grid);
@@ -69,7 +97,7 @@ function renderUnits() {
   });
 }
 
-function playSound(unit, button) {
+function playSound(soundSrc, button) {
   if (currentButton === button && !audio.paused) {
     audio.pause();
     return;
@@ -80,20 +108,16 @@ function playSound(unit, button) {
 
   if (currentButton) {
     currentButton.classList.remove("playing");
-    currentButton.setAttribute("aria-pressed", "false");
   }
 
   currentButton = button;
   currentButton.classList.add("playing");
-  currentButton.setAttribute("aria-pressed", "true");
 
-  audio.src = unit.sound;
+  audio.src = soundSrc;
 
   audio.play().catch((error) => {
     console.error("Failed to play sound:", error);
-
     button.classList.remove("playing");
-    button.setAttribute("aria-pressed", "false");
     currentButton = null;
   });
 }
