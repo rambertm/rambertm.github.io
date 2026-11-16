@@ -94,11 +94,6 @@ const UNIT_GROUPS = [
         skill: true,
       },
       {
-        id: "epic_minato",
-        name: "미나토",
-        skill: false,
-      },
-      {
         id: "epic_orochimaru",
         name: "오로치마루",
         skill: false,
