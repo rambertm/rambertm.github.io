@@ -19,6 +19,31 @@ const UNIT_GROUPS = [
         skill: false,
       },
       {
+        id: "epic_naruto",
+        name: "나루토 미수화",
+        skill: false,
+      },
+      {
+        id: "epic_guy",
+        name: "마이트가이",
+        skill: false,
+      },
+      {
+        id: "epic_gaara",
+        name: "가아라",
+        skill: false,
+      },
+      {
+        id: "epic_madaraSusanoo",
+        name: "마다라 스사노오",
+        skill: false,
+      },
+      {
+        id: "epic_madaraRebirth",
+        name: "마다라 윤회천생",
+        skill: false,
+      },
+      {
         id: "epic_10mi",
         name: "10미",
         skill: false,
