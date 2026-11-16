@@ -1,21 +1,66 @@
 
 const UNIT_GROUPS = [
   {
-    name: "Elite",
+    name: "엘리트",
     units: [
       {
         id: "elite_gengetsu",
         name: "겐게츠",
         skill: true,
+      },
+      {
+        id: "elite_orochimaru",
+        name: "오로치마루",
+        skill: false,
       }
     ],
   },
   {
-    name: "Epic",
+    name: "에픽",
     units: [
       {
         id: "epic_hinata",
         name: "히나타",
+        skill: false,
+      },
+      {
+        id: "epic_minato",
+        name: "미나토",
+        skill: false,
+      },
+      {
+        id: "epic_orochimaru",
+        name: "오로치마루",
+        skill: false,
+      },
+      {
+        id: "epic_sai",
+        name: "사이",
+        skill: false,
+      },
+      {
+        id: "epic_sakura",
+        name: "사쿠라",
+        skill: false,
+      },
+      {
+        id: "epic_sasuke",
+        name: "사스케",
+        skill: false,
+      },
+      {
+        id: "epic_shisui",
+        name: "시스이",
+        skill: false,
+      },
+      {
+        id: "epic_zetsu",
+        name: "제츠",
+        skill: false,
+      },
+      {
+        id: "epic_minato",
+        name: "미나토",
         skill: false,
       },
       {
@@ -46,6 +91,16 @@ const UNIT_GROUPS = [
       {
         id: "epic_10mi",
         name: "10미",
+        skill: false,
+      },
+    ],
+  },
+  {
+    name: "신세대",
+    units: [
+      {
+        id: "genz_himawari",
+        name: "히마와리",
         skill: false,
       },
     ],
