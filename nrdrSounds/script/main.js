@@ -6,11 +6,7 @@ const UNIT_GROUPS = [
       {
         id: "elite_gengetsu",
         name: "겐게츠",
-        image: "./images/elite_gengetsu.png",
-        sounds: {
-          entry: "./sounds/elite_gengetsu_entry.mp3",
-          skill: "./sounds/elite_gengetsu_skill.mp3",
-        },
+        skill: true,
       }
     ],
   },
@@ -20,10 +16,12 @@ const UNIT_GROUPS = [
       {
         id: "epic_hinata",
         name: "히나타",
-        image: "./images/epic_hinata.png",
-        sounds: {
-          entry: "./sounds/epic_hinata_entry.mp3",
-        },
+        skill: false,
+      },
+      {
+        id: "epic_10mi",
+        name: "10미",
+        skill: false,
       },
     ],
   },
@@ -35,11 +33,20 @@ const audio = new Audio();
 
 let currentButton = null;
 
+function getUnitImage(unit) {
+  return `./images/${unit.id}.png`;
+}
+
+function getUnitSound(unit, type) {
+  return `./sounds/${unit.id}_${type}.mp3`;
+}
+
 function createSoundButton(imageSrc, label, soundSrc, type) {
   const button = document.createElement("button");
   button.type = "button";
   button.className = `sound-button ${type}-button`;
   button.setAttribute("aria-label", label);
+  button.setAttribute("aria-pressed", "false");
 
   const image = document.createElement("img");
   image.src = imageSrc;
@@ -50,7 +57,7 @@ function createSoundButton(imageSrc, label, soundSrc, type) {
   button.addEventListener("click", () => {
     playSound(soundSrc, button);
   });
-
+  
   return button;
 }
 
@@ -70,19 +77,19 @@ function renderUnits() {
       unitCard.className = "unit-card";
       
       const entryButton = createSoundButton(
-        unit.image,
+        getUnitImage(unit),
         unit.name,
-        unit.sounds.entry,
+        getUnitSound(unit, "entry"),
         "entry"
       );
       
       unitCard.appendChild(entryButton);
 
-      if (unit.sounds.skill) {
+      if (unit.skill) {
         const skillButton = createSoundButton(
-          unit.image,
+          getUnitImage(unit),
           `${unit.name} Skill`,
-          unit.sounds.skill,
+          getUnitSound(unit, "skill"),
           "skill"
         );
       
@@ -100,6 +107,10 @@ function renderUnits() {
 function playSound(soundSrc, button) {
   if (currentButton === button && !audio.paused) {
     audio.pause();
+    
+    button.classList.remove("playing");
+    button.setAttribute("aria-pressed", "false");
+    currentButton = null;
     return;
   }
 
@@ -108,16 +119,19 @@ function playSound(soundSrc, button) {
 
   if (currentButton) {
     currentButton.classList.remove("playing");
+    currentButton.setAttribute("aria-pressed", "false");
   }
 
   currentButton = button;
   currentButton.classList.add("playing");
+  currentButton.setAttribute("aria-pressed", "true");
 
   audio.src = soundSrc;
 
   audio.play().catch((error) => {
     console.error("Failed to play sound:", error);
     button.classList.remove("playing");
+    button.setAttribute("aria-pressed", "false");
     currentButton = null;
   });
 }
