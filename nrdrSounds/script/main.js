@@ -4,9 +4,49 @@ const UNIT_GROUPS = [
     name: "엘리트",
     units: [
       {
+        id: "elite_gari",
+        name: "가리",
+        skill: false,
+      },
+      {
+        id: "elite_pakura",
+        name: "파쿠라",
+        skill: false,
+      },
+      {
+        id: "elite_haku",
+        name: "하쿠",
+        skill: false,
+      },
+      {
+        id: "elite_guren",
+        name: "구렌",
+        skill: false,
+      },
+      {
+        id: "elite_shino",
+        name: "시노",
+        skill: false,
+      },
+      {
+        id: "elite_kiba",
+        name: "키바",
+        skill: false,
+      },
+      {
         id: "elite_gengetsu",
         name: "겐게츠",
         skill: true,
+      },
+      {
+        id: "elite_mu",
+        name: "무우",
+        skill: false,
+      },
+      {
+        id: "elite_rasa",
+        name: "라사",
+        skill: false,
       },
       {
         id: "elite_a",
@@ -14,8 +54,43 @@ const UNIT_GROUPS = [
         skill: false,
       },
       {
-        id: "elite_mu",
-        name: "무우",
+        id: "elite_gedo",
+        name: "외도마상",
+        skill: false,
+      },
+      {
+        id: "elite_ginkaku",
+        name: "긴카쿠",
+        skill: false,
+      },
+      {
+        id: "elite_kinkaku",
+        name: "킨카쿠",
+        skill: false,
+      },
+      {
+        id: "elite_kankuro",
+        name: "칸쿠로",
+        skill: false,
+      },
+      {
+        id: "elite_kisame",
+        name: "키사메",
+        skill: true,
+      },
+      {
+        id: "elite_mifune",
+        name: "미후네",
+        skill: false,
+      },
+      {
+        id: "elite_naruto",
+        name: "나루토",
+        skill: false,
+      },
+      {
+        id: "elite_temari",
+        name: "테마리",
         skill: false,
       },
       {
@@ -199,18 +274,28 @@ const UNIT_GROUPS = [
     name: "인피니티",
     units: [
       {
+        id: "infinity_sasuke",
+        name: "사스케",
+        skill: false,
+      },
+      {
         id: "infinity_itachi",
         name: "이타치",
         skill: true,
       },
       {
-        id: "infinity_kakashi",
-        name: "카카시",
+        id: "infinity_shisui",
+        name: "시스이",
         skill: true,
       },
       {
-        id: "infinity_obito",
-        name: "오비토",
+        id: "infinity_madara",
+        name: "마다라",
+        skill: true,
+      },
+      {
+        id: "infinity_naruto",
+        name: "나루토",
         skill: true,
       },
       {
@@ -219,11 +304,40 @@ const UNIT_GROUPS = [
         skill: true,
       },
       {
-        id: "infinity_momoshiki",
-        name: "모모시키",
+        id: "infinity_jiraiya",
+        name: "지라이야",
         skill: true,
       },
-      
+      {
+        id: "infinity_obito",
+        name: "오비토",
+        skill: true,
+      },
+      {
+        id: "infinity_kakashi",
+        name: "카카시",
+        skill: true,
+      },
+      {
+        id: "infinity_gui",
+        name: "가이",
+        skill: true,
+      },
+      {
+        id: "infinity_sakura",
+        name: "사쿠라",
+        skill: false,
+      },
+      {
+        id: "infinity_ino",
+        name: "이노",
+        skill: false,
+      },
+      {
+        id: "infinity_kurotsuchi",
+        name: "쿠로츠치",
+        skill: true,
+      },
       {
         id: "infinity_tenten",
         name: "텐텐",
@@ -234,20 +348,25 @@ const UNIT_GROUPS = [
         name: "토네리",
         skill: true,
       },
+      {
+        id: "infinity_momoshiki",
+        name: "모모시키",
+        skill: true,
+      },
     ],
   },
   {
     name: "스페셜",
     units: [
       {
-        id: "special_killerA",
-        name: "킬러에이",
+        id: "special_terumi",
+        name: "테루미메이",
         skill: true,
       },
       {
-        id: "special_kinshiki",
-        name: "킨시키",
-        skill: false,
+        id: "special_killerA",
+        name: "킬러에이",
+        skill: true,
       },
       {
         id: "special_nagato",
@@ -255,10 +374,40 @@ const UNIT_GROUPS = [
         skill: true,
       },
       {
-        id: "special_terumi",
-        name: "테루미메이",
-        skill: true,
+        id: "special_rocklee",
+        name: "록리",
+        skill: false,
       },
+      {
+        id: "special_gamakichi",
+        name: "가마키치",
+        skill: false,
+      },
+      {
+        id: "special_neji",
+        name: "네지",
+        skill: false,
+      },
+      {
+        id: "special_mecha7610",
+        name: "메카나루토 7610",
+        skill: false,
+      },
+      {
+        id: "special_mecha9999",
+        name: "메카나루토 9999",
+        skill: false,
+      },
+      {
+        id: "special_kakuzu",
+        name: "카쿠즈",
+        skill: false,
+      },
+      {
+        id: "special_kinshiki",
+        name: "킨시키",
+        skill: false,
+      },  
     ],
   },
   {
@@ -268,6 +417,21 @@ const UNIT_GROUPS = [
         id: "immortal_momoshiki",
         name: "모모시키",
         skill: true,
+      },
+      {
+        id: "immortal_kaguya",
+        name: "카구야",
+        skill: true,
+      },
+      {
+        id: "immortal_kuramaSusanoo",
+        name: "위장스사노오",
+        skill: false,
+      },
+      {
+        id: "immortal_madara",
+        name: "마다라",
+        skill: false,
       },
     ],
   },
