@@ -31,7 +31,7 @@ const UNIT_GROUPS = [
       {
         id: "epic_gaara",
         name: "가아라",
-        skill: false,
+        skill: true,
       },
       {
         id: "epic_madaraSusanoo",
