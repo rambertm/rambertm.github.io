@@ -9,6 +9,16 @@ const UNIT_GROUPS = [
         skill: true,
       },
       {
+        id: "elite_a",
+        name: "에이",
+        skill: false,
+      },
+      {
+        id: "elite_mu",
+        name: "무우",
+        skill: false,
+      },
+      {
         id: "elite_orochimaru",
         name: "오로치마루",
         skill: false,
@@ -22,6 +32,66 @@ const UNIT_GROUPS = [
         id: "epic_hinata",
         name: "히나타",
         skill: false,
+      },
+      {
+        id: "epic_ino",
+        name: "이노",
+        skill: false,
+      },
+      {
+        id: "epic_inoshikacho",
+        name: "이노시카쵸",
+        skill: false,
+      },
+      {
+        id: "epic_itachi",
+        name: "이타치",
+        skill: false,
+      },
+      {
+        id: "epic_jiraiya",
+        name: "지라이야",
+        skill: false,
+      },
+      {
+        id: "epic_kabuto",
+        name: "카부토",
+        skill: true,
+      },
+      {
+        id: "epic_kakashi",
+        name: "카카시",
+        skill: false,
+      },
+      {
+        id: "epic_killerA",
+        name: "킬러에이",
+        skill: false,
+      },
+      {
+        id: "epic_konan",
+        name: "코난",
+        skill: false,
+      },
+      {
+        id: "epic_momoshiki",
+        name: "모모시키",
+        skill: false,
+      },
+      {
+        id: "epic_obito",
+        name: "오비토",
+        skill: false,
+      },
+      {
+        id: "epic_ohnoki",
+        name: "오오노키",
+        skill: false,
+      },
+      {
+        id: "epic_tsunade",
+        name: "츠나데",
+        skill: true,
       },
       {
         id: "epic_minato",
@@ -92,6 +162,26 @@ const UNIT_GROUPS = [
         id: "epic_10mi",
         name: "10미",
         skill: false,
+      },
+    ],
+  },
+  {
+    name: "인피니티",
+    units: [
+      {
+        id: "infinity_itachi",
+        name: "이타치",
+        skill: true,
+      },
+      {
+        id: "infinity_kakashi",
+        name: "카카시",
+        skill: true,
+      },
+      {
+        id: "infinity_obito",
+        name: "오비토",
+        skill: true,
       },
     ],
   },
