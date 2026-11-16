@@ -34,6 +34,41 @@ const UNIT_GROUPS = [
         skill: false,
       },
       {
+        id: "epic_hidan",
+        name: "히단",
+        skill: false,
+      },
+      {
+        id: "epic_hiruzen",
+        name: "히루젠",
+        skill: false,
+      },
+      {
+        id: "epic_pain",
+        name: "페인",
+        skill: false,
+      },
+      {
+        id: "epic_tenten",
+        name: "텐텐",
+        skill: false,
+      },
+      {
+        id: "epic_terumi",
+        name: "테루미메이",
+        skill: false,
+      },
+      {
+        id: "epic_tobirama",
+        name: "토비라마",
+        skill: false,
+      },
+      {
+        id: "epic_toneri",
+        name: "토네리",
+        skill: false,
+      },
+      {
         id: "epic_ino",
         name: "이노",
         skill: false,
@@ -176,6 +211,62 @@ const UNIT_GROUPS = [
       {
         id: "infinity_obito",
         name: "오비토",
+        skill: true,
+      },
+      {
+        id: "infinity_hinata",
+        name: "히나타",
+        skill: true,
+      },
+      {
+        id: "infinity_momoshiki",
+        name: "모모시키",
+        skill: true,
+      },
+      
+      {
+        id: "infinity_tenten",
+        name: "텐텐",
+        skill: false,
+      },
+      {
+        id: "infinity_toneri",
+        name: "토네리",
+        skill: true,
+      },
+    ],
+  },
+  {
+    name: "스페셜",
+    units: [
+      {
+        id: "special_killerA",
+        name: "킬러에이",
+        skill: true,
+      },
+      {
+        id: "special_kinshiki",
+        name: "킨시키",
+        skill: false,
+      },
+      {
+        id: "special_nagato",
+        name: "나가토",
+        skill: true,
+      },
+      {
+        id: "special_terumi",
+        name: "테루미메이",
+        skill: true,
+      },
+    ],
+  },
+  {
+    name: "영멸",
+    units: [
+      {
+        id: "immortal_momoshiki",
+        name: "모모시키",
         skill: true,
       },
     ],
