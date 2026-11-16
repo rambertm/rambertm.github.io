@@ -104,53 +104,8 @@ const UNIT_GROUPS = [
     name: "에픽",
     units: [
       {
-        id: "epic_hinata",
-        name: "히나타",
-        skill: false,
-      },
-      {
-        id: "epic_hidan",
-        name: "히단",
-        skill: false,
-      },
-      {
-        id: "epic_hiruzen",
-        name: "히루젠",
-        skill: false,
-      },
-      {
-        id: "epic_pain",
-        name: "페인",
-        skill: false,
-      },
-      {
-        id: "epic_tenten",
-        name: "텐텐",
-        skill: false,
-      },
-      {
-        id: "epic_terumi",
-        name: "테루미메이",
-        skill: false,
-      },
-      {
-        id: "epic_tobirama",
-        name: "토비라마",
-        skill: false,
-      },
-      {
-        id: "epic_toneri",
-        name: "토네리",
-        skill: false,
-      },
-      {
-        id: "epic_ino",
-        name: "이노",
-        skill: false,
-      },
-      {
-        id: "epic_inoshikacho",
-        name: "이노시카쵸",
+        id: "epic_sasuke",
+        name: "사스케",
         skill: false,
       },
       {
@@ -159,78 +114,13 @@ const UNIT_GROUPS = [
         skill: false,
       },
       {
-        id: "epic_jiraiya",
-        name: "지라이야",
-        skill: false,
-      },
-      {
-        id: "epic_kabuto",
-        name: "카부토",
-        skill: true,
-      },
-      {
-        id: "epic_kakashi",
-        name: "카카시",
-        skill: false,
-      },
-      {
-        id: "epic_killerA",
-        name: "킬러에이",
-        skill: false,
-      },
-      {
-        id: "epic_konan",
-        name: "코난",
-        skill: false,
-      },
-      {
-        id: "epic_momoshiki",
-        name: "모모시키",
-        skill: false,
-      },
-      {
-        id: "epic_obito",
-        name: "오비토",
-        skill: false,
-      },
-      {
-        id: "epic_ohnoki",
-        name: "오오노키",
-        skill: false,
-      },
-      {
-        id: "epic_tsunade",
-        name: "츠나데",
-        skill: true,
-      },
-      {
-        id: "epic_orochimaru",
-        name: "오로치마루",
-        skill: false,
-      },
-      {
-        id: "epic_sai",
-        name: "사이",
-        skill: false,
-      },
-      {
-        id: "epic_sakura",
-        name: "사쿠라",
-        skill: false,
-      },
-      {
-        id: "epic_sasuke",
-        name: "사스케",
-        skill: false,
-      },
-      {
         id: "epic_shisui",
         name: "시스이",
         skill: false,
       },
       {
-        id: "epic_zetsu",
-        name: "제츠",
+        id: "epic_madaraSusanoo",
+        name: "마다라 스사노오",
         skill: false,
       },
       {
@@ -244,8 +134,48 @@ const UNIT_GROUPS = [
         skill: false,
       },
       {
-        id: "epic_guy",
-        name: "마이트가이",
+        id: "epic_hinata",
+        name: "히나타",
+        skill: false,
+      },
+      {
+        id: "epic_jiraiya",
+        name: "지라이야",
+        skill: false,
+      },
+      {
+        id: "epic_ohnoki",
+        name: "오오노키",
+        skill: false,
+      },
+      {
+        id: "epic_10mi",
+        name: "10미",
+        skill: false,
+      },
+      {
+        id: "epic_terumi",
+        name: "테루미메이",
+        skill: false,
+      },
+      {
+        id: "epic_killerA",
+        name: "킬러에이",
+        skill: false,
+      },
+      {
+        id: "epic_pain",
+        name: "페인",
+        skill: false,
+      },
+      {
+        id: "epic_tenten",
+        name: "텐텐",
+        skill: false,
+      },
+      {
+        id: "epic_zetsu",
+        name: "제츠",
         skill: false,
       },
       {
@@ -254,8 +184,68 @@ const UNIT_GROUPS = [
         skill: true,
       },
       {
-        id: "epic_madaraSusanoo",
-        name: "마다라 스사노오",
+        id: "epic_toneri",
+        name: "토네리",
+        skill: false,
+      },
+      {
+        id: "epic_ino",
+        name: "이노",
+        skill: false,
+      },
+      {
+        id: "epic_guy",
+        name: "마이트가이",
+        skill: false,
+      },
+      {
+        id: "epic_obito",
+        name: "오비토",
+        skill: false,
+      },
+      {
+        id: "epic_tobirama",
+        name: "토비라마",
+        skill: false,
+      },
+      {
+        id: "epic_kakashi",
+        name: "카카시",
+        skill: false,
+      },
+      {
+        id: "epic_inoshikacho",
+        name: "이노시카쵸",
+        skill: false,
+      },
+      {
+        id: "epic_konan",
+        name: "코난",
+        skill: false,
+      },
+      {
+        id: "epic_sakura",
+        name: "사쿠라",
+        skill: false,
+      },
+      {
+        id: "epic_tsunade",
+        name: "츠나데",
+        skill: true,
+      },
+      {
+        id: "epic_kabuto",
+        name: "카부토",
+        skill: true,
+      },
+      {
+        id: "epic_orochimaru",
+        name: "오로치마루",
+        skill: false,
+      },
+      {
+        id: "epic_hidan",
+        name: "히단",
         skill: false,
       },
       {
@@ -264,10 +254,20 @@ const UNIT_GROUPS = [
         skill: false,
       },
       {
-        id: "epic_10mi",
-        name: "10미",
+        id: "epic_hiruzen",
+        name: "히루젠",
         skill: false,
       },
+      {
+        id: "epic_sai",
+        name: "사이",
+        skill: false,
+      },
+      {
+        id: "epic_momoshiki",
+        name: "모모시키",
+        skill: false,
+      }, 
     ],
   },
   {
@@ -319,7 +319,7 @@ const UNIT_GROUPS = [
         skill: true,
       },
       {
-        id: "infinity_gui",
+        id: "infinity_guy",
         name: "가이",
         skill: true,
       },
