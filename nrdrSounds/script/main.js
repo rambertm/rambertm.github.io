@@ -414,16 +414,6 @@ const UNIT_GROUPS = [
     name: "영멸",
     units: [
       {
-        id: "immortal_momoshiki",
-        name: "모모시키",
-        skill: true,
-      },
-      {
-        id: "immortal_kaguya",
-        name: "카구야",
-        skill: true,
-      },
-      {
         id: "immortal_kuramaSusanoo",
         name: "위장스사노오",
         skill: false,
@@ -433,6 +423,16 @@ const UNIT_GROUPS = [
         name: "마다라",
         skill: false,
       },
+      {
+        id: "immortal_momoshiki",
+        name: "모모시키",
+        skill: true,
+      },
+      {
+        id: "immortal_kaguya",
+        name: "카구야",
+        skill: true,
+      }, 
     ],
   },
   {
